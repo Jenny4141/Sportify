@@ -1,0 +1,620 @@
+[
+  {
+    "teamId": 1,
+    "dayOfWeek": 3,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 2,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 3,
+    "dayOfWeek": 1,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 4,
+    "dayOfWeek": 7,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 5,
+    "dayOfWeek": 4,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 6,
+    "dayOfWeek": 5,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 7,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 8,
+    "dayOfWeek": 6,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 9,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 10,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 11,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 12,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 13,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 14,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 15,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 16,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 17,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 18,
+    "dayOfWeek": 3,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 19,
+    "dayOfWeek": 7,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 20,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 21,
+    "dayOfWeek": 4,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 22,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 23,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 24,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 25,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 26,
+    "dayOfWeek": 5,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 27,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 28,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 29,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 30,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 31,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 32,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 33,
+    "dayOfWeek": 2,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 34,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 35,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 36,
+    "dayOfWeek": 1,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 37,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 38,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 39,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 40,
+    "dayOfWeek": 2,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 41,
+    "dayOfWeek": 1,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 42,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 43,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 44,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 45,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 46,
+    "dayOfWeek": 7,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 47,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 48,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 49,
+    "dayOfWeek": 4,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 50,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 51,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 52,
+    "dayOfWeek": 5,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 53,
+    "dayOfWeek": 2,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 54,
+    "dayOfWeek": 3,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 55,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 56,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 57,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 58,
+    "dayOfWeek": 1,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 59,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 60,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 61,
+    "dayOfWeek": 7,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 62,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 63,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 64,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 65,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 66,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 67,
+    "dayOfWeek": 2,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 68,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 69,
+    "dayOfWeek": 5,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 70,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 71,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 72,
+    "dayOfWeek": 4,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 73,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 74,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 75,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 76,
+    "dayOfWeek": 4,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 77,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 78,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 79,
+    "dayOfWeek": 4,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 80,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 81,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 82,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 83,
+    "dayOfWeek": 5,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 84,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 85,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 86,
+    "dayOfWeek": 2,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 87,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 88,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 89,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 90,
+    "dayOfWeek": 5,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 91,
+    "dayOfWeek": 4,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 92,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 93,
+    "dayOfWeek": 5,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 94,
+    "dayOfWeek": 3,
+    "startTime": "19:00:00",
+    "endTime": "21:00:00"
+  },
+  {
+    "teamId": 95,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 96,
+    "dayOfWeek": 4,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 97,
+    "dayOfWeek": 2,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 98,
+    "dayOfWeek": 3,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 99,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 100,
+    "dayOfWeek": 6,
+    "startTime": "09:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "teamId": 101,
+    "dayOfWeek": 2,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 102,
+    "dayOfWeek": 3,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "teamId": 103,
+    "dayOfWeek": 5,
+    "startTime": "14:00:00",
+    "endTime": "16:00:00"
+  }
+]

@@ -1,0 +1,222 @@
+// 完整的課程預約系統 Schema - 補充缺漏的表格
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 👥 會員管理
+model Member {
+  id    BigInt @id @default(autoincrement())
+  name  String @db.VarChar(100)
+  email String @unique @db.VarChar(100)
+  phone String @unique @db.VarChar(50)
+
+  // 會員資訊
+  birthDate DateTime? @map("birth_date") @db.Date
+  gender    String?   @db.VarChar(10) // "male", "female", "other"
+
+  // 關聯
+  bookings     Booking[]
+  coachProfile Coach?        // 如果會員也是教練
+  reservations Reservation[] // 如果有場地預約功能
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("member")
+}
+
+// 🎾 運動項目表（你的 Coach 和 Lesson 都參照了這個表）
+model Sport {
+  id          Int     @id @default(autoincrement())
+  name        String  @db.VarChar(50)           // "網球", "羽毛球", "籃球"
+  description String? @db.Text
+  
+  // 關聯
+  coaches Coach[]
+  lessons Lesson[]
+  
+  @@map("sport")
+}
+
+// 👨‍🏫 教練管理
+model Coach {
+  id       Int    @id @default(autoincrement())
+  member   Member @relation(fields: [memberId], references: [id])
+  memberId BigInt @map("member_id")
+  sport    Sport  @relation(fields: [sportId], references: [id])
+  sportId  Int    @map("sport_id") // 修正：原本是 sport__id
+  bio      String? @db.VarChar(200)
+
+  lessons Lesson[]
+
+  @@map("coach")
+}
+
+// 🕐 時間分類表
+model TimePeriod {
+  id        Int        @id @default(autoincrement())
+  name      String     @db.VarChar(50)           // "早上時段", "下午時段", "晚上時段"
+  startTime String     @map("start_time") @db.Time // "06:00:00"
+  endTime   String     @map("end_time") @db.Time   // "12:00:00"
+  
+  timeSlots TimeSlot[]
+  
+  @@map("time_period")
+}
+
+// 🕑 時間段管理
+model TimeSlot {
+  id           Int        @id @default(autoincrement())
+  startTime    DateTime   @map("start_time") @db.Time
+  endTime      DateTime   @map("end_time") @db.Time
+  timePeriod   TimePeriod @relation(fields: [timePeriodId], references: [id])
+  timePeriodId Int        @map("time_period_id")
+
+  // 關聯
+  courtTimeSlots CourtTimeSlot[]
+  lessons        Lesson[]
+  reservations   Reservation[]
+
+  @@map("time_slot")
+}
+
+// 🏟️ 場地管理
+model Court {
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(50)                 // "網球場A", "羽毛球場1"
+  description String? @db.Text
+  capacity    Int?                                    // 場地容量
+  
+  // 關聯
+  courtTimeSlots CourtTimeSlot[]
+  lessons        Lesson[]
+  reservations   Reservation[]
+  
+  @@map("court")
+}
+
+// 🔗 場地時間段關聯（場地在哪些時間段開放）
+model CourtTimeSlot {
+  id         Int      @id @default(autoincrement())
+  court      Court    @relation(fields: [courtId], references: [id])
+  courtId    Int      @map("court_id")
+  timeSlot   TimeSlot @relation(fields: [timeSlotId], references: [id])
+  timeSlotId Int      @map("time_slot_id")
+  
+  // 可選：該場地在該時段的特殊設定
+  isActive   Boolean  @default(true) @map("is_active")    // 是否開放
+  price      Int?                                          // 該時段的特殊價格
+  
+  @@unique([courtId, timeSlotId])  // 防止重複設定
+  @@map("court_time_slot")
+}
+
+// 📚 課程系列
+model Lesson {
+  id Int @id @default(autoincrement())
+
+  // 基本資訊
+  title       String  @db.VarChar(100) // "7月網球初級班"
+  description String? @db.Text
+
+  // 關聯資源
+  sport      Sport    @relation(fields: [sportId], references: [id])
+  sportId    Int      @map("sport_id") // 修正：原本是 sport__id
+  court      Court    @relation(fields: [courtId], references: [id])
+  courtId    Int      @map("court_id")
+  coach      Coach    @relation(fields: [coachId], references: [id])
+  coachId    Int      @map("coach_id")
+  timeSlot   TimeSlot @relation(fields: [timeSlotId], references: [id])
+  timeSlotId Int      @map("time_slot_id")
+
+  // 排程設定
+  dayOfWeek Int      @map("day_of_week") // 1=星期一, 7=星期日
+  startDate DateTime @map("start_date") @db.Date // 課程系列開始日期
+  endDate   DateTime @map("end_date") @db.Date // 課程系列結束日期
+
+  // 課程設定
+  price        Int // 整個系列價格
+  maxCapacity  Int @map("max_capacity") // 最大人數
+  currentCount Int @default(0) @map("current_count") // 目前報名人數
+  
+  // 狀態管理
+  status       String @default("active") @db.VarChar(20) // active, cancelled, completed
+
+  // 報名記錄
+  bookings Booking[]
+  
+  // 時間戳記
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("lesson")
+}
+
+// 📝 報名記錄
+model Booking {
+  id Int @id @default(autoincrement())
+
+  // 關聯
+  member   Member @relation(fields: [memberId], references: [id])
+  memberId BigInt @map("member_id")
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
+  lessonId Int    @map("lesson_id")
+
+  // 報名資訊
+  status String @default("confirmed") @db.VarChar(20) // confirmed, cancelled, completed
+  price  Int // 實際支付金額
+  notes  String? @db.Text // 備註
+
+  // 時間戳記
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // 防止重複報名
+  @@unique([memberId, lessonId])
+  @@map("booking")
+}
+
+// 🔄 預約狀態管理（如果需要場地預約功能）
+model ReservationStatus {
+  id           Int           @id @default(autoincrement())
+  name         String        @db.VarChar(20)           // "confirmed", "pending", "cancelled"
+  description  String?       @db.VarChar(100)          // 狀態說明
+  reservations Reservation[]
+  
+  @@map("reservation_status")
+}
+
+// 📅 場地預約（可選功能）
+model Reservation {
+  id                  Int               @id @default(autoincrement())
+  
+  // 關聯
+  member              Member            @relation(fields: [memberId], references: [id])
+  memberId            BigInt            @map("member_id")
+  court               Court             @relation(fields: [courtId], references: [id])
+  courtId             Int               @map("court_id")
+  timeSlot            TimeSlot          @relation(fields: [timeSlotId], references: [id])
+  timeSlotId          Int               @map("time_slot_id")
+  reservationStatus   ReservationStatus @relation(fields: [reservationStatusId], references: [id])
+  reservationStatusId Int               @map("reservation_status_id")
+  
+  // 預約資訊
+  date                DateTime          @db.Date                        // 預約日期
+  price               Int                                               // 預約費用
+  purpose             String?           @db.VarChar(100)               // 預約目的
+  notes               String?           @db.Text                       // 備註
+  
+  // 時間戳記
+  createdAt           DateTime          @default(now()) @map("created_at")
+  updatedAt           DateTime          @updatedAt @map("updated_at")
+  
+  // 防止同一時段重複預約
+  @@unique([courtId, timeSlotId, date])
+  @@map("reservation")
+}

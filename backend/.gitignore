@@ -1,0 +1,15 @@
+
+.idea
+.env
+
+
+package-lock.json
+node_modules/
+
+/generated/prisma
+.specstory/
+
+.test/
+
+# secrets folder for local service account json
+secrets/

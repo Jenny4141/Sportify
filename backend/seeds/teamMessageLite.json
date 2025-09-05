@@ -1,0 +1,104 @@
+[
+  {
+    "teamId": 101,
+    "memberId": 1,
+    "orderIndex": 1,
+    "content": "嗨大家，這週練習時間照舊嗎？"
+  },
+  {
+    "teamId": 101,
+    "memberId": 18,
+    "orderIndex": 2,
+    "content": "我這週可以！"
+  },
+  {
+    "teamId": 101,
+    "memberId": 85,
+    "orderIndex": 3,
+    "content": "收到，我會準時到。"
+  },
+  {
+    "teamId": 101,
+    "memberId": 1,
+    "orderIndex": 4,
+    "content": "太好了，那我們週五晚上球場見！"
+  },
+  {
+    "teamId": 99,
+    "memberId": 102,
+    "orderIndex": 1,
+    "content": "隊長來提醒一下，下個月的聯盟賽要開始報名了，大家記得先繳隊費喔！"
+  },
+  {
+    "teamId": 99,
+    "memberId": 28,
+    "orderIndex": 2,
+    "content": "已繳！這次一定要拿冠軍！"
+  },
+  {
+    "teamId": 99,
+    "memberId": 2,
+    "orderIndex": 3,
+    "content": "加油加油！最近手感正好！"
+  },
+  {
+    "teamId": 99,
+    "memberId": 13,
+    "orderIndex": 4,
+    "content": "我下週出差，比賽前會回來，練習會先請假一次。"
+  },
+  {
+    "teamId": 99,
+    "memberId": 102,
+    "orderIndex": 5,
+    "content": "OK，沒問題，注意安全！"
+  },
+  {
+    "teamId": 89,
+    "memberId": 32,
+    "orderIndex": 1,
+    "content": "上次對到亞軍隊伍那場，我們打得真不錯，雖敗猶榮！"
+  },
+  {
+    "teamId": 89,
+    "memberId": 102,
+    "orderIndex": 2,
+    "content": "同意，大家的防守進步很多，下次討回來！"
+  },
+  {
+    "teamId": 89,
+    "memberId": 2,
+    "orderIndex": 3,
+    "content": "我剪了上次比賽的精彩好球影片，晚點傳群組。"
+  },
+  {
+    "teamId": 89,
+    "memberId": 77,
+    "orderIndex": 4,
+    "content": "太帥了吧！期待！"
+  },
+  {
+    "teamId": 20,
+    "memberId": 33,
+    "orderIndex": 1,
+    "content": "有人想報名週末的生死賽嗎？"
+  },
+  {
+    "teamId": 20,
+    "memberId": 102,
+    "orderIndex": 2,
+    "content": "哦？在哪裡辦？我有興趣。"
+  },
+  {
+    "teamId": 20,
+    "memberId": 48,
+    "orderIndex": 3,
+    "content": "+1，感覺很好玩。"
+  },
+  {
+    "teamId": 20,
+    "memberId": 33,
+    "orderIndex": 4,
+    "content": "在青年公園，我把報名連結貼上來。"
+  }
+]

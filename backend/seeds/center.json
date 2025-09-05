@@ -1,0 +1,387 @@
+[
+  {
+    "name": "北投運動中心",
+    "locationId": 1,
+    "address": "台北市北投區石牌路一段39巷100號",
+    "latitude": 25.116694826318245,
+    "longitude": 121.5099281673907
+  },
+  {
+    "name": "士林運動中心",
+    "locationId": 1,
+    "address": "台北市士林區士商路一號",
+    "latitude": 25.08958773617637,
+    "longitude": 121.52160521870148
+  },
+  {
+    "name": "內湖運動中心",
+    "locationId": 1,
+    "address": "台北市內湖區洲子街12號",
+    "latitude": 25.078263546167022,
+    "longitude": 121.57484000411698
+  },
+  {
+    "name": "南港運動中心",
+    "locationId": 1,
+    "address": "台北市南港區玉成街69號",
+    "latitude": 25.048987651654038,
+    "longitude": 121.58184281709369
+  },
+  {
+    "name": "松山運動中心",
+    "locationId": 1,
+    "address": "台北市松山區敦化北路1號",
+    "latitude": 25.048739551732364,
+    "longitude": 121.55042761828278
+  },
+  {
+    "name": "信義運動中心",
+    "locationId": 1,
+    "address": "台北市信義區松勤街100號",
+    "latitude": 25.031863714286143,
+    "longitude": 121.56680018981478
+  },
+  {
+    "name": "大同運動中心",
+    "locationId": 1,
+    "address": "台北市大同區大龍街51號",
+    "latitude": 25.06548757855993,
+    "longitude": 121.51611347104198
+  },
+  {
+    "name": "中山運動中心",
+    "locationId": 1,
+    "address": "台北市中山區中山北路二段44巷2號",
+    "latitude": 25.055047359881506,
+    "longitude": 121.52139854844056
+  },
+  {
+    "name": "萬華運動中心",
+    "locationId": 1,
+    "address": "臺北市萬華區西寧南路6-1號",
+    "latitude": 25.047692874372764,
+    "longitude": 121.50686558034401
+  },
+  {
+    "name": "中正運動中心",
+    "locationId": 1,
+    "address": "臺北市中正區信義路一段1號",
+    "latitude": 25.03876066925516,
+    "longitude": 121.5194010781687
+  },
+  {
+    "name": "大安運動中心",
+    "locationId": 1,
+    "address": "臺北市大安區辛亥路三段55號",
+    "latitude": 25.020962558961156,
+    "longitude": 121.54590720891811
+  },
+  {
+    "name": "文山運動中心",
+    "locationId": 1,
+    "address": "臺北市文山區興隆路三段222號",
+    "latitude": 24.99715048845939,
+    "longitude": 121.55954073362071
+  },
+  {
+    "name": "新莊國民運動中心",
+    "locationId": 2,
+    "address": "新北市新莊區公園路11號",
+    "latitude": 25.03982403164757,
+    "longitude": 121.44775767701687
+  },
+  {
+    "name": "蘆洲國民運動中心",
+    "locationId": 2,
+    "address": "新北市蘆洲區長樂路235-1號",
+    "latitude": 25.091334918151542,
+    "longitude": 121.46197597303566
+  },
+  {
+    "name": "淡水國民運動中心",
+    "locationId": 2,
+    "address": "新北市淡水區中山北路二段381巷2號",
+    "latitude": 25.187658100449983,
+    "longitude": 121.44307490650091
+  },
+  {
+    "name": "三重國民運動中心",
+    "locationId": 2,
+    "address": "新北市三重區集美街55號",
+    "latitude": 25.054963840884643,
+    "longitude": 121.48806901932834
+  },
+  {
+    "name": "土城國民運動中心",
+    "locationId": 2,
+    "address": "新北市土城區金城路二段247-1號",
+    "latitude": 24.985774120462537,
+    "longitude": 121.45754379933014
+  },
+  {
+    "name": "中和國民運動中心",
+    "locationId": 2,
+    "address": "新北市中和區錦和路350-1、2號",
+    "latitude": 24.99309419412259,
+    "longitude": 121.48720410818493
+  },
+  {
+    "name": "板橋國民運動中心",
+    "locationId": 2,
+    "address": "新北市板橋區智樂路6號",
+    "latitude": 25.022893392494176,
+    "longitude": 121.45772780375698
+  },
+  {
+    "name": "泰山國民運動中心",
+    "locationId": 2,
+    "address": "新北市泰山區全興路167號",
+    "latitude": 25.056178757802268,
+    "longitude": 121.43465597732211
+  },
+  {
+    "name": "永和國民運動中心",
+    "locationId": 2,
+    "address": "新北市永和區永利路250號",
+    "latitude": 25.00335544556266,
+    "longitude": 121.52427170620064
+  },
+  {
+    "name": "汐止國民運動中心",
+    "locationId": 2,
+    "address": "新北市汐止區汐科路321號",
+    "latitude": 25.06544910546602,
+    "longitude": 121.6571657329983
+  },
+  {
+    "name": "樹林國民運動中心",
+    "locationId": 2,
+    "address": "新北市樹林區中正路188-6號",
+    "latitude": 25.004395044207303,
+    "longitude": 121.42340464842214
+  },
+  {
+    "name": "鶯歌國民運動中心",
+    "locationId": 2,
+    "address": "新北市鶯歌區館前路250號",
+    "latitude": 24.951395556470047,
+    "longitude": 121.35781656187282
+  },
+  {
+    "name": "三峽國民運動中心",
+    "locationId": 2,
+    "address": "新北市三峽區文化路210巷12號",
+    "latitude": 24.937255071336082,
+    "longitude": 121.36857651665674
+  },
+  {
+    "name": "林口國民運動中心",
+    "locationId": 2,
+    "address": "新北市林口區文化二路2段299號",
+    "latitude": 25.086158657205548,
+    "longitude": 121.3805720309863
+  },
+  {
+    "name": "五股國民運動中心",
+    "locationId": 2,
+    "address": "新北市五股區成泰路三段296號",
+    "latitude": 25.09521102764036,
+    "longitude": 121.44852236316785
+  },
+  {
+    "name": "新店國民運動中心",
+    "locationId": 2,
+    "address": "新北市新店區北新路一段88巷12號",
+    "latitude": 24.967313521899317,
+    "longitude": 121.54253657583443
+  },
+  {
+    "name": "桃園國民運動中心",
+    "locationId": 3,
+    "address": "桃園市桃園區中山東路233號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "南平國民運動中心",
+    "locationId": 3,
+    "address": "桃園市桃園區南平路22號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "中壢國民運動中心",
+    "locationId": 3,
+    "address": "桃園市中壢區三光路350號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "平鎮國民運動中心",
+    "locationId": 3,
+    "address": "桃園市平鎮區中庸路18號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "蘆竹國民運動中心",
+    "locationId": 3,
+    "address": "桃園市蘆竹區仁愛路一段49號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "八德國民運動中心",
+    "locationId": 3,
+    "address": "桃園市八德區廣福路230號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "中大國民運動中心",
+    "locationId": 3,
+    "address": "桃園市中壢區中大路300號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "朝馬國民運動中心",
+    "locationId": 4,
+    "address": "台中市西屯區朝貴路199號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "北區國民運動中心",
+    "locationId": 4,
+    "address": "台中市北區崇德路一段55號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "南屯國民運動中心",
+    "locationId": 4,
+    "address": "台中市南屯區黎明路一段998號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "長春國民運動中心",
+    "locationId": 4,
+    "address": "(A棟）台中市南區合作街46號 (B棟）台中市南區正義街99號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "大里國民運動中心",
+    "locationId": 4,
+    "address": "台中市大里區國光路一段258號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "潭子國民運動中心",
+    "locationId": 4,
+    "address": "台中市潭子區勝利路140號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "清水國民運動中心",
+    "locationId": 4,
+    "address": "台中市清水區體2用地",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "豐原國民運動中心",
+    "locationId": 4,
+    "address": "台中市豐原區豐原大道一段",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "北屯國民運動中心",
+    "locationId": 4,
+    "address": "台中市北屯區文教7用地(北屯區公所對面)",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "太平國民運動中心",
+    "locationId": 4,
+    "address": "台中市太平區坪林森林公園",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "烏日全民運動館",
+    "locationId": 4,
+    "address": "台中市烏日區健行路及三榮九路交叉口",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "鳳山國民運動中心",
+    "locationId": 5,
+    "address": "高雄市鳳山區光華路68號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市苓雅運動中心",
+    "locationId": 5,
+    "address": "高雄市苓雅區中正一路96號",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市大寮運動中心",
+    "locationId": 5,
+    "address": "高雄市大寮區進學路151號（輔英科技大學體育館）",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市左營運動中心",
+    "locationId": 5,
+    "address": "高雄市左營區世運大道100號（高雄世運主場館內）",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市美濃運動中心",
+    "locationId": 5,
+    "address": "高雄市美濃區中正路一段191號（美濃國中體育館）",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市前鎮運動中心",
+    "locationId": 5,
+    "address": "高雄市前鎮區班超路63號（瑞祥高中活動中心）",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市鹽埕運動中心",
+    "locationId": 5,
+    "address": "高雄市鹽埕區新樂街46號（鹽埕國中體育館）",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市前金運動中心",
+    "locationId": 5,
+    "address": "高雄市前金區大同二路61號（前金國小活動中心）",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "name": "高雄市岡山運動中心",
+    "locationId": 5,
+    "address": "高雄市岡山區中山南路169號",
+    "latitude": null,
+    "longitude": null
+  }
+]

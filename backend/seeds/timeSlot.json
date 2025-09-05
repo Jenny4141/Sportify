@@ -1,0 +1,74 @@
+[
+  {
+    "startTime": "08:00",
+    "endTime": "09:00",
+    "label": "08:00-09:00",
+    "timePeriodId": 1
+  },
+  {
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "label": "09:00-10:00",
+    "timePeriodId": 1
+  },
+  {
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "label": "10:00-11:00",
+    "timePeriodId": 1
+  },
+  {
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "label": "11:00-12:00",
+    "timePeriodId": 1
+  },
+  {
+    "startTime": "12:00",
+    "endTime": "13:00",
+    "label": "12:00-13:00",
+    "timePeriodId": 2
+  },
+  {
+    "startTime": "13:00",
+    "endTime": "14:00",
+    "label": "13:00-14:00",
+    "timePeriodId": 2
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "15:00",
+    "label": "14:00-15:00",
+    "timePeriodId": 2
+  },
+  {
+    "startTime": "15:00",
+    "endTime": "16:00",
+    "label": "15:00-16:00",
+    "timePeriodId": 2
+  },
+  {
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "label": "16:00-17:00",
+    "timePeriodId": 2
+  },
+  {
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "label": "17:00-18:00",
+    "timePeriodId": 2
+  },
+  {
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "label": "18:00-19:00",
+    "timePeriodId": 3
+  },
+  {
+    "startTime": "19:00",
+    "endTime": "20:00",
+    "label": "19:00-20:00",
+    "timePeriodId": 3
+  }
+]

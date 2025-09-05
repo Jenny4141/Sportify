@@ -1,0 +1,170 @@
+[
+  {
+    "category": "Audio",
+    "description": "Experience crystal-clear sound with our premium wireless headphones. Featuring active noise cancellation, 30-hour battery life, and comfortable over-ear design for all-day listening comfort.",
+    "features": [
+      "Active noise cancellation",
+      "30-hour battery life",
+      "Bluetooth 5.2 connectivity",
+      "Comfortable memory foam ear cushions",
+      "Quick charge - 5 minutes for 4 hours of playback",
+      "Built-in microphone for calls"
+    ],
+    "id": "1",
+    "image": "https://images.unsplash.com/photo-1600621894267-8b39c5144709?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "inStock": true,
+    "name": "Premium Wireless Headphones",
+    "originalPrice": 249.99,
+    "price": 199.99,
+    "rating": 4.5,
+    "specs": {
+      "星期一": "08:00-20:00",
+      "星期二": "08:00-19:00",
+      "星期三": "09:00-21:00",
+      "星期四": "08:30-20:30",
+      "星期五": "08:00-20:00",
+      "星期六": "10:00-22:00",
+      "星期日": "10:00-18:00"
+    }
+  },
+  {
+    "category": "Wearables",
+    "description": "Stay connected and track your fitness goals with our advanced smartwatch. Features health monitoring, GPS tracking, and a beautiful always-on display.",
+    "features": [
+      "Health monitoring (heart rate, ECG, sleep)",
+      "Water resistant up to 50m",
+      "GPS tracking",
+      "7-day battery life",
+      "Always-on retina display",
+      "Customizable watch faces"
+    ],
+    "id": "2",
+    "image": "https://images.unsplash.com/photo-1563178700-768e43ed2a70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHNwb3J0JTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D",
+    "inStock": true,
+    "name": "Smart Watch Series 5",
+    "originalPrice": 349.99,
+    "price": 299.99,
+    "rating": 4.2,
+    "specs": {
+      "星期一": "08:00-20:00",
+      "星期二": "08:00-19:30",
+      "星期三": "09:00-21:00",
+      "星期四": "08:30-20:30",
+      "星期五": "08:00-20:00",
+      "星期六": "10:00-22:00",
+      "星期日": "10:00-18:00"
+    }
+  },
+  {
+    "category": "Photography",
+    "description": "Capture stunning photos and videos with our professional camera kit. Includes a high-resolution sensor, 4K video recording, and a versatile lens kit for any shooting situation.",
+    "features": [
+      "24.2MP full-frame sensor",
+      "4K video recording at 60fps",
+      "5-axis image stabilization",
+      "Weather-sealed body",
+      "Dual SD card slots",
+      "Includes 24-70mm f/2.8 lens"
+    ],
+    "id": "3",
+    "image": "https://images.unsplash.com/photo-1676962687637-49e3c1ac4d63?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "inStock": true,
+    "name": "Professional Camera Kit",
+    "originalPrice": 1499.99,
+    "price": 1299.99,
+    "rating": 4.8,
+    "specs": {
+      "星期一": "08:00-20:00",
+      "星期二": "08:00-19:00",
+      "星期三": "09:00-21:00",
+      "星期四": "08:30-20:30",
+      "星期五": "08:00-20:00",
+      "星期六": "10:00-22:00",
+      "星期日": "10:00-18:00"
+    }
+  },
+  {
+    "category": "Furniture",
+    "description": "Work in comfort with our ergonomic office chair designed for all-day support. Features adjustable height, lumbar support, and breathable mesh back.",
+    "features": [
+      "Adjustable height and armrests",
+      "Breathable mesh back",
+      "Lumbar support",
+      "360° swivel",
+      "Heavy-duty base with smooth-rolling casters",
+      "Weight capacity: 300 lbs"
+    ],
+    "id": "4",
+    "image": "https://images.unsplash.com/photo-1584314869338-ef23e1973747?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "inStock": true,
+    "name": "Ergonomic Office Chair",
+    "originalPrice": 299.99,
+    "price": 249.99,
+    "rating": 4.6,
+    "specs": {
+      "星期一": "08:00-20:00",
+      "星期二": "08:00-19:30",
+      "星期三": "09:00-21:00",
+      "星期四": "08:30-20:30",
+      "星期五": "08:00-20:00",
+      "星期六": "10:00-22:00",
+      "星期日": "10:00-18:00"
+    }
+  },
+  {
+    "category": "Electronics",
+    "description": "The ultimate smartphone experience with a stunning display, powerful camera system, and all-day battery life.",
+    "features": [
+      "6.7\" Super Retina XDR display",
+      "Triple camera system (12MP wide, ultra-wide, telephoto)",
+      "Face ID for secure authentication",
+      "A16 Bionic chip",
+      "Up to 1TB storage",
+      "All-day battery life"
+    ],
+    "id": "5",
+    "image": "https://images.unsplash.com/photo-1651783021581-669259a2849c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "inStock": true,
+    "name": "Smartphone Pro Max",
+    "originalPrice": 1099.99,
+    "price": 999.99,
+    "rating": 4.9,
+    "specs": {
+      "星期一": "08:00-20:00",
+      "星期二": "08:00-19:00",
+      "星期三": "09:00-21:00",
+      "星期四": "08:30-20:30",
+      "星期五": "08:00-20:00",
+      "星期六": "10:00-22:00",
+      "星期日": "10:00-18:00"
+    }
+  },
+  {
+    "category": "Electronics",
+    "description": "Transform your home entertainment with our Ultra HD Smart TV featuring vibrant colors, immersive sound, and smart connectivity.",
+    "features": [
+      "55\" 4K Ultra HD display",
+      "Dolby Vision HDR",
+      "Dolby Atmos sound",
+      "Built-in voice assistant",
+      "Smart home integration",
+      "Multiple HDMI and USB ports"
+    ],
+    "id": "6",
+    "image": "https://images.unsplash.com/photo-1724500760032-b2eb510e59c4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "inStock": true,
+    "name": "Ultra HD Smart TV 55\"",
+    "originalPrice": 899.99,
+    "price": 799.99,
+    "rating": 4.7,
+    "specs": {
+      "星期一": "08:00-20:00",
+      "星期二": "08:00-19:30",
+      "星期三": "09:00-21:00",
+      "星期四": "08:30-20:30",
+      "星期五": "08:00-20:00",
+      "星期六": "10:00-22:00",
+      "星期日": "10:00-18:00"
+    }
+  }
+]

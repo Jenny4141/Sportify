@@ -1,0 +1,62 @@
+[
+  {
+    "memberId": 1,
+    "sportId": 1,
+    "bio": "專精於重量訓練，擁有超過10年經驗。",
+    "avatar": "/coach/coach1.jpg"
+  },
+  {
+    "memberId": 2,
+    "sportId": 1,
+    "bio": "瑜伽教學專家，注重身心平衡與呼吸調節。",
+    "avatar": "/coach/coach2.jpg"
+  },
+  {
+    "memberId": 3,
+    "sportId": 3,
+    "bio": "專業CrossFit教練，強調功能性訓練。",
+    "avatar": "/coach/coach3.jpg"
+  },
+  {
+    "memberId": 4,
+    "sportId": 2,
+    "bio": "Pilates訓練師，擅長核心與姿勢矯正。",
+    "avatar": "/coach/coach4.jpg"
+  },
+  {
+    "memberId": 5,
+    "sportId": 8,
+    "bio": "健美比賽選手背景，專長於肌肉雕塑。",
+    "avatar": null
+  },
+  {
+    "memberId": 6,
+    "sportId": 5,
+    "bio": "熱愛心肺訓練，協助學員提升耐力。",
+    "avatar": null
+  },
+  {
+    "memberId": 7,
+    "sportId": 5,
+    "bio": "專注於功能性與運動表現訓練。",
+    "avatar": null
+  },
+  {
+    "memberId": 8,
+    "sportId": 6,
+    "bio": "結合舞蹈與健身，讓運動更有趣。",
+    "avatar": null
+  },
+  {
+    "memberId": 9,
+    "sportId": 4,
+    "bio": "武術背景，注重身體協調與反應力。",
+    "avatar": null
+  },
+  {
+    "memberId": 10,
+    "sportId": 1,
+    "bio": "專長於運動傷害復健與功能性訓練。",
+    "avatar": null
+  }
+]

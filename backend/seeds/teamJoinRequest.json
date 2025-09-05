@@ -1,0 +1,82 @@
+[
+  {
+    "teamId": 99,
+    "memberId": 15
+  },
+  {
+    "teamId": 89,
+    "memberId": 5
+  },
+  {
+    "teamId": 20,
+    "memberId": 7
+  },
+  {
+    "teamId": 5,
+    "memberId": 1
+  },
+  {
+    "teamId": 12,
+    "memberId": 18
+  },
+  {
+    "teamId": 45,
+    "memberId": 9
+  },
+  {
+    "teamId": 73,
+    "memberId": 14
+  },
+  {
+    "teamId": 88,
+    "memberId": 25
+  },
+  {
+    "teamId": 31,
+    "memberId": 28
+  },
+  {
+    "teamId": 101,
+    "memberId": 30
+  },
+  {
+    "teamId": 64,
+    "memberId": 41
+  },
+  {
+    "teamId": 18,
+    "memberId": 50
+  },
+  {
+    "teamId": 92,
+    "memberId": 51
+  },
+  {
+    "teamId": 3,
+    "memberId": 56
+  },
+  {
+    "teamId": 77,
+    "memberId": 57
+  },
+  {
+    "teamId": 15,
+    "memberId": 71
+  },
+  {
+    "teamId": 50,
+    "memberId": 74
+  },
+  {
+    "teamId": 22,
+    "memberId": 76
+  },
+  {
+    "teamId": 99,
+    "memberId": 84
+  },
+  {
+    "teamId": 89,
+    "memberId": 87
+  }
+]

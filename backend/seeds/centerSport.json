@@ -1,0 +1,510 @@
+[
+  {
+    "centerId": 1,
+    "sportId": 2
+  },
+  {
+    "centerId": 1,
+    "sportId": 3
+  },
+  {
+    "centerId": 1,
+    "sportId": 5
+  },
+  {
+    "centerId": 1,
+    "sportId": 6
+  },
+  {
+    "centerId": 1,
+    "sportId": 7
+  },
+  {
+    "centerId": 1,
+    "sportId": 8
+  },
+  {
+    "centerId": 2,
+    "sportId": 1
+  },
+  {
+    "centerId": 2,
+    "sportId": 5
+  },
+  {
+    "centerId": 2,
+    "sportId": 7
+  },
+  {
+    "centerId": 2,
+    "sportId": 8
+  },
+  {
+    "centerId": 3,
+    "sportId": 1
+  },
+  {
+    "centerId": 3,
+    "sportId": 2
+  },
+  {
+    "centerId": 3,
+    "sportId": 4
+  },
+  {
+    "centerId": 3,
+    "sportId": 7
+  },
+  {
+    "centerId": 3,
+    "sportId": 8
+  },
+  {
+    "centerId": 3,
+    "sportId": 9
+  },
+  {
+    "centerId": 4,
+    "sportId": 1
+  },
+  {
+    "centerId": 4,
+    "sportId": 2
+  },
+  {
+    "centerId": 4,
+    "sportId": 3
+  },
+  {
+    "centerId": 4,
+    "sportId": 4
+  },
+  {
+    "centerId": 4,
+    "sportId": 8
+  },
+  {
+    "centerId": 5,
+    "sportId": 2
+  },
+  {
+    "centerId": 5,
+    "sportId": 5
+  },
+  {
+    "centerId": 5,
+    "sportId": 6
+  },
+  {
+    "centerId": 5,
+    "sportId": 7
+  },
+  {
+    "centerId": 5,
+    "sportId": 9
+  },
+  {
+    "centerId": 6,
+    "sportId": 1
+  },
+  {
+    "centerId": 6,
+    "sportId": 4
+  },
+  {
+    "centerId": 6,
+    "sportId": 5
+  },
+  {
+    "centerId": 6,
+    "sportId": 6
+  },
+  {
+    "centerId": 6,
+    "sportId": 7
+  },
+  {
+    "centerId": 6,
+    "sportId": 9
+  },
+  {
+    "centerId": 7,
+    "sportId": 2
+  },
+  {
+    "centerId": 7,
+    "sportId": 3
+  },
+  {
+    "centerId": 7,
+    "sportId": 9
+  },
+  {
+    "centerId": 8,
+    "sportId": 2
+  },
+  {
+    "centerId": 8,
+    "sportId": 3
+  },
+  {
+    "centerId": 8,
+    "sportId": 5
+  },
+  {
+    "centerId": 8,
+    "sportId": 7
+  },
+  {
+    "centerId": 9,
+    "sportId": 2
+  },
+  {
+    "centerId": 9,
+    "sportId": 3
+  },
+  {
+    "centerId": 9,
+    "sportId": 5
+  },
+  {
+    "centerId": 9,
+    "sportId": 7
+  },
+  {
+    "centerId": 9,
+    "sportId": 9
+  },
+  {
+    "centerId": 10,
+    "sportId": 7
+  },
+  {
+    "centerId": 10,
+    "sportId": 8
+  },
+  {
+    "centerId": 10,
+    "sportId": 9
+  },
+  {
+    "centerId": 11,
+    "sportId": 1
+  },
+  {
+    "centerId": 11,
+    "sportId": 2
+  },
+  {
+    "centerId": 11,
+    "sportId": 3
+  },
+  {
+    "centerId": 11,
+    "sportId": 4
+  },
+  {
+    "centerId": 11,
+    "sportId": 7
+  },
+  {
+    "centerId": 12,
+    "sportId": 2
+  },
+  {
+    "centerId": 12,
+    "sportId": 4
+  },
+  {
+    "centerId": 12,
+    "sportId": 6
+  },
+  {
+    "centerId": 12,
+    "sportId": 9
+  },
+  {
+    "centerId": 13,
+    "sportId": 1
+  },
+  {
+    "centerId": 13,
+    "sportId": 3
+  },
+  {
+    "centerId": 13,
+    "sportId": 4
+  },
+  {
+    "centerId": 14,
+    "sportId": 1
+  },
+  {
+    "centerId": 14,
+    "sportId": 2
+  },
+  {
+    "centerId": 14,
+    "sportId": 5
+  },
+  {
+    "centerId": 14,
+    "sportId": 8
+  },
+  {
+    "centerId": 15,
+    "sportId": 2
+  },
+  {
+    "centerId": 15,
+    "sportId": 3
+  },
+  {
+    "centerId": 15,
+    "sportId": 4
+  },
+  {
+    "centerId": 15,
+    "sportId": 7
+  },
+  {
+    "centerId": 15,
+    "sportId": 8
+  },
+  {
+    "centerId": 16,
+    "sportId": 3
+  },
+  {
+    "centerId": 16,
+    "sportId": 4
+  },
+  {
+    "centerId": 16,
+    "sportId": 6
+  },
+  {
+    "centerId": 16,
+    "sportId": 7
+  },
+  {
+    "centerId": 16,
+    "sportId": 9
+  },
+  {
+    "centerId": 17,
+    "sportId": 1
+  },
+  {
+    "centerId": 17,
+    "sportId": 3
+  },
+  {
+    "centerId": 17,
+    "sportId": 6
+  },
+  {
+    "centerId": 17,
+    "sportId": 8
+  },
+  {
+    "centerId": 17,
+    "sportId": 9
+  },
+  {
+    "centerId": 18,
+    "sportId": 4
+  },
+  {
+    "centerId": 18,
+    "sportId": 6
+  },
+  {
+    "centerId": 18,
+    "sportId": 9
+  },
+  {
+    "centerId": 19,
+    "sportId": 2
+  },
+  {
+    "centerId": 19,
+    "sportId": 3
+  },
+  {
+    "centerId": 19,
+    "sportId": 9
+  },
+  {
+    "centerId": 20,
+    "sportId": 4
+  },
+  {
+    "centerId": 20,
+    "sportId": 5
+  },
+  {
+    "centerId": 20,
+    "sportId": 6
+  },
+  {
+    "centerId": 20,
+    "sportId": 7
+  },
+  {
+    "centerId": 20,
+    "sportId": 9
+  },
+  {
+    "centerId": 21,
+    "sportId": 1
+  },
+  {
+    "centerId": 21,
+    "sportId": 2
+  },
+  {
+    "centerId": 21,
+    "sportId": 6
+  },
+  {
+    "centerId": 21,
+    "sportId": 7
+  },
+  {
+    "centerId": 22,
+    "sportId": 4
+  },
+  {
+    "centerId": 22,
+    "sportId": 5
+  },
+  {
+    "centerId": 22,
+    "sportId": 7
+  },
+  {
+    "centerId": 22,
+    "sportId": 8
+  },
+  {
+    "centerId": 23,
+    "sportId": 3
+  },
+  {
+    "centerId": 23,
+    "sportId": 4
+  },
+  {
+    "centerId": 23,
+    "sportId": 5
+  },
+  {
+    "centerId": 23,
+    "sportId": 6
+  },
+  {
+    "centerId": 23,
+    "sportId": 9
+  },
+  {
+    "centerId": 24,
+    "sportId": 1
+  },
+  {
+    "centerId": 24,
+    "sportId": 5
+  },
+  {
+    "centerId": 24,
+    "sportId": 8
+  },
+  {
+    "centerId": 24,
+    "sportId": 9
+  },
+  {
+    "centerId": 25,
+    "sportId": 2
+  },
+  {
+    "centerId": 25,
+    "sportId": 3
+  },
+  {
+    "centerId": 25,
+    "sportId": 7
+  },
+  {
+    "centerId": 25,
+    "sportId": 8
+  },
+  {
+    "centerId": 25,
+    "sportId": 9
+  },
+  {
+    "centerId": 26,
+    "sportId": 1
+  },
+  {
+    "centerId": 26,
+    "sportId": 2
+  },
+  {
+    "centerId": 26,
+    "sportId": 3
+  },
+  {
+    "centerId": 26,
+    "sportId": 6
+  },
+  {
+    "centerId": 27,
+    "sportId": 1
+  },
+  {
+    "centerId": 27,
+    "sportId": 2
+  },
+  {
+    "centerId": 27,
+    "sportId": 3
+  },
+  {
+    "centerId": 27,
+    "sportId": 4
+  },
+  {
+    "centerId": 27,
+    "sportId": 7
+  },
+  {
+    "centerId": 27,
+    "sportId": 9
+  },
+  {
+    "centerId": 28,
+    "sportId": 1
+  },
+  {
+    "centerId": 28,
+    "sportId": 2
+  },
+  {
+    "centerId": 28,
+    "sportId": 5
+  },
+  {
+    "centerId": 28,
+    "sportId": 7
+  },
+  {
+    "centerId": 28,
+    "sportId": 8
+  },
+  {
+    "centerId": 28,
+    "sportId": 9
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "籃球",
+    "iconKey": "basketball"
+  },
+  {
+    "name": "羽球",
+    "iconKey": "badminton"
+  },
+  {
+    "name": "桌球",
+    "iconKey": "tabletennis"
+  },
+  {
+    "name": "網球",
+    "iconKey": "tennis"
+  },
+  {
+    "name": "排球",
+    "iconKey": "volleyball"
+  },
+  {
+    "name": "壁球",
+    "iconKey": "squash"
+  },
+  {
+    "name": "足球",
+    "iconKey": "soccer"
+  },
+  {
+    "name": "棒球",
+    "iconKey": "baseball"
+  },
+  {
+    "name": "撞球",
+    "iconKey": "billiard"
+  }
+]

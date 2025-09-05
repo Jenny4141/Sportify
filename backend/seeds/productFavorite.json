@@ -1,0 +1,12 @@
+[
+  { "memberId": 102, "productId": 27 },
+  { "memberId": 102, "productId": 28 },
+  { "memberId": 102, "productId": 29 },
+  { "memberId": 102, "productId": 30 },
+  { "memberId": 102, "productId": 31 },
+  { "memberId": 101, "productId": 27 },
+  { "memberId": 101, "productId": 28 },
+  { "memberId": 101, "productId": 29 },
+  { "memberId": 101, "productId": 30 },
+  { "memberId": 101, "productId": 31 }
+]

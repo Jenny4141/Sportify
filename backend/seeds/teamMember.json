@@ -1,0 +1,3666 @@
+[
+  {
+    "id": 2,
+    "memberId": 83,
+    "teamId": 1,
+    "isCaptain": true
+  },
+  {
+    "id": 5,
+    "memberId": 25,
+    "teamId": 1
+  },
+  {
+    "id": 3,
+    "memberId": 91,
+    "teamId": 1
+  },
+  {
+    "id": 4,
+    "memberId": 47,
+    "teamId": 1
+  },
+  {
+    "id": 1,
+    "memberId": 66,
+    "teamId": 1
+  },
+  {
+    "id": 6,
+    "memberId": 12,
+    "teamId": 1
+  },
+  {
+    "id": 10,
+    "memberId": 53,
+    "teamId": 2,
+    "isCaptain": true
+  },
+  {
+    "id": 12,
+    "memberId": 81,
+    "teamId": 2
+  },
+  {
+    "id": 9,
+    "memberId": 33,
+    "teamId": 2
+  },
+  {
+    "id": 7,
+    "memberId": 22,
+    "teamId": 2
+  },
+  {
+    "id": 8,
+    "memberId": 23,
+    "teamId": 2
+  },
+  {
+    "id": 11,
+    "memberId": 47,
+    "teamId": 2
+  },
+  {
+    "id": 18,
+    "memberId": 22,
+    "teamId": 3,
+    "isCaptain": true
+  },
+  {
+    "id": 14,
+    "memberId": 95,
+    "teamId": 3
+  },
+  {
+    "id": 17,
+    "memberId": 89,
+    "teamId": 3
+  },
+  {
+    "id": 13,
+    "memberId": 3,
+    "teamId": 3
+  },
+  {
+    "id": 16,
+    "memberId": 99,
+    "teamId": 3
+  },
+  {
+    "id": 15,
+    "memberId": 79,
+    "teamId": 3
+  },
+  {
+    "id": 22,
+    "memberId": 96,
+    "teamId": 4
+  },
+  {
+    "id": 23,
+    "memberId": 93,
+    "teamId": 4,
+    "isCaptain": true
+  },
+  {
+    "id": 21,
+    "memberId": 68,
+    "teamId": 4
+  },
+  {
+    "id": 24,
+    "memberId": 83,
+    "teamId": 4
+  },
+  {
+    "id": 20,
+    "memberId": 98,
+    "teamId": 4
+  },
+  {
+    "id": 19,
+    "memberId": 13,
+    "teamId": 4
+  },
+  {
+    "id": 30,
+    "memberId": 37,
+    "teamId": 5
+  },
+  {
+    "id": 26,
+    "memberId": 79,
+    "teamId": 5,
+    "isCaptain": true
+  },
+  {
+    "id": 28,
+    "memberId": 13,
+    "teamId": 5
+  },
+  {
+    "id": 25,
+    "memberId": 83,
+    "teamId": 5
+  },
+  {
+    "id": 27,
+    "memberId": 59,
+    "teamId": 5
+  },
+  {
+    "id": 29,
+    "memberId": 35,
+    "teamId": 5
+  },
+  {
+    "id": 32,
+    "memberId": 15,
+    "teamId": 6
+  },
+  {
+    "id": 31,
+    "memberId": 96,
+    "teamId": 6,
+    "isCaptain": true
+  },
+  {
+    "id": 36,
+    "memberId": 9,
+    "teamId": 6
+  },
+  {
+    "id": 35,
+    "memberId": 42,
+    "teamId": 6
+  },
+  {
+    "id": 33,
+    "memberId": 43,
+    "teamId": 6
+  },
+  {
+    "id": 34,
+    "memberId": 95,
+    "teamId": 6
+  },
+  {
+    "id": 38,
+    "memberId": 43,
+    "teamId": 7
+  },
+  {
+    "id": 39,
+    "memberId": 69,
+    "teamId": 7,
+    "isCaptain": true
+  },
+  {
+    "id": 42,
+    "memberId": 88,
+    "teamId": 7
+  },
+  {
+    "id": 41,
+    "memberId": 18,
+    "teamId": 7
+  },
+  {
+    "id": 40,
+    "memberId": 90,
+    "teamId": 7
+  },
+  {
+    "id": 37,
+    "memberId": 95,
+    "teamId": 7
+  },
+  {
+    "id": 43,
+    "memberId": 17,
+    "teamId": 8,
+    "isCaptain": true
+  },
+  {
+    "id": 44,
+    "memberId": 59,
+    "teamId": 8
+  },
+  {
+    "id": 46,
+    "memberId": 95,
+    "teamId": 8
+  },
+  {
+    "id": 45,
+    "memberId": 91,
+    "teamId": 8
+  },
+  {
+    "id": 48,
+    "memberId": 85,
+    "teamId": 8
+  },
+  {
+    "id": 47,
+    "memberId": 91,
+    "teamId": 8
+  },
+  {
+    "id": 54,
+    "memberId": 2,
+    "teamId": 9,
+    "isCaptain": true
+  },
+  {
+    "id": 52,
+    "memberId": 10,
+    "teamId": 9
+  },
+  {
+    "id": 51,
+    "memberId": 72,
+    "teamId": 9
+  },
+  {
+    "id": 50,
+    "memberId": 46,
+    "teamId": 9
+  },
+  {
+    "id": 53,
+    "memberId": 54,
+    "teamId": 9
+  },
+  {
+    "id": 49,
+    "memberId": 31,
+    "teamId": 9
+  },
+  {
+    "id": 55,
+    "memberId": 96,
+    "teamId": 10
+  },
+  {
+    "id": 56,
+    "memberId": 40,
+    "teamId": 10,
+    "isCaptain": true
+  },
+  {
+    "id": 58,
+    "memberId": 58,
+    "teamId": 10
+  },
+  {
+    "id": 59,
+    "memberId": 82,
+    "teamId": 10
+  },
+  {
+    "id": 57,
+    "memberId": 98,
+    "teamId": 10
+  },
+  {
+    "id": 60,
+    "memberId": 18,
+    "teamId": 10
+  },
+  {
+    "id": 64,
+    "memberId": 11,
+    "teamId": 11
+  },
+  {
+    "id": 66,
+    "memberId": 28,
+    "teamId": 11,
+    "isCaptain": true
+  },
+  {
+    "id": 62,
+    "memberId": 15,
+    "teamId": 11
+  },
+  {
+    "id": 65,
+    "memberId": 16,
+    "teamId": 11
+  },
+  {
+    "id": 63,
+    "memberId": 73,
+    "teamId": 11
+  },
+  {
+    "id": 61,
+    "memberId": 20,
+    "teamId": 11
+  },
+  {
+    "id": 71,
+    "memberId": 4,
+    "teamId": 12
+  },
+  {
+    "id": 69,
+    "memberId": 65,
+    "teamId": 12
+  },
+  {
+    "id": 67,
+    "memberId": 20,
+    "teamId": 12,
+    "isCaptain": true
+  },
+  {
+    "id": 72,
+    "memberId": 62,
+    "teamId": 12
+  },
+  {
+    "id": 70,
+    "memberId": 2,
+    "teamId": 12
+  },
+  {
+    "id": 68,
+    "memberId": 28,
+    "teamId": 12
+  },
+  {
+    "id": 76,
+    "memberId": 97,
+    "teamId": 13,
+    "isCaptain": true
+  },
+  {
+    "id": 73,
+    "memberId": 71,
+    "teamId": 13
+  },
+  {
+    "id": 78,
+    "memberId": 21,
+    "teamId": 13
+  },
+  {
+    "id": 74,
+    "memberId": 46,
+    "teamId": 13
+  },
+  {
+    "id": 77,
+    "memberId": 70,
+    "teamId": 13
+  },
+  {
+    "id": 75,
+    "memberId": 93,
+    "teamId": 13
+  },
+  {
+    "id": 83,
+    "memberId": 31,
+    "teamId": 14
+  },
+  {
+    "id": 82,
+    "memberId": 82,
+    "teamId": 14
+  },
+  {
+    "id": 80,
+    "memberId": 44,
+    "teamId": 14,
+    "isCaptain": true
+  },
+  {
+    "id": 81,
+    "memberId": 15,
+    "teamId": 14
+  },
+  {
+    "id": 84,
+    "memberId": 20,
+    "teamId": 14
+  },
+  {
+    "id": 79,
+    "memberId": 27,
+    "teamId": 14
+  },
+  {
+    "id": 86,
+    "memberId": 90,
+    "teamId": 15,
+    "isCaptain": true
+  },
+  {
+    "id": 90,
+    "memberId": 81,
+    "teamId": 15
+  },
+  {
+    "id": 89,
+    "memberId": 92,
+    "teamId": 15
+  },
+  {
+    "id": 88,
+    "memberId": 77,
+    "teamId": 15
+  },
+  {
+    "id": 87,
+    "memberId": 19,
+    "teamId": 15
+  },
+  {
+    "id": 85,
+    "memberId": 64,
+    "teamId": 15
+  },
+  {
+    "id": 91,
+    "memberId": 21,
+    "teamId": 16
+  },
+  {
+    "id": 93,
+    "memberId": 15,
+    "teamId": 16,
+    "isCaptain": true
+  },
+  {
+    "id": 94,
+    "memberId": 44,
+    "teamId": 16
+  },
+  {
+    "id": 96,
+    "memberId": 54,
+    "teamId": 16
+  },
+  {
+    "id": 95,
+    "memberId": 4,
+    "teamId": 16
+  },
+  {
+    "id": 92,
+    "memberId": 67,
+    "teamId": 16
+  },
+  {
+    "id": 97,
+    "memberId": 17,
+    "teamId": 17,
+    "isCaptain": true
+  },
+  {
+    "id": 99,
+    "memberId": 61,
+    "teamId": 17
+  },
+  {
+    "id": 101,
+    "memberId": 73,
+    "teamId": 17
+  },
+  {
+    "id": 98,
+    "memberId": 80,
+    "teamId": 17
+  },
+  {
+    "id": 102,
+    "memberId": 86,
+    "teamId": 17
+  },
+  {
+    "id": 100,
+    "memberId": 98,
+    "teamId": 17
+  },
+  {
+    "id": 106,
+    "memberId": 91,
+    "teamId": 18,
+    "isCaptain": true
+  },
+  {
+    "id": 107,
+    "memberId": 33,
+    "teamId": 18
+  },
+  {
+    "id": 108,
+    "memberId": 42,
+    "teamId": 18
+  },
+  {
+    "id": 105,
+    "memberId": 66,
+    "teamId": 18
+  },
+  {
+    "id": 104,
+    "memberId": 13,
+    "teamId": 18
+  },
+  {
+    "id": 103,
+    "memberId": 72,
+    "teamId": 18
+  },
+  {
+    "id": 109,
+    "memberId": 99,
+    "teamId": 19
+  },
+  {
+    "id": 112,
+    "memberId": 67,
+    "teamId": 19,
+    "isCaptain": true
+  },
+  {
+    "id": 111,
+    "memberId": 70,
+    "teamId": 19
+  },
+  {
+    "id": 110,
+    "memberId": 65,
+    "teamId": 19
+  },
+  {
+    "id": 113,
+    "memberId": 89,
+    "teamId": 19
+  },
+  {
+    "id": 114,
+    "memberId": 45,
+    "teamId": 19
+  },
+  {
+    "id": 120,
+    "memberId": 18,
+    "teamId": 20
+  },
+  {
+    "id": 115,
+    "memberId": 50,
+    "teamId": 20
+  },
+  {
+    "id": 118,
+    "memberId": 102,
+    "teamId": 20
+  },
+  {
+    "id": 116,
+    "memberId": 33,
+    "teamId": 20,
+    "isCaptain": true
+  },
+  {
+    "id": 117,
+    "memberId": 48,
+    "teamId": 20
+  },
+  {
+    "id": 119,
+    "memberId": 88,
+    "teamId": 20
+  },
+  {
+    "id": 125,
+    "memberId": 7,
+    "teamId": 21
+  },
+  {
+    "id": 126,
+    "memberId": 7,
+    "teamId": 21
+  },
+  {
+    "id": 123,
+    "memberId": 97,
+    "teamId": 21
+  },
+  {
+    "id": 122,
+    "memberId": 92,
+    "teamId": 21
+  },
+  {
+    "id": 124,
+    "memberId": 11,
+    "teamId": 21
+  },
+  {
+    "id": 121,
+    "memberId": 12,
+    "teamId": 21,
+    "isCaptain": true
+  },
+  {
+    "id": 127,
+    "memberId": 23,
+    "teamId": 22
+  },
+  {
+    "id": 128,
+    "memberId": 62,
+    "teamId": 22
+  },
+  {
+    "id": 131,
+    "memberId": 61,
+    "teamId": 22,
+    "isCaptain": true
+  },
+  {
+    "id": 132,
+    "memberId": 80,
+    "teamId": 22
+  },
+  {
+    "id": 130,
+    "memberId": 48,
+    "teamId": 22
+  },
+  {
+    "id": 129,
+    "memberId": 21,
+    "teamId": 22
+  },
+  {
+    "id": 135,
+    "memberId": 61,
+    "teamId": 23
+  },
+  {
+    "id": 136,
+    "memberId": 44,
+    "teamId": 23
+  },
+  {
+    "id": 138,
+    "memberId": 40,
+    "teamId": 23,
+    "isCaptain": true
+  },
+  {
+    "id": 134,
+    "memberId": 6,
+    "teamId": 23
+  },
+  {
+    "id": 133,
+    "memberId": 41,
+    "teamId": 23
+  },
+  {
+    "id": 137,
+    "memberId": 60,
+    "teamId": 23
+  },
+  {
+    "id": 144,
+    "memberId": 36,
+    "teamId": 24
+  },
+  {
+    "id": 139,
+    "memberId": 43,
+    "teamId": 24,
+    "isCaptain": true
+  },
+  {
+    "id": 140,
+    "memberId": 9,
+    "teamId": 24
+  },
+  {
+    "id": 142,
+    "memberId": 49,
+    "teamId": 24
+  },
+  {
+    "id": 143,
+    "memberId": 85,
+    "teamId": 24
+  },
+  {
+    "id": 141,
+    "memberId": 1,
+    "teamId": 24
+  },
+  {
+    "id": 149,
+    "memberId": 47,
+    "teamId": 25
+  },
+  {
+    "id": 147,
+    "memberId": 77,
+    "teamId": 25
+  },
+  {
+    "id": 145,
+    "memberId": 90,
+    "teamId": 25,
+    "isCaptain": true
+  },
+  {
+    "id": 148,
+    "memberId": 39,
+    "teamId": 25
+  },
+  {
+    "id": 150,
+    "memberId": 90,
+    "teamId": 25
+  },
+  {
+    "id": 146,
+    "memberId": 45,
+    "teamId": 25
+  },
+  {
+    "id": 151,
+    "memberId": 38,
+    "teamId": 26,
+    "isCaptain": true
+  },
+  {
+    "id": 154,
+    "memberId": 16,
+    "teamId": 26
+  },
+  {
+    "id": 156,
+    "memberId": 41,
+    "teamId": 26
+  },
+  {
+    "id": 153,
+    "memberId": 58,
+    "teamId": 26
+  },
+  {
+    "id": 155,
+    "memberId": 10,
+    "teamId": 26
+  },
+  {
+    "id": 152,
+    "memberId": 75,
+    "teamId": 26
+  },
+  {
+    "id": 157,
+    "memberId": 13,
+    "teamId": 27
+  },
+  {
+    "id": 159,
+    "memberId": 55,
+    "teamId": 27,
+    "isCaptain": true
+  },
+  {
+    "id": 158,
+    "memberId": 98,
+    "teamId": 27
+  },
+  {
+    "id": 160,
+    "memberId": 68,
+    "teamId": 27
+  },
+  {
+    "id": 162,
+    "memberId": 37,
+    "teamId": 27
+  },
+  {
+    "id": 161,
+    "memberId": 17,
+    "teamId": 27
+  },
+  {
+    "id": 163,
+    "memberId": 17,
+    "teamId": 28
+  },
+  {
+    "id": 168,
+    "memberId": 18,
+    "teamId": 28
+  },
+  {
+    "id": 164,
+    "memberId": 59,
+    "teamId": 28,
+    "isCaptain": true
+  },
+  {
+    "id": 166,
+    "memberId": 72,
+    "teamId": 28
+  },
+  {
+    "id": 167,
+    "memberId": 15,
+    "teamId": 28
+  },
+  {
+    "id": 165,
+    "memberId": 25,
+    "teamId": 28
+  },
+  {
+    "id": 172,
+    "memberId": 60,
+    "teamId": 29
+  },
+  {
+    "id": 170,
+    "memberId": 11,
+    "teamId": 29
+  },
+  {
+    "id": 171,
+    "memberId": 47,
+    "teamId": 29,
+    "isCaptain": true
+  },
+  {
+    "id": 173,
+    "memberId": 43,
+    "teamId": 29
+  },
+  {
+    "id": 174,
+    "memberId": 58,
+    "teamId": 29
+  },
+  {
+    "id": 169,
+    "memberId": 19,
+    "teamId": 29
+  },
+  {
+    "id": 176,
+    "memberId": 91,
+    "teamId": 30
+  },
+  {
+    "id": 179,
+    "memberId": 34,
+    "teamId": 30,
+    "isCaptain": true
+  },
+  {
+    "id": 177,
+    "memberId": 92,
+    "teamId": 30
+  },
+  {
+    "id": 175,
+    "memberId": 88,
+    "teamId": 30
+  },
+  {
+    "id": 180,
+    "memberId": 17,
+    "teamId": 30
+  },
+  {
+    "id": 178,
+    "memberId": 65,
+    "teamId": 30
+  },
+  {
+    "id": 185,
+    "memberId": 4,
+    "teamId": 31
+  },
+  {
+    "id": 184,
+    "memberId": 23,
+    "teamId": 31,
+    "isCaptain": true
+  },
+  {
+    "id": 181,
+    "memberId": 27,
+    "teamId": 31
+  },
+  {
+    "id": 183,
+    "memberId": 36,
+    "teamId": 31
+  },
+  {
+    "id": 182,
+    "memberId": 1,
+    "teamId": 31
+  },
+  {
+    "id": 186,
+    "memberId": 45,
+    "teamId": 31
+  },
+  {
+    "id": 192,
+    "memberId": 80,
+    "teamId": 32
+  },
+  {
+    "id": 190,
+    "memberId": 85,
+    "teamId": 32,
+    "isCaptain": true
+  },
+  {
+    "id": 189,
+    "memberId": 39,
+    "teamId": 32
+  },
+  {
+    "id": 191,
+    "memberId": 12,
+    "teamId": 32
+  },
+  {
+    "id": 188,
+    "memberId": 91,
+    "teamId": 32
+  },
+  {
+    "id": 187,
+    "memberId": 57,
+    "teamId": 32
+  },
+  {
+    "id": 193,
+    "memberId": 75,
+    "teamId": 33
+  },
+  {
+    "id": 197,
+    "memberId": 10,
+    "teamId": 33,
+    "isCaptain": true
+  },
+  {
+    "id": 198,
+    "memberId": 2,
+    "teamId": 33
+  },
+  {
+    "id": 196,
+    "memberId": 6,
+    "teamId": 33
+  },
+  {
+    "id": 195,
+    "memberId": 60,
+    "teamId": 33
+  },
+  {
+    "id": 194,
+    "memberId": 82,
+    "teamId": 33
+  },
+  {
+    "id": 199,
+    "memberId": 55,
+    "teamId": 34
+  },
+  {
+    "id": 202,
+    "memberId": 13,
+    "teamId": 34,
+    "isCaptain": true
+  },
+  {
+    "id": 203,
+    "memberId": 64,
+    "teamId": 34
+  },
+  {
+    "id": 204,
+    "memberId": 17,
+    "teamId": 34
+  },
+  {
+    "id": 200,
+    "memberId": 26,
+    "teamId": 34
+  },
+  {
+    "id": 201,
+    "memberId": 19,
+    "teamId": 34
+  },
+  {
+    "id": 206,
+    "memberId": 63,
+    "teamId": 35
+  },
+  {
+    "id": 205,
+    "memberId": 92,
+    "teamId": 35,
+    "isCaptain": true
+  },
+  {
+    "id": 210,
+    "memberId": 36,
+    "teamId": 35
+  },
+  {
+    "id": 208,
+    "memberId": 65,
+    "teamId": 35
+  },
+  {
+    "id": 209,
+    "memberId": 8,
+    "teamId": 35
+  },
+  {
+    "id": 207,
+    "memberId": 66,
+    "teamId": 35
+  },
+  {
+    "id": 214,
+    "memberId": 42,
+    "teamId": 36,
+    "isCaptain": true
+  },
+  {
+    "id": 215,
+    "memberId": 14,
+    "teamId": 36
+  },
+  {
+    "id": 213,
+    "memberId": 67,
+    "teamId": 36
+  },
+  {
+    "id": 217,
+    "memberId": 11,
+    "teamId": 36
+  },
+  {
+    "id": 212,
+    "memberId": 22,
+    "teamId": 36
+  },
+  {
+    "id": 211,
+    "memberId": 39,
+    "teamId": 36
+  },
+  {
+    "id": 216,
+    "memberId": 85,
+    "teamId": 36,
+    "isCaptain": true
+  },
+  {
+    "id": 221,
+    "memberId": 87,
+    "teamId": 37
+  },
+  {
+    "id": 222,
+    "memberId": 30,
+    "teamId": 37
+  },
+  {
+    "id": 219,
+    "memberId": 89,
+    "teamId": 37,
+    "isCaptain": true
+  },
+  {
+    "id": 224,
+    "memberId": 94,
+    "teamId": 37
+  },
+  {
+    "id": 218,
+    "memberId": 18,
+    "teamId": 37
+  },
+  {
+    "id": 220,
+    "memberId": 29,
+    "teamId": 37
+  },
+  {
+    "id": 223,
+    "memberId": 52,
+    "teamId": 37
+  },
+  {
+    "id": 225,
+    "memberId": 12,
+    "teamId": 38
+  },
+  {
+    "id": 226,
+    "memberId": 61,
+    "teamId": 38,
+    "isCaptain": true
+  },
+  {
+    "id": 227,
+    "memberId": 48,
+    "teamId": 38
+  },
+  {
+    "id": 231,
+    "memberId": 31,
+    "teamId": 38
+  },
+  {
+    "id": 230,
+    "memberId": 101,
+    "teamId": 38
+  },
+  {
+    "id": 228,
+    "memberId": 90,
+    "teamId": 38
+  },
+  {
+    "id": 229,
+    "memberId": 63,
+    "teamId": 38
+  },
+  {
+    "id": 233,
+    "memberId": 70,
+    "teamId": 39,
+    "isCaptain": true
+  },
+  {
+    "id": 232,
+    "memberId": 46,
+    "teamId": 39
+  },
+  {
+    "id": 237,
+    "memberId": 1,
+    "teamId": 39
+  },
+  {
+    "id": 236,
+    "memberId": 23,
+    "teamId": 39
+  },
+  {
+    "id": 235,
+    "memberId": 40,
+    "teamId": 39
+  },
+  {
+    "id": 238,
+    "memberId": 70,
+    "teamId": 39
+  },
+  {
+    "id": 234,
+    "memberId": 83,
+    "teamId": 39
+  },
+  {
+    "id": 239,
+    "memberId": 23,
+    "teamId": 40
+  },
+  {
+    "id": 245,
+    "memberId": 44,
+    "teamId": 40,
+    "isCaptain": true
+  },
+  {
+    "id": 242,
+    "memberId": 77,
+    "teamId": 40
+  },
+  {
+    "id": 243,
+    "memberId": 81,
+    "teamId": 40
+  },
+  {
+    "id": 240,
+    "memberId": 31,
+    "teamId": 40
+  },
+  {
+    "id": 244,
+    "memberId": 3,
+    "teamId": 40
+  },
+  {
+    "id": 241,
+    "memberId": 69,
+    "teamId": 40
+  },
+  {
+    "id": 249,
+    "memberId": 47,
+    "teamId": 41,
+    "isCaptain": true
+  },
+  {
+    "id": 247,
+    "memberId": 93,
+    "teamId": 41
+  },
+  {
+    "id": 251,
+    "memberId": 17,
+    "teamId": 41
+  },
+  {
+    "id": 248,
+    "memberId": 93,
+    "teamId": 41
+  },
+  {
+    "id": 250,
+    "memberId": 51,
+    "teamId": 41
+  },
+  {
+    "id": 252,
+    "memberId": 82,
+    "teamId": 41
+  },
+  {
+    "id": 246,
+    "memberId": 32,
+    "teamId": 41
+  },
+  {
+    "id": 253,
+    "memberId": 82,
+    "teamId": 42
+  },
+  {
+    "id": 254,
+    "memberId": 14,
+    "teamId": 42,
+    "isCaptain": true
+  },
+  {
+    "id": 255,
+    "memberId": 32,
+    "teamId": 42
+  },
+  {
+    "id": 258,
+    "memberId": 86,
+    "teamId": 42
+  },
+  {
+    "id": 257,
+    "memberId": 10,
+    "teamId": 42
+  },
+  {
+    "id": 259,
+    "memberId": 32,
+    "teamId": 42
+  },
+  {
+    "id": 256,
+    "memberId": 24,
+    "teamId": 42
+  },
+  {
+    "id": 262,
+    "memberId": 5,
+    "teamId": 43,
+    "isCaptain": true
+  },
+  {
+    "id": 264,
+    "memberId": 65,
+    "teamId": 43
+  },
+  {
+    "id": 261,
+    "memberId": 94,
+    "teamId": 43
+  },
+  {
+    "id": 260,
+    "memberId": 8,
+    "teamId": 43
+  },
+  {
+    "id": 266,
+    "memberId": 42,
+    "teamId": 43
+  },
+  {
+    "id": 265,
+    "memberId": 46,
+    "teamId": 43
+  },
+  {
+    "id": 263,
+    "memberId": 8,
+    "teamId": 43
+  },
+  {
+    "id": 269,
+    "memberId": 30,
+    "teamId": 44
+  },
+  {
+    "id": 270,
+    "memberId": 34,
+    "teamId": 44
+  },
+  {
+    "id": 271,
+    "memberId": 67,
+    "teamId": 44,
+    "isCaptain": true
+  },
+  {
+    "id": 268,
+    "memberId": 52,
+    "teamId": 44
+  },
+  {
+    "id": 267,
+    "memberId": 59,
+    "teamId": 44
+  },
+  {
+    "id": 273,
+    "memberId": 71,
+    "teamId": 44
+  },
+  {
+    "id": 272,
+    "memberId": 55,
+    "teamId": 44
+  },
+  {
+    "id": 275,
+    "memberId": 18,
+    "teamId": 45,
+    "isCaptain": true
+  },
+  {
+    "id": 276,
+    "memberId": 82,
+    "teamId": 45
+  },
+  {
+    "id": 277,
+    "memberId": 43,
+    "teamId": 45
+  },
+  {
+    "id": 279,
+    "memberId": 21,
+    "teamId": 45
+  },
+  {
+    "id": 278,
+    "memberId": 26,
+    "teamId": 45
+  },
+  {
+    "id": 280,
+    "memberId": 99,
+    "teamId": 45
+  },
+  {
+    "id": 274,
+    "memberId": 46,
+    "teamId": 45
+  },
+  {
+    "id": 287,
+    "memberId": 16,
+    "teamId": 46
+  },
+  {
+    "id": 283,
+    "memberId": 19,
+    "teamId": 46,
+    "isCaptain": true
+  },
+  {
+    "id": 284,
+    "memberId": 91,
+    "teamId": 46
+  },
+  {
+    "id": 281,
+    "memberId": 10,
+    "teamId": 46
+  },
+  {
+    "id": 282,
+    "memberId": 33,
+    "teamId": 46
+  },
+  {
+    "id": 286,
+    "memberId": 57,
+    "teamId": 46
+  },
+  {
+    "id": 285,
+    "memberId": 15,
+    "teamId": 46
+  },
+  {
+    "id": 293,
+    "memberId": 35,
+    "teamId": 47,
+    "isCaptain": true
+  },
+  {
+    "id": 289,
+    "memberId": 53,
+    "teamId": 47
+  },
+  {
+    "id": 290,
+    "memberId": 5,
+    "teamId": 47
+  },
+  {
+    "id": 288,
+    "memberId": 43,
+    "teamId": 47
+  },
+  {
+    "id": 292,
+    "memberId": 2,
+    "teamId": 47
+  },
+  {
+    "id": 294,
+    "memberId": 67,
+    "teamId": 47
+  },
+  {
+    "id": 291,
+    "memberId": 89,
+    "teamId": 47
+  },
+  {
+    "id": 295,
+    "memberId": 23,
+    "teamId": 48,
+    "isCaptain": true
+  },
+  {
+    "id": 299,
+    "memberId": 62,
+    "teamId": 48
+  },
+  {
+    "id": 296,
+    "memberId": 17,
+    "teamId": 48
+  },
+  {
+    "id": 300,
+    "memberId": 47,
+    "teamId": 48
+  },
+  {
+    "id": 297,
+    "memberId": 68,
+    "teamId": 48
+  },
+  {
+    "id": 298,
+    "memberId": 59,
+    "teamId": 48
+  },
+  {
+    "id": 301,
+    "memberId": 81,
+    "teamId": 48
+  },
+  {
+    "id": 302,
+    "memberId": 19,
+    "teamId": 49
+  },
+  {
+    "id": 303,
+    "memberId": 30,
+    "teamId": 49
+  },
+  {
+    "id": 308,
+    "memberId": 97,
+    "teamId": 49,
+    "isCaptain": true
+  },
+  {
+    "id": 306,
+    "memberId": 44,
+    "teamId": 49
+  },
+  {
+    "id": 307,
+    "memberId": 70,
+    "teamId": 49
+  },
+  {
+    "id": 305,
+    "memberId": 7,
+    "teamId": 49
+  },
+  {
+    "id": 304,
+    "memberId": 37,
+    "teamId": 49
+  },
+  {
+    "id": 310,
+    "memberId": 33,
+    "teamId": 50,
+    "isCaptain": true
+  },
+  {
+    "id": 314,
+    "memberId": 87,
+    "teamId": 50
+  },
+  {
+    "id": 315,
+    "memberId": 11,
+    "teamId": 50
+  },
+  {
+    "id": 311,
+    "memberId": 69,
+    "teamId": 50
+  },
+  {
+    "id": 313,
+    "memberId": 38,
+    "teamId": 50
+  },
+  {
+    "id": 309,
+    "memberId": 71,
+    "teamId": 50
+  },
+  {
+    "id": 312,
+    "memberId": 96,
+    "teamId": 50
+  },
+  {
+    "id": 319,
+    "memberId": 34,
+    "teamId": 51
+  },
+  {
+    "id": 316,
+    "memberId": 61,
+    "teamId": 51,
+    "isCaptain": true
+  },
+  {
+    "id": 320,
+    "memberId": 45,
+    "teamId": 51
+  },
+  {
+    "id": 321,
+    "memberId": 74,
+    "teamId": 51
+  },
+  {
+    "id": 317,
+    "memberId": 82,
+    "teamId": 51
+  },
+  {
+    "id": 318,
+    "memberId": 94,
+    "teamId": 51
+  },
+  {
+    "id": 322,
+    "memberId": 38,
+    "teamId": 51
+  },
+  {
+    "id": 325,
+    "memberId": 40,
+    "teamId": 52
+  },
+  {
+    "id": 328,
+    "memberId": 83,
+    "teamId": 52,
+    "isCaptain": true
+  },
+  {
+    "id": 327,
+    "memberId": 86,
+    "teamId": 52
+  },
+  {
+    "id": 329,
+    "memberId": 21,
+    "teamId": 52
+  },
+  {
+    "id": 324,
+    "memberId": 66,
+    "teamId": 52
+  },
+  {
+    "id": 326,
+    "memberId": 39,
+    "teamId": 52
+  },
+  {
+    "id": 323,
+    "memberId": 72,
+    "teamId": 52
+  },
+  {
+    "id": 331,
+    "memberId": 10,
+    "teamId": 53
+  },
+  {
+    "id": 335,
+    "memberId": 45,
+    "teamId": 53
+  },
+  {
+    "id": 334,
+    "memberId": 91,
+    "teamId": 53,
+    "isCaptain": true
+  },
+  {
+    "id": 330,
+    "memberId": 29,
+    "teamId": 53
+  },
+  {
+    "id": 333,
+    "memberId": 53,
+    "teamId": 53
+  },
+  {
+    "id": 332,
+    "memberId": 90,
+    "teamId": 53
+  },
+  {
+    "id": 336,
+    "memberId": 1,
+    "teamId": 53
+  },
+  {
+    "id": 338,
+    "memberId": 22,
+    "teamId": 54
+  },
+  {
+    "id": 341,
+    "memberId": 91,
+    "teamId": 54
+  },
+  {
+    "id": 340,
+    "memberId": 96,
+    "teamId": 54
+  },
+  {
+    "id": 343,
+    "memberId": 6,
+    "teamId": 54,
+    "isCaptain": true
+  },
+  {
+    "id": 337,
+    "memberId": 37,
+    "teamId": 54
+  },
+  {
+    "id": 342,
+    "memberId": 81,
+    "teamId": 54
+  },
+  {
+    "id": 339,
+    "memberId": 35,
+    "teamId": 54
+  },
+  {
+    "id": 349,
+    "memberId": 84,
+    "teamId": 55
+  },
+  {
+    "id": 350,
+    "memberId": 9,
+    "teamId": 55
+  },
+  {
+    "id": 346,
+    "memberId": 63,
+    "teamId": 55
+  },
+  {
+    "id": 347,
+    "memberId": 17,
+    "teamId": 55,
+    "isCaptain": true
+  },
+  {
+    "id": 345,
+    "memberId": 81,
+    "teamId": 55
+  },
+  {
+    "id": 348,
+    "memberId": 34,
+    "teamId": 55
+  },
+  {
+    "id": 344,
+    "memberId": 55,
+    "teamId": 55
+  },
+  {
+    "id": 353,
+    "memberId": 82,
+    "teamId": 56
+  },
+  {
+    "id": 357,
+    "memberId": 84,
+    "teamId": 56
+  },
+  {
+    "id": 356,
+    "memberId": 22,
+    "teamId": 56
+  },
+  {
+    "id": 354,
+    "memberId": 66,
+    "teamId": 56,
+    "isCaptain": true
+  },
+  {
+    "id": 351,
+    "memberId": 33,
+    "teamId": 56
+  },
+  {
+    "id": 355,
+    "memberId": 88,
+    "teamId": 56
+  },
+  {
+    "id": 352,
+    "memberId": 36,
+    "teamId": 56
+  },
+  {
+    "id": 361,
+    "memberId": 88,
+    "teamId": 57,
+    "isCaptain": true
+  },
+  {
+    "id": 363,
+    "memberId": 60,
+    "teamId": 57
+  },
+  {
+    "id": 360,
+    "memberId": 87,
+    "teamId": 57
+  },
+  {
+    "id": 358,
+    "memberId": 98,
+    "teamId": 57
+  },
+  {
+    "id": 362,
+    "memberId": 11,
+    "teamId": 57
+  },
+  {
+    "id": 364,
+    "memberId": 27,
+    "teamId": 57
+  },
+  {
+    "id": 359,
+    "memberId": 3,
+    "teamId": 57
+  },
+  {
+    "id": 367,
+    "memberId": 50,
+    "teamId": 58
+  },
+  {
+    "id": 368,
+    "memberId": 101,
+    "teamId": 58
+  },
+  {
+    "id": 369,
+    "memberId": 76,
+    "teamId": 58,
+    "isCaptain": true
+  },
+  {
+    "id": 366,
+    "memberId": 39,
+    "teamId": 58
+  },
+  {
+    "id": 365,
+    "memberId": 52,
+    "teamId": 58
+  },
+  {
+    "id": 371,
+    "memberId": 47,
+    "teamId": 58
+  },
+  {
+    "id": 370,
+    "memberId": 54,
+    "teamId": 58
+  },
+  {
+    "id": 376,
+    "memberId": 24,
+    "teamId": 59
+  },
+  {
+    "id": 372,
+    "memberId": 79,
+    "teamId": 59
+  },
+  {
+    "id": 375,
+    "memberId": 62,
+    "teamId": 59,
+    "isCaptain": true
+  },
+  {
+    "id": 378,
+    "memberId": 15,
+    "teamId": 59
+  },
+  {
+    "id": 373,
+    "memberId": 24,
+    "teamId": 59
+  },
+  {
+    "id": 374,
+    "memberId": 47,
+    "teamId": 59
+  },
+  {
+    "id": 377,
+    "memberId": 72,
+    "teamId": 59
+  },
+  {
+    "id": 380,
+    "memberId": 85,
+    "teamId": 60,
+    "isCaptain": true
+  },
+  {
+    "id": 383,
+    "memberId": 8,
+    "teamId": 60
+  },
+  {
+    "id": 384,
+    "memberId": 58,
+    "teamId": 60
+  },
+  {
+    "id": 385,
+    "memberId": 56,
+    "teamId": 60
+  },
+  {
+    "id": 379,
+    "memberId": 11,
+    "teamId": 60
+  },
+  {
+    "id": 382,
+    "memberId": 42,
+    "teamId": 60
+  },
+  {
+    "id": 381,
+    "memberId": 78,
+    "teamId": 60
+  },
+  {
+    "id": 389,
+    "memberId": 3,
+    "teamId": 61
+  },
+  {
+    "id": 386,
+    "memberId": 57,
+    "teamId": 61,
+    "isCaptain": true
+  },
+  {
+    "id": 392,
+    "memberId": 37,
+    "teamId": 61
+  },
+  {
+    "id": 390,
+    "memberId": 74,
+    "teamId": 61
+  },
+  {
+    "id": 391,
+    "memberId": 92,
+    "teamId": 61
+  },
+  {
+    "id": 387,
+    "memberId": 22,
+    "teamId": 61
+  },
+  {
+    "id": 388,
+    "memberId": 66,
+    "teamId": 61
+  },
+  {
+    "id": 397,
+    "memberId": 79,
+    "teamId": 62,
+    "isCaptain": true
+  },
+  {
+    "id": 398,
+    "memberId": 19,
+    "teamId": 62
+  },
+  {
+    "id": 394,
+    "memberId": 55,
+    "teamId": 62
+  },
+  {
+    "id": 395,
+    "memberId": 10,
+    "teamId": 62
+  },
+  {
+    "id": 399,
+    "memberId": 74,
+    "teamId": 62
+  },
+  {
+    "id": 396,
+    "memberId": 12,
+    "teamId": 62
+  },
+  {
+    "id": 393,
+    "memberId": 43,
+    "teamId": 62
+  },
+  {
+    "id": 405,
+    "memberId": 55,
+    "teamId": 63
+  },
+  {
+    "id": 403,
+    "memberId": 26,
+    "teamId": 63,
+    "isCaptain": true
+  },
+  {
+    "id": 402,
+    "memberId": 97,
+    "teamId": 63
+  },
+  {
+    "id": 401,
+    "memberId": 35,
+    "teamId": 63
+  },
+  {
+    "id": 400,
+    "memberId": 61,
+    "teamId": 63
+  },
+  {
+    "id": 406,
+    "memberId": 85,
+    "teamId": 63
+  },
+  {
+    "id": 404,
+    "memberId": 51,
+    "teamId": 63
+  },
+  {
+    "id": 411,
+    "memberId": 1,
+    "teamId": 64,
+    "isCaptain": true
+  },
+  {
+    "id": 409,
+    "memberId": 6,
+    "teamId": 64
+  },
+  {
+    "id": 410,
+    "memberId": 74,
+    "teamId": 64
+  },
+  {
+    "id": 407,
+    "memberId": 38,
+    "teamId": 64
+  },
+  {
+    "id": 408,
+    "memberId": 73,
+    "teamId": 64
+  },
+  {
+    "id": 413,
+    "memberId": 65,
+    "teamId": 64
+  },
+  {
+    "id": 412,
+    "memberId": 6,
+    "teamId": 64
+  },
+  {
+    "id": 419,
+    "memberId": 49,
+    "teamId": 65,
+    "isCaptain": true
+  },
+  {
+    "id": 418,
+    "memberId": 57,
+    "teamId": 65
+  },
+  {
+    "id": 414,
+    "memberId": 40,
+    "teamId": 65
+  },
+  {
+    "id": 416,
+    "memberId": 49,
+    "teamId": 65
+  },
+  {
+    "id": 420,
+    "memberId": 75,
+    "teamId": 65
+  },
+  {
+    "id": 417,
+    "memberId": 23,
+    "teamId": 65
+  },
+  {
+    "id": 415,
+    "memberId": 89,
+    "teamId": 65
+  },
+  {
+    "id": 421,
+    "memberId": 61,
+    "teamId": 66
+  },
+  {
+    "id": 422,
+    "memberId": 34,
+    "teamId": 66
+  },
+  {
+    "id": 426,
+    "memberId": 36,
+    "teamId": 66,
+    "isCaptain": true
+  },
+  {
+    "id": 424,
+    "memberId": 8,
+    "teamId": 66
+  },
+  {
+    "id": 423,
+    "memberId": 21,
+    "teamId": 66
+  },
+  {
+    "id": 427,
+    "memberId": 91,
+    "teamId": 66
+  },
+  {
+    "id": 425,
+    "memberId": 36,
+    "teamId": 66
+  },
+  {
+    "id": 429,
+    "memberId": 25,
+    "teamId": 67
+  },
+  {
+    "id": 433,
+    "memberId": 6,
+    "teamId": 67
+  },
+  {
+    "id": 430,
+    "memberId": 97,
+    "teamId": 67,
+    "isCaptain": true
+  },
+  {
+    "id": 428,
+    "memberId": 87,
+    "teamId": 67
+  },
+  {
+    "id": 432,
+    "memberId": 99,
+    "teamId": 67
+  },
+  {
+    "id": 434,
+    "memberId": 49,
+    "teamId": 67
+  },
+  {
+    "id": 431,
+    "memberId": 84,
+    "teamId": 67
+  },
+  {
+    "id": 436,
+    "memberId": 78,
+    "teamId": 68,
+    "isCaptain": true
+  },
+  {
+    "id": 440,
+    "memberId": 46,
+    "teamId": 68
+  },
+  {
+    "id": 435,
+    "memberId": 41,
+    "teamId": 68
+  },
+  {
+    "id": 437,
+    "memberId": 33,
+    "teamId": 68
+  },
+  {
+    "id": 439,
+    "memberId": 62,
+    "teamId": 68
+  },
+  {
+    "id": 438,
+    "memberId": 52,
+    "teamId": 68
+  },
+  {
+    "id": 441,
+    "memberId": 64,
+    "teamId": 68
+  },
+  {
+    "id": 448,
+    "memberId": 28,
+    "teamId": 69
+  },
+  {
+    "id": 446,
+    "memberId": 56,
+    "teamId": 69
+  },
+  {
+    "id": 445,
+    "memberId": 33,
+    "teamId": 69,
+    "isCaptain": true
+  },
+  {
+    "id": 447,
+    "memberId": 9,
+    "teamId": 69
+  },
+  {
+    "id": 444,
+    "memberId": 10,
+    "teamId": 69
+  },
+  {
+    "id": 443,
+    "memberId": 49,
+    "teamId": 69
+  },
+  {
+    "id": 442,
+    "memberId": 9,
+    "teamId": 69
+  },
+  {
+    "id": 449,
+    "memberId": 50,
+    "teamId": 70
+  },
+  {
+    "id": 452,
+    "memberId": 80,
+    "teamId": 70,
+    "isCaptain": true
+  },
+  {
+    "id": 454,
+    "memberId": 59,
+    "teamId": 70
+  },
+  {
+    "id": 450,
+    "memberId": 57,
+    "teamId": 70
+  },
+  {
+    "id": 451,
+    "memberId": 22,
+    "teamId": 70
+  },
+  {
+    "id": 453,
+    "memberId": 60,
+    "teamId": 70
+  },
+  {
+    "id": 455,
+    "memberId": 84,
+    "teamId": 70
+  },
+  {
+    "id": 461,
+    "memberId": 22,
+    "teamId": 71,
+    "isCaptain": true
+  },
+  {
+    "id": 460,
+    "memberId": 87,
+    "teamId": 71
+  },
+  {
+    "id": 459,
+    "memberId": 42,
+    "teamId": 71
+  },
+  {
+    "id": 457,
+    "memberId": 76,
+    "teamId": 71
+  },
+  {
+    "id": 456,
+    "memberId": 82,
+    "teamId": 71
+  },
+  {
+    "id": 458,
+    "memberId": 9,
+    "teamId": 71
+  },
+  {
+    "id": 462,
+    "memberId": 56,
+    "teamId": 71
+  },
+  {
+    "id": 465,
+    "memberId": 6,
+    "teamId": 72,
+    "isCaptain": true
+  },
+  {
+    "id": 466,
+    "memberId": 25,
+    "teamId": 72
+  },
+  {
+    "id": 463,
+    "memberId": 60,
+    "teamId": 72
+  },
+  {
+    "id": 468,
+    "memberId": 88,
+    "teamId": 72
+  },
+  {
+    "id": 469,
+    "memberId": 63,
+    "teamId": 72
+  },
+  {
+    "id": 464,
+    "memberId": 74,
+    "teamId": 72
+  },
+  {
+    "id": 467,
+    "memberId": 37,
+    "teamId": 72
+  },
+  {
+    "id": 471,
+    "memberId": 21,
+    "teamId": 73
+  },
+  {
+    "id": 472,
+    "memberId": 57,
+    "teamId": 73,
+    "isCaptain": true
+  },
+  {
+    "id": 475,
+    "memberId": 93,
+    "teamId": 73
+  },
+  {
+    "id": 476,
+    "memberId": 10,
+    "teamId": 73
+  },
+  {
+    "id": 473,
+    "memberId": 95,
+    "teamId": 73
+  },
+  {
+    "id": 470,
+    "memberId": 98,
+    "teamId": 73
+  },
+  {
+    "id": 474,
+    "memberId": 51,
+    "teamId": 73
+  },
+  {
+    "id": 483,
+    "memberId": 39,
+    "teamId": 74,
+    "isCaptain": true
+  },
+  {
+    "id": 481,
+    "memberId": 25,
+    "teamId": 74
+  },
+  {
+    "id": 480,
+    "memberId": 38,
+    "teamId": 74
+  },
+  {
+    "id": 478,
+    "memberId": 51,
+    "teamId": 74
+  },
+  {
+    "id": 482,
+    "memberId": 48,
+    "teamId": 74
+  },
+  {
+    "id": 479,
+    "memberId": 17,
+    "teamId": 74
+  },
+  {
+    "id": 477,
+    "memberId": 58,
+    "teamId": 74
+  },
+  {
+    "id": 488,
+    "memberId": 9,
+    "teamId": 75,
+    "isCaptain": true
+  },
+  {
+    "id": 484,
+    "memberId": 94,
+    "teamId": 75
+  },
+  {
+    "id": 490,
+    "memberId": 70,
+    "teamId": 75
+  },
+  {
+    "id": 487,
+    "memberId": 86,
+    "teamId": 75
+  },
+  {
+    "id": 485,
+    "memberId": 58,
+    "teamId": 75
+  },
+  {
+    "id": 486,
+    "memberId": 16,
+    "teamId": 75
+  },
+  {
+    "id": 489,
+    "memberId": 63,
+    "teamId": 75
+  },
+  {
+    "id": 497,
+    "memberId": 41,
+    "teamId": 76
+  },
+  {
+    "id": 491,
+    "memberId": 89,
+    "teamId": 76,
+    "isCaptain": true
+  },
+  {
+    "id": 493,
+    "memberId": 52,
+    "teamId": 76
+  },
+  {
+    "id": 492,
+    "memberId": 25,
+    "teamId": 76
+  },
+  {
+    "id": 496,
+    "memberId": 29,
+    "teamId": 76
+  },
+  {
+    "id": 494,
+    "memberId": 67,
+    "teamId": 76
+  },
+  {
+    "id": 495,
+    "memberId": 44,
+    "teamId": 76
+  },
+  {
+    "id": 500,
+    "memberId": 4,
+    "teamId": 77,
+    "isCaptain": true
+  },
+  {
+    "id": 503,
+    "memberId": 67,
+    "teamId": 77
+  },
+  {
+    "id": 504,
+    "memberId": 20,
+    "teamId": 77
+  },
+  {
+    "id": 498,
+    "memberId": 54,
+    "teamId": 77
+  },
+  {
+    "id": 499,
+    "memberId": 3,
+    "teamId": 77
+  },
+  {
+    "id": 501,
+    "memberId": 74,
+    "teamId": 77
+  },
+  {
+    "id": 502,
+    "memberId": 89,
+    "teamId": 77
+  },
+  {
+    "id": 510,
+    "memberId": 39,
+    "teamId": 78,
+    "isCaptain": true
+  },
+  {
+    "id": 512,
+    "memberId": 98,
+    "teamId": 78
+  },
+  {
+    "id": 506,
+    "memberId": 99,
+    "teamId": 78
+  },
+  {
+    "id": 507,
+    "memberId": 73,
+    "teamId": 78
+  },
+  {
+    "id": 505,
+    "memberId": 26,
+    "teamId": 78
+  },
+  {
+    "id": 508,
+    "memberId": 97,
+    "teamId": 78
+  },
+  {
+    "id": 511,
+    "memberId": 89,
+    "teamId": 78
+  },
+  {
+    "id": 509,
+    "memberId": 78,
+    "teamId": 78
+  },
+  {
+    "id": 516,
+    "memberId": 48,
+    "teamId": 79,
+    "isCaptain": true
+  },
+  {
+    "id": 515,
+    "memberId": 20,
+    "teamId": 79
+  },
+  {
+    "id": 517,
+    "memberId": 64,
+    "teamId": 79
+  },
+  {
+    "id": 513,
+    "memberId": 16,
+    "teamId": 79
+  },
+  {
+    "id": 520,
+    "memberId": 23,
+    "teamId": 79
+  },
+  {
+    "id": 514,
+    "memberId": 66,
+    "teamId": 79
+  },
+  {
+    "id": 518,
+    "memberId": 99,
+    "teamId": 79
+  },
+  {
+    "id": 519,
+    "memberId": 41,
+    "teamId": 79
+  },
+  {
+    "id": 523,
+    "memberId": 58,
+    "teamId": 80
+  },
+  {
+    "id": 526,
+    "memberId": 65,
+    "teamId": 80,
+    "isCaptain": true
+  },
+  {
+    "id": 525,
+    "memberId": 71,
+    "teamId": 80
+  },
+  {
+    "id": 524,
+    "memberId": 94,
+    "teamId": 80
+  },
+  {
+    "id": 528,
+    "memberId": 73,
+    "teamId": 80
+  },
+  {
+    "id": 527,
+    "memberId": 10,
+    "teamId": 80
+  },
+  {
+    "id": 522,
+    "memberId": 73,
+    "teamId": 80
+  },
+  {
+    "id": 521,
+    "memberId": 29,
+    "teamId": 80
+  },
+  {
+    "id": 533,
+    "memberId": 3,
+    "teamId": 81
+  },
+  {
+    "id": 536,
+    "memberId": 69,
+    "teamId": 81,
+    "isCaptain": true
+  },
+  {
+    "id": 535,
+    "memberId": 81,
+    "teamId": 81
+  },
+  {
+    "id": 530,
+    "memberId": 94,
+    "teamId": 81
+  },
+  {
+    "id": 531,
+    "memberId": 36,
+    "teamId": 81
+  },
+  {
+    "id": 529,
+    "memberId": 75,
+    "teamId": 81
+  },
+  {
+    "id": 532,
+    "memberId": 45,
+    "teamId": 81
+  },
+  {
+    "id": 534,
+    "memberId": 10,
+    "teamId": 81
+  },
+  {
+    "id": 537,
+    "memberId": 80,
+    "teamId": 82,
+    "isCaptain": true
+  },
+  {
+    "id": 540,
+    "memberId": 29,
+    "teamId": 82
+  },
+  {
+    "id": 538,
+    "memberId": 4,
+    "teamId": 82
+  },
+  {
+    "id": 541,
+    "memberId": 4,
+    "teamId": 82
+  },
+  {
+    "id": 544,
+    "memberId": 61,
+    "teamId": 82
+  },
+  {
+    "id": 539,
+    "memberId": 25,
+    "teamId": 82
+  },
+  {
+    "id": 543,
+    "memberId": 37,
+    "teamId": 82
+  },
+  {
+    "id": 542,
+    "memberId": 77,
+    "teamId": 82
+  },
+  {
+    "id": 545,
+    "memberId": 29,
+    "teamId": 83,
+    "isCaptain": true
+  },
+  {
+    "id": 552,
+    "memberId": 45,
+    "teamId": 83
+  },
+  {
+    "id": 547,
+    "memberId": 50,
+    "teamId": 83
+  },
+  {
+    "id": 546,
+    "memberId": 71,
+    "teamId": 83
+  },
+  {
+    "id": 551,
+    "memberId": 88,
+    "teamId": 83
+  },
+  {
+    "id": 550,
+    "memberId": 50,
+    "teamId": 83
+  },
+  {
+    "id": 548,
+    "memberId": 75,
+    "teamId": 83
+  },
+  {
+    "id": 549,
+    "memberId": 53,
+    "teamId": 83
+  },
+  {
+    "id": 555,
+    "memberId": 6,
+    "teamId": 84,
+    "isCaptain": true
+  },
+  {
+    "id": 558,
+    "memberId": 10,
+    "teamId": 84
+  },
+  {
+    "id": 554,
+    "memberId": 1,
+    "teamId": 84
+  },
+  {
+    "id": 556,
+    "memberId": 32,
+    "teamId": 84
+  },
+  {
+    "id": 560,
+    "memberId": 58,
+    "teamId": 84
+  },
+  {
+    "id": 557,
+    "memberId": 30,
+    "teamId": 84
+  },
+  {
+    "id": 553,
+    "memberId": 54,
+    "teamId": 84
+  },
+  {
+    "id": 559,
+    "memberId": 65,
+    "teamId": 84
+  },
+  {
+    "id": 568,
+    "memberId": 86,
+    "teamId": 85
+  },
+  {
+    "id": 567,
+    "memberId": 99,
+    "teamId": 85,
+    "isCaptain": true
+  },
+  {
+    "id": 566,
+    "memberId": 64,
+    "teamId": 85
+  },
+  {
+    "id": 563,
+    "memberId": 9,
+    "teamId": 85
+  },
+  {
+    "id": 565,
+    "memberId": 34,
+    "teamId": 85
+  },
+  {
+    "id": 564,
+    "memberId": 2,
+    "teamId": 85
+  },
+  {
+    "id": 562,
+    "memberId": 72,
+    "teamId": 85
+  },
+  {
+    "id": 561,
+    "memberId": 70,
+    "teamId": 85
+  },
+  {
+    "id": 575,
+    "memberId": 47,
+    "teamId": 86
+  },
+  {
+    "id": 572,
+    "memberId": 27,
+    "teamId": 86
+  },
+  {
+    "id": 573,
+    "memberId": 59,
+    "teamId": 86
+  },
+  {
+    "id": 574,
+    "memberId": 68,
+    "teamId": 86,
+    "isCaptain": true
+  },
+  {
+    "id": 569,
+    "memberId": 77,
+    "teamId": 86
+  },
+  {
+    "id": 570,
+    "memberId": 11,
+    "teamId": 86
+  },
+  {
+    "id": 576,
+    "memberId": 14,
+    "teamId": 86
+  },
+  {
+    "id": 571,
+    "memberId": 99,
+    "teamId": 86
+  },
+  {
+    "id": 578,
+    "memberId": 76,
+    "teamId": 87,
+    "isCaptain": true
+  },
+  {
+    "id": 577,
+    "memberId": 27,
+    "teamId": 87
+  },
+  {
+    "id": 580,
+    "memberId": 84,
+    "teamId": 87
+  },
+  {
+    "id": 584,
+    "memberId": 68,
+    "teamId": 87
+  },
+  {
+    "id": 581,
+    "memberId": 20,
+    "teamId": 87
+  },
+  {
+    "id": 582,
+    "memberId": 69,
+    "teamId": 87
+  },
+  {
+    "id": 579,
+    "memberId": 14,
+    "teamId": 87
+  },
+  {
+    "id": 583,
+    "memberId": 76,
+    "teamId": 87
+  },
+  {
+    "id": 590,
+    "memberId": 68,
+    "teamId": 88,
+    "isCaptain": true
+  },
+  {
+    "id": 585,
+    "memberId": 48,
+    "teamId": 88
+  },
+  {
+    "id": 587,
+    "memberId": 80,
+    "teamId": 88
+  },
+  {
+    "id": 592,
+    "memberId": 7,
+    "teamId": 88
+  },
+  {
+    "id": 588,
+    "memberId": 20,
+    "teamId": 88
+  },
+  {
+    "id": 591,
+    "memberId": 78,
+    "teamId": 88
+  },
+  {
+    "id": 589,
+    "memberId": 8,
+    "teamId": 88
+  },
+  {
+    "id": 586,
+    "memberId": 18,
+    "teamId": 88
+  },
+  {
+    "id": 597,
+    "memberId": 86,
+    "teamId": 89
+  },
+  {
+    "id": 596,
+    "memberId": 68,
+    "teamId": 89
+  },
+  {
+    "id": 595,
+    "memberId": 2,
+    "teamId": 89
+  },
+  {
+    "id": 600,
+    "memberId": 32,
+    "teamId": 89,
+    "isCaptain": true
+  },
+  {
+    "id": 593,
+    "memberId": 102,
+    "teamId": 89
+  },
+  {
+    "id": 598,
+    "memberId": 28,
+    "teamId": 89
+  },
+  {
+    "id": 599,
+    "memberId": 77,
+    "teamId": 89
+  },
+  {
+    "id": 594,
+    "memberId": 72,
+    "teamId": 89
+  },
+  {
+    "id": 603,
+    "memberId": 7,
+    "teamId": 90
+  },
+  {
+    "id": 607,
+    "memberId": 63,
+    "teamId": 90,
+    "isCaptain": true
+  },
+  {
+    "id": 601,
+    "memberId": 40,
+    "teamId": 90
+  },
+  {
+    "id": 608,
+    "memberId": 56,
+    "teamId": 90
+  },
+  {
+    "id": 605,
+    "memberId": 63,
+    "teamId": 90
+  },
+  {
+    "id": 606,
+    "memberId": 4,
+    "teamId": 90
+  },
+  {
+    "id": 602,
+    "memberId": 50,
+    "teamId": 90
+  },
+  {
+    "id": 604,
+    "memberId": 81,
+    "teamId": 90
+  },
+  {
+    "id": 610,
+    "memberId": 97,
+    "teamId": 91
+  },
+  {
+    "id": 611,
+    "memberId": 72,
+    "teamId": 91
+  },
+  {
+    "id": 612,
+    "memberId": 12,
+    "teamId": 91,
+    "isCaptain": true
+  },
+  {
+    "id": 609,
+    "memberId": 44,
+    "teamId": 91
+  },
+  {
+    "id": 616,
+    "memberId": 51,
+    "teamId": 91
+  },
+  {
+    "id": 614,
+    "memberId": 62,
+    "teamId": 91
+  },
+  {
+    "id": 613,
+    "memberId": 48,
+    "teamId": 91
+  },
+  {
+    "id": 615,
+    "memberId": 53,
+    "teamId": 91
+  },
+  {
+    "id": 619,
+    "memberId": 2,
+    "teamId": 92
+  },
+  {
+    "id": 623,
+    "memberId": 52,
+    "teamId": 92
+  },
+  {
+    "id": 618,
+    "memberId": 36,
+    "teamId": 92,
+    "isCaptain": true
+  },
+  {
+    "id": 622,
+    "memberId": 86,
+    "teamId": 92
+  },
+  {
+    "id": 621,
+    "memberId": 26,
+    "teamId": 92
+  },
+  {
+    "id": 620,
+    "memberId": 75,
+    "teamId": 92
+  },
+  {
+    "id": 617,
+    "memberId": 16,
+    "teamId": 92
+  },
+  {
+    "id": 624,
+    "memberId": 61,
+    "teamId": 92
+  },
+  {
+    "id": 631,
+    "memberId": 26,
+    "teamId": 93
+  },
+  {
+    "id": 632,
+    "memberId": 42,
+    "teamId": 93,
+    "isCaptain": true
+  },
+  {
+    "id": 627,
+    "memberId": 7,
+    "teamId": 93
+  },
+  {
+    "id": 626,
+    "memberId": 76,
+    "teamId": 93
+  },
+  {
+    "id": 625,
+    "memberId": 84,
+    "teamId": 93
+  },
+  {
+    "id": 629,
+    "memberId": 81,
+    "teamId": 93
+  },
+  {
+    "id": 630,
+    "memberId": 14,
+    "teamId": 93
+  },
+  {
+    "id": 628,
+    "memberId": 58,
+    "teamId": 93
+  },
+  {
+    "id": 634,
+    "memberId": 5,
+    "teamId": 94
+  },
+  {
+    "id": 633,
+    "memberId": 46,
+    "teamId": 94
+  },
+  {
+    "id": 638,
+    "memberId": 88,
+    "teamId": 94,
+    "isCaptain": true
+  },
+  {
+    "id": 635,
+    "memberId": 90,
+    "teamId": 94
+  },
+  {
+    "id": 636,
+    "memberId": 31,
+    "teamId": 94
+  },
+  {
+    "id": 640,
+    "memberId": 33,
+    "teamId": 94
+  },
+  {
+    "id": 639,
+    "memberId": 19,
+    "teamId": 94
+  },
+  {
+    "id": 637,
+    "memberId": 74,
+    "teamId": 94
+  },
+  {
+    "id": 647,
+    "memberId": 53,
+    "teamId": 95
+  },
+  {
+    "id": 646,
+    "memberId": 75,
+    "teamId": 95,
+    "isCaptain": true
+  },
+  {
+    "id": 644,
+    "memberId": 80,
+    "teamId": 95
+  },
+  {
+    "id": 641,
+    "memberId": 32,
+    "teamId": 95
+  },
+  {
+    "id": 642,
+    "memberId": 64,
+    "teamId": 95
+  },
+  {
+    "id": 643,
+    "memberId": 95,
+    "teamId": 95
+  },
+  {
+    "id": 648,
+    "memberId": 6,
+    "teamId": 95
+  },
+  {
+    "id": 645,
+    "memberId": 31,
+    "teamId": 95
+  },
+  {
+    "id": 655,
+    "memberId": 81,
+    "teamId": 96,
+    "isCaptain": true
+  },
+  {
+    "id": 650,
+    "memberId": 64,
+    "teamId": 96
+  },
+  {
+    "id": 651,
+    "memberId": 76,
+    "teamId": 96
+  },
+  {
+    "id": 653,
+    "memberId": 36,
+    "teamId": 96
+  },
+  {
+    "id": 654,
+    "memberId": 37,
+    "teamId": 96
+  },
+  {
+    "id": 649,
+    "memberId": 10,
+    "teamId": 96
+  },
+  {
+    "id": 652,
+    "memberId": 48,
+    "teamId": 96
+  },
+  {
+    "id": 656,
+    "memberId": 47,
+    "teamId": 96
+  },
+  {
+    "id": 662,
+    "memberId": 12,
+    "teamId": 97
+  },
+  {
+    "id": 659,
+    "memberId": 20,
+    "teamId": 97,
+    "isCaptain": true
+  },
+  {
+    "id": 658,
+    "memberId": 10,
+    "teamId": 97
+  },
+  {
+    "id": 660,
+    "memberId": 47,
+    "teamId": 97
+  },
+  {
+    "id": 664,
+    "memberId": 21,
+    "teamId": 97
+  },
+  {
+    "id": 657,
+    "memberId": 31,
+    "teamId": 97
+  },
+  {
+    "id": 661,
+    "memberId": 96,
+    "teamId": 97
+  },
+  {
+    "id": 663,
+    "memberId": 10,
+    "teamId": 97
+  },
+  {
+    "id": 665,
+    "memberId": 11,
+    "teamId": 98
+  },
+  {
+    "id": 672,
+    "memberId": 71,
+    "teamId": 98
+  },
+  {
+    "id": 666,
+    "memberId": 24,
+    "teamId": 98,
+    "isCaptain": true
+  },
+  {
+    "id": 671,
+    "memberId": 96,
+    "teamId": 98
+  },
+  {
+    "id": 670,
+    "memberId": 55,
+    "teamId": 98
+  },
+  {
+    "id": 668,
+    "memberId": 73,
+    "teamId": 98
+  },
+  {
+    "id": 667,
+    "memberId": 96,
+    "teamId": 98
+  },
+  {
+    "id": 669,
+    "memberId": 68,
+    "teamId": 98
+  },
+  {
+    "id": 677,
+    "memberId": 60,
+    "teamId": 99
+  },
+  {
+    "id": 679,
+    "memberId": 8,
+    "teamId": 99
+  },
+  {
+    "id": 675,
+    "memberId": 28,
+    "teamId": 99
+  },
+  {
+    "id": 676,
+    "memberId": 85,
+    "teamId": 99
+  },
+  {
+    "id": 673,
+    "memberId": 98,
+    "teamId": 99
+  },
+  {
+    "id": 680,
+    "memberId": 2,
+    "teamId": 99
+  },
+  {
+    "id": 674,
+    "memberId": 102,
+    "teamId": 99,
+    "isCaptain": true
+  },
+  {
+    "id": 678,
+    "memberId": 13,
+    "teamId": 99
+  },
+  {
+    "id": 682,
+    "memberId": 38,
+    "teamId": 100
+  },
+  {
+    "id": 681,
+    "memberId": 52,
+    "teamId": 100
+  },
+  {
+    "id": 687,
+    "memberId": 85,
+    "teamId": 100
+  },
+  {
+    "id": 683,
+    "memberId": 5,
+    "teamId": 100,
+    "isCaptain": true
+  },
+  {
+    "id": 686,
+    "memberId": 83,
+    "teamId": 100
+  },
+  {
+    "id": 685,
+    "memberId": 44,
+    "teamId": 100
+  },
+  {
+    "id": 688,
+    "memberId": 27,
+    "teamId": 100
+  },
+  {
+    "id": 684,
+    "memberId": 85,
+    "teamId": 100
+  },
+  {
+    "id": 691,
+    "memberId": 10,
+    "teamId": 101
+  },
+  {
+    "id": 693,
+    "memberId": 35,
+    "teamId": 101
+  },
+  {
+    "id": 694,
+    "memberId": 1,
+    "teamId": 101,
+    "isCaptain": true
+  },
+  {
+    "id": 695,
+    "memberId": 78,
+    "teamId": 101
+  },
+  {
+    "id": 689,
+    "memberId": 18,
+    "teamId": 101
+  },
+  {
+    "id": 692,
+    "memberId": 85,
+    "teamId": 101
+  },
+  {
+    "id": 696,
+    "memberId": 102,
+    "teamId": 101
+  },
+  {
+    "id": 690,
+    "memberId": 20,
+    "teamId": 101
+  },
+  {
+    "id": 702,
+    "memberId": 53,
+    "teamId": 102,
+    "isCaptain": true
+  },
+  {
+    "id": 701,
+    "memberId": 63,
+    "teamId": 102
+  },
+  {
+    "id": 704,
+    "memberId": 32,
+    "teamId": 102
+  },
+  {
+    "id": 697,
+    "memberId": 30,
+    "teamId": 102
+  },
+  {
+    "id": 699,
+    "memberId": 19,
+    "teamId": 102
+  },
+  {
+    "id": 703,
+    "memberId": 64,
+    "teamId": 102
+  },
+  {
+    "id": 700,
+    "memberId": 74,
+    "teamId": 102
+  },
+  {
+    "id": 698,
+    "memberId": 26,
+    "teamId": 102
+  },
+  {
+    "id": 711,
+    "memberId": 59,
+    "teamId": 103
+  },
+  {
+    "id": 705,
+    "memberId": 24,
+    "teamId": 103
+  },
+  {
+    "id": 710,
+    "memberId": 53,
+    "teamId": 103
+  },
+  {
+    "id": 706,
+    "memberId": 83,
+    "teamId": 103
+  },
+  {
+    "id": 712,
+    "memberId": 3,
+    "teamId": 103,
+    "isCaptain": true
+  },
+  {
+    "id": 707,
+    "memberId": 8,
+    "teamId": 103
+  },
+  {
+    "id": 708,
+    "memberId": 13,
+    "teamId": 103
+  },
+  {
+    "id": 709,
+    "memberId": 43,
+    "teamId": 103
+  }
+]

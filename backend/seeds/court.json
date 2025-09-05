@@ -1,0 +1,1907 @@
+[
+  {
+    "name": "北投 羽球 1",
+    "centerId": 1,
+    "sportId": 2
+  },
+  {
+    "name": "北投 羽球 2",
+    "centerId": 1,
+    "sportId": 2
+  },
+  {
+    "name": "北投 羽球 3",
+    "centerId": 1,
+    "sportId": 2
+  },
+  {
+    "name": "北投 桌球 1",
+    "centerId": 1,
+    "sportId": 3
+  },
+  {
+    "name": "北投 桌球 2",
+    "centerId": 1,
+    "sportId": 3
+  },
+  {
+    "name": "北投 桌球 3",
+    "centerId": 1,
+    "sportId": 3
+  },
+  {
+    "name": "北投 排球 1",
+    "centerId": 1,
+    "sportId": 5
+  },
+  {
+    "name": "北投 排球 2",
+    "centerId": 1,
+    "sportId": 5
+  },
+  {
+    "name": "北投 排球 3",
+    "centerId": 1,
+    "sportId": 5
+  },
+  {
+    "name": "北投 壁球 1",
+    "centerId": 1,
+    "sportId": 6
+  },
+  {
+    "name": "北投 壁球 2",
+    "centerId": 1,
+    "sportId": 6
+  },
+  {
+    "name": "北投 壁球 3",
+    "centerId": 1,
+    "sportId": 6
+  },
+  {
+    "name": "北投 足球 1",
+    "centerId": 1,
+    "sportId": 7
+  },
+  {
+    "name": "北投 足球 2",
+    "centerId": 1,
+    "sportId": 7
+  },
+  {
+    "name": "北投 足球 3",
+    "centerId": 1,
+    "sportId": 7
+  },
+  {
+    "name": "北投 棒球 1",
+    "centerId": 1,
+    "sportId": 8
+  },
+  {
+    "name": "北投 棒球 2",
+    "centerId": 1,
+    "sportId": 8
+  },
+  {
+    "name": "北投 棒球 3",
+    "centerId": 1,
+    "sportId": 8
+  },
+  {
+    "name": "士林 籃球 1",
+    "centerId": 2,
+    "sportId": 1
+  },
+  {
+    "name": "士林 籃球 2",
+    "centerId": 2,
+    "sportId": 1
+  },
+  {
+    "name": "士林 籃球 3",
+    "centerId": 2,
+    "sportId": 1
+  },
+  {
+    "name": "士林 排球 1",
+    "centerId": 2,
+    "sportId": 5
+  },
+  {
+    "name": "士林 排球 2",
+    "centerId": 2,
+    "sportId": 5
+  },
+  {
+    "name": "士林 排球 3",
+    "centerId": 2,
+    "sportId": 5
+  },
+  {
+    "name": "士林 足球 1",
+    "centerId": 2,
+    "sportId": 7
+  },
+  {
+    "name": "士林 足球 2",
+    "centerId": 2,
+    "sportId": 7
+  },
+  {
+    "name": "士林 足球 3",
+    "centerId": 2,
+    "sportId": 7
+  },
+  {
+    "name": "士林 棒球 1",
+    "centerId": 2,
+    "sportId": 8
+  },
+  {
+    "name": "士林 棒球 2",
+    "centerId": 2,
+    "sportId": 8
+  },
+  {
+    "name": "士林 棒球 3",
+    "centerId": 2,
+    "sportId": 8
+  },
+  {
+    "name": "內湖 籃球 1",
+    "centerId": 3,
+    "sportId": 1
+  },
+  {
+    "name": "內湖 籃球 2",
+    "centerId": 3,
+    "sportId": 1
+  },
+  {
+    "name": "內湖 籃球 3",
+    "centerId": 3,
+    "sportId": 1
+  },
+  {
+    "name": "內湖 羽球 1",
+    "centerId": 3,
+    "sportId": 2
+  },
+  {
+    "name": "內湖 羽球 2",
+    "centerId": 3,
+    "sportId": 2
+  },
+  {
+    "name": "內湖 羽球 3",
+    "centerId": 3,
+    "sportId": 2
+  },
+  {
+    "name": "內湖 網球 1",
+    "centerId": 3,
+    "sportId": 4
+  },
+  {
+    "name": "內湖 網球 2",
+    "centerId": 3,
+    "sportId": 4
+  },
+  {
+    "name": "內湖 網球 3",
+    "centerId": 3,
+    "sportId": 4
+  },
+  {
+    "name": "內湖 足球 1",
+    "centerId": 3,
+    "sportId": 7
+  },
+  {
+    "name": "內湖 足球 2",
+    "centerId": 3,
+    "sportId": 7
+  },
+  {
+    "name": "內湖 足球 3",
+    "centerId": 3,
+    "sportId": 7
+  },
+  {
+    "name": "內湖 棒球 1",
+    "centerId": 3,
+    "sportId": 8
+  },
+  {
+    "name": "內湖 棒球 2",
+    "centerId": 3,
+    "sportId": 8
+  },
+  {
+    "name": "內湖 棒球 3",
+    "centerId": 3,
+    "sportId": 8
+  },
+  {
+    "name": "內湖 撞球 1",
+    "centerId": 3,
+    "sportId": 9
+  },
+  {
+    "name": "內湖 撞球 2",
+    "centerId": 3,
+    "sportId": 9
+  },
+  {
+    "name": "內湖 撞球 3",
+    "centerId": 3,
+    "sportId": 9
+  },
+  {
+    "name": "南港 籃球 1",
+    "centerId": 4,
+    "sportId": 1
+  },
+  {
+    "name": "南港 籃球 2",
+    "centerId": 4,
+    "sportId": 1
+  },
+  {
+    "name": "南港 籃球 3",
+    "centerId": 4,
+    "sportId": 1
+  },
+  {
+    "name": "南港 羽球 1",
+    "centerId": 4,
+    "sportId": 2
+  },
+  {
+    "name": "南港 羽球 2",
+    "centerId": 4,
+    "sportId": 2
+  },
+  {
+    "name": "南港 羽球 3",
+    "centerId": 4,
+    "sportId": 2
+  },
+  {
+    "name": "南港 桌球 1",
+    "centerId": 4,
+    "sportId": 3
+  },
+  {
+    "name": "南港 桌球 2",
+    "centerId": 4,
+    "sportId": 3
+  },
+  {
+    "name": "南港 桌球 3",
+    "centerId": 4,
+    "sportId": 3
+  },
+  {
+    "name": "南港 網球 1",
+    "centerId": 4,
+    "sportId": 4
+  },
+  {
+    "name": "南港 網球 2",
+    "centerId": 4,
+    "sportId": 4
+  },
+  {
+    "name": "南港 網球 3",
+    "centerId": 4,
+    "sportId": 4
+  },
+  {
+    "name": "南港 棒球 1",
+    "centerId": 4,
+    "sportId": 8
+  },
+  {
+    "name": "南港 棒球 2",
+    "centerId": 4,
+    "sportId": 8
+  },
+  {
+    "name": "南港 棒球 3",
+    "centerId": 4,
+    "sportId": 8
+  },
+  {
+    "name": "松山 羽球 1",
+    "centerId": 5,
+    "sportId": 2
+  },
+  {
+    "name": "松山 羽球 2",
+    "centerId": 5,
+    "sportId": 2
+  },
+  {
+    "name": "松山 羽球 3",
+    "centerId": 5,
+    "sportId": 2
+  },
+  {
+    "name": "松山 排球 1",
+    "centerId": 5,
+    "sportId": 5
+  },
+  {
+    "name": "松山 排球 2",
+    "centerId": 5,
+    "sportId": 5
+  },
+  {
+    "name": "松山 排球 3",
+    "centerId": 5,
+    "sportId": 5
+  },
+  {
+    "name": "松山 壁球 1",
+    "centerId": 5,
+    "sportId": 6
+  },
+  {
+    "name": "松山 壁球 2",
+    "centerId": 5,
+    "sportId": 6
+  },
+  {
+    "name": "松山 壁球 3",
+    "centerId": 5,
+    "sportId": 6
+  },
+  {
+    "name": "松山 足球 1",
+    "centerId": 5,
+    "sportId": 7
+  },
+  {
+    "name": "松山 足球 2",
+    "centerId": 5,
+    "sportId": 7
+  },
+  {
+    "name": "松山 足球 3",
+    "centerId": 5,
+    "sportId": 7
+  },
+  {
+    "name": "松山 撞球 1",
+    "centerId": 5,
+    "sportId": 9
+  },
+  {
+    "name": "松山 撞球 2",
+    "centerId": 5,
+    "sportId": 9
+  },
+  {
+    "name": "松山 撞球 3",
+    "centerId": 5,
+    "sportId": 9
+  },
+  {
+    "name": "信義 籃球 1",
+    "centerId": 6,
+    "sportId": 1
+  },
+  {
+    "name": "信義 籃球 2",
+    "centerId": 6,
+    "sportId": 1
+  },
+  {
+    "name": "信義 籃球 3",
+    "centerId": 6,
+    "sportId": 1
+  },
+  {
+    "name": "信義 網球 1",
+    "centerId": 6,
+    "sportId": 4
+  },
+  {
+    "name": "信義 網球 2",
+    "centerId": 6,
+    "sportId": 4
+  },
+  {
+    "name": "信義 網球 3",
+    "centerId": 6,
+    "sportId": 4
+  },
+  {
+    "name": "信義 排球 1",
+    "centerId": 6,
+    "sportId": 5
+  },
+  {
+    "name": "信義 排球 2",
+    "centerId": 6,
+    "sportId": 5
+  },
+  {
+    "name": "信義 排球 3",
+    "centerId": 6,
+    "sportId": 5
+  },
+  {
+    "name": "信義 壁球 1",
+    "centerId": 6,
+    "sportId": 6
+  },
+  {
+    "name": "信義 壁球 2",
+    "centerId": 6,
+    "sportId": 6
+  },
+  {
+    "name": "信義 壁球 3",
+    "centerId": 6,
+    "sportId": 6
+  },
+  {
+    "name": "信義 足球 1",
+    "centerId": 6,
+    "sportId": 7
+  },
+  {
+    "name": "信義 足球 2",
+    "centerId": 6,
+    "sportId": 7
+  },
+  {
+    "name": "信義 足球 3",
+    "centerId": 6,
+    "sportId": 7
+  },
+  {
+    "name": "信義 撞球 1",
+    "centerId": 6,
+    "sportId": 9
+  },
+  {
+    "name": "信義 撞球 2",
+    "centerId": 6,
+    "sportId": 9
+  },
+  {
+    "name": "信義 撞球 3",
+    "centerId": 6,
+    "sportId": 9
+  },
+  {
+    "name": "大同 羽球 1",
+    "centerId": 7,
+    "sportId": 2
+  },
+  {
+    "name": "大同 羽球 2",
+    "centerId": 7,
+    "sportId": 2
+  },
+  {
+    "name": "大同 羽球 3",
+    "centerId": 7,
+    "sportId": 2
+  },
+  {
+    "name": "大同 桌球 1",
+    "centerId": 7,
+    "sportId": 3
+  },
+  {
+    "name": "大同 桌球 2",
+    "centerId": 7,
+    "sportId": 3
+  },
+  {
+    "name": "大同 桌球 3",
+    "centerId": 7,
+    "sportId": 3
+  },
+  {
+    "name": "大同 撞球 1",
+    "centerId": 7,
+    "sportId": 9
+  },
+  {
+    "name": "大同 撞球 2",
+    "centerId": 7,
+    "sportId": 9
+  },
+  {
+    "name": "大同 撞球 3",
+    "centerId": 7,
+    "sportId": 9
+  },
+  {
+    "name": "中山 羽球 1",
+    "centerId": 8,
+    "sportId": 2
+  },
+  {
+    "name": "中山 羽球 2",
+    "centerId": 8,
+    "sportId": 2
+  },
+  {
+    "name": "中山 羽球 3",
+    "centerId": 8,
+    "sportId": 2
+  },
+  {
+    "name": "中山 桌球 1",
+    "centerId": 8,
+    "sportId": 3
+  },
+  {
+    "name": "中山 桌球 2",
+    "centerId": 8,
+    "sportId": 3
+  },
+  {
+    "name": "中山 桌球 3",
+    "centerId": 8,
+    "sportId": 3
+  },
+  {
+    "name": "中山 排球 1",
+    "centerId": 8,
+    "sportId": 5
+  },
+  {
+    "name": "中山 排球 2",
+    "centerId": 8,
+    "sportId": 5
+  },
+  {
+    "name": "中山 排球 3",
+    "centerId": 8,
+    "sportId": 5
+  },
+  {
+    "name": "中山 足球 1",
+    "centerId": 8,
+    "sportId": 7
+  },
+  {
+    "name": "中山 足球 2",
+    "centerId": 8,
+    "sportId": 7
+  },
+  {
+    "name": "中山 足球 3",
+    "centerId": 8,
+    "sportId": 7
+  },
+  {
+    "name": "萬華 羽球 1",
+    "centerId": 9,
+    "sportId": 2
+  },
+  {
+    "name": "萬華 羽球 2",
+    "centerId": 9,
+    "sportId": 2
+  },
+  {
+    "name": "萬華 羽球 3",
+    "centerId": 9,
+    "sportId": 2
+  },
+  {
+    "name": "萬華 桌球 1",
+    "centerId": 9,
+    "sportId": 3
+  },
+  {
+    "name": "萬華 桌球 2",
+    "centerId": 9,
+    "sportId": 3
+  },
+  {
+    "name": "萬華 桌球 3",
+    "centerId": 9,
+    "sportId": 3
+  },
+  {
+    "name": "萬華 排球 1",
+    "centerId": 9,
+    "sportId": 5
+  },
+  {
+    "name": "萬華 排球 2",
+    "centerId": 9,
+    "sportId": 5
+  },
+  {
+    "name": "萬華 排球 3",
+    "centerId": 9,
+    "sportId": 5
+  },
+  {
+    "name": "萬華 足球 1",
+    "centerId": 9,
+    "sportId": 7
+  },
+  {
+    "name": "萬華 足球 2",
+    "centerId": 9,
+    "sportId": 7
+  },
+  {
+    "name": "萬華 足球 3",
+    "centerId": 9,
+    "sportId": 7
+  },
+  {
+    "name": "萬華 撞球 1",
+    "centerId": 9,
+    "sportId": 9
+  },
+  {
+    "name": "萬華 撞球 2",
+    "centerId": 9,
+    "sportId": 9
+  },
+  {
+    "name": "萬華 撞球 3",
+    "centerId": 9,
+    "sportId": 9
+  },
+  {
+    "name": "中正 足球 1",
+    "centerId": 10,
+    "sportId": 7
+  },
+  {
+    "name": "中正 足球 2",
+    "centerId": 10,
+    "sportId": 7
+  },
+  {
+    "name": "中正 足球 3",
+    "centerId": 10,
+    "sportId": 7
+  },
+  {
+    "name": "中正 棒球 1",
+    "centerId": 10,
+    "sportId": 8
+  },
+  {
+    "name": "中正 棒球 2",
+    "centerId": 10,
+    "sportId": 8
+  },
+  {
+    "name": "中正 棒球 3",
+    "centerId": 10,
+    "sportId": 8
+  },
+  {
+    "name": "中正 撞球 1",
+    "centerId": 10,
+    "sportId": 9
+  },
+  {
+    "name": "中正 撞球 2",
+    "centerId": 10,
+    "sportId": 9
+  },
+  {
+    "name": "中正 撞球 3",
+    "centerId": 10,
+    "sportId": 9
+  },
+  {
+    "name": "大安 籃球 1",
+    "centerId": 11,
+    "sportId": 1
+  },
+  {
+    "name": "大安 籃球 2",
+    "centerId": 11,
+    "sportId": 1
+  },
+  {
+    "name": "大安 籃球 3",
+    "centerId": 11,
+    "sportId": 1
+  },
+  {
+    "name": "大安 羽球 1",
+    "centerId": 11,
+    "sportId": 2
+  },
+  {
+    "name": "大安 羽球 2",
+    "centerId": 11,
+    "sportId": 2
+  },
+  {
+    "name": "大安 羽球 3",
+    "centerId": 11,
+    "sportId": 2
+  },
+  {
+    "name": "大安 桌球 1",
+    "centerId": 11,
+    "sportId": 3
+  },
+  {
+    "name": "大安 桌球 2",
+    "centerId": 11,
+    "sportId": 3
+  },
+  {
+    "name": "大安 桌球 3",
+    "centerId": 11,
+    "sportId": 3
+  },
+  {
+    "name": "大安 網球 1",
+    "centerId": 11,
+    "sportId": 4
+  },
+  {
+    "name": "大安 網球 2",
+    "centerId": 11,
+    "sportId": 4
+  },
+  {
+    "name": "大安 網球 3",
+    "centerId": 11,
+    "sportId": 4
+  },
+  {
+    "name": "大安 足球 1",
+    "centerId": 11,
+    "sportId": 7
+  },
+  {
+    "name": "大安 足球 2",
+    "centerId": 11,
+    "sportId": 7
+  },
+  {
+    "name": "大安 足球 3",
+    "centerId": 11,
+    "sportId": 7
+  },
+  {
+    "name": "文山 羽球 1",
+    "centerId": 12,
+    "sportId": 2
+  },
+  {
+    "name": "文山 羽球 2",
+    "centerId": 12,
+    "sportId": 2
+  },
+  {
+    "name": "文山 羽球 3",
+    "centerId": 12,
+    "sportId": 2
+  },
+  {
+    "name": "文山 網球 1",
+    "centerId": 12,
+    "sportId": 4
+  },
+  {
+    "name": "文山 網球 2",
+    "centerId": 12,
+    "sportId": 4
+  },
+  {
+    "name": "文山 網球 3",
+    "centerId": 12,
+    "sportId": 4
+  },
+  {
+    "name": "文山 壁球 1",
+    "centerId": 12,
+    "sportId": 6
+  },
+  {
+    "name": "文山 壁球 2",
+    "centerId": 12,
+    "sportId": 6
+  },
+  {
+    "name": "文山 壁球 3",
+    "centerId": 12,
+    "sportId": 6
+  },
+  {
+    "name": "文山 撞球 1",
+    "centerId": 12,
+    "sportId": 9
+  },
+  {
+    "name": "文山 撞球 2",
+    "centerId": 12,
+    "sportId": 9
+  },
+  {
+    "name": "文山 撞球 3",
+    "centerId": 12,
+    "sportId": 9
+  },
+  {
+    "name": "新莊 籃球 1",
+    "centerId": 13,
+    "sportId": 1
+  },
+  {
+    "name": "新莊 籃球 2",
+    "centerId": 13,
+    "sportId": 1
+  },
+  {
+    "name": "新莊 籃球 3",
+    "centerId": 13,
+    "sportId": 1
+  },
+  {
+    "name": "新莊 桌球 1",
+    "centerId": 13,
+    "sportId": 3
+  },
+  {
+    "name": "新莊 桌球 2",
+    "centerId": 13,
+    "sportId": 3
+  },
+  {
+    "name": "新莊 桌球 3",
+    "centerId": 13,
+    "sportId": 3
+  },
+  {
+    "name": "新莊 網球 1",
+    "centerId": 13,
+    "sportId": 4
+  },
+  {
+    "name": "新莊 網球 2",
+    "centerId": 13,
+    "sportId": 4
+  },
+  {
+    "name": "新莊 網球 3",
+    "centerId": 13,
+    "sportId": 4
+  },
+  {
+    "name": "蘆洲 籃球 1",
+    "centerId": 14,
+    "sportId": 1
+  },
+  {
+    "name": "蘆洲 籃球 2",
+    "centerId": 14,
+    "sportId": 1
+  },
+  {
+    "name": "蘆洲 籃球 3",
+    "centerId": 14,
+    "sportId": 1
+  },
+  {
+    "name": "蘆洲 羽球 1",
+    "centerId": 14,
+    "sportId": 2
+  },
+  {
+    "name": "蘆洲 羽球 2",
+    "centerId": 14,
+    "sportId": 2
+  },
+  {
+    "name": "蘆洲 羽球 3",
+    "centerId": 14,
+    "sportId": 2
+  },
+  {
+    "name": "蘆洲 排球 1",
+    "centerId": 14,
+    "sportId": 5
+  },
+  {
+    "name": "蘆洲 排球 2",
+    "centerId": 14,
+    "sportId": 5
+  },
+  {
+    "name": "蘆洲 排球 3",
+    "centerId": 14,
+    "sportId": 5
+  },
+  {
+    "name": "蘆洲 棒球 1",
+    "centerId": 14,
+    "sportId": 8
+  },
+  {
+    "name": "蘆洲 棒球 2",
+    "centerId": 14,
+    "sportId": 8
+  },
+  {
+    "name": "蘆洲 棒球 3",
+    "centerId": 14,
+    "sportId": 8
+  },
+  {
+    "name": "淡水 羽球 1",
+    "centerId": 15,
+    "sportId": 2
+  },
+  {
+    "name": "淡水 羽球 2",
+    "centerId": 15,
+    "sportId": 2
+  },
+  {
+    "name": "淡水 羽球 3",
+    "centerId": 15,
+    "sportId": 2
+  },
+  {
+    "name": "淡水 桌球 1",
+    "centerId": 15,
+    "sportId": 3
+  },
+  {
+    "name": "淡水 桌球 2",
+    "centerId": 15,
+    "sportId": 3
+  },
+  {
+    "name": "淡水 桌球 3",
+    "centerId": 15,
+    "sportId": 3
+  },
+  {
+    "name": "淡水 網球 1",
+    "centerId": 15,
+    "sportId": 4
+  },
+  {
+    "name": "淡水 網球 2",
+    "centerId": 15,
+    "sportId": 4
+  },
+  {
+    "name": "淡水 網球 3",
+    "centerId": 15,
+    "sportId": 4
+  },
+  {
+    "name": "淡水 足球 1",
+    "centerId": 15,
+    "sportId": 7
+  },
+  {
+    "name": "淡水 足球 2",
+    "centerId": 15,
+    "sportId": 7
+  },
+  {
+    "name": "淡水 足球 3",
+    "centerId": 15,
+    "sportId": 7
+  },
+  {
+    "name": "淡水 棒球 1",
+    "centerId": 15,
+    "sportId": 8
+  },
+  {
+    "name": "淡水 棒球 2",
+    "centerId": 15,
+    "sportId": 8
+  },
+  {
+    "name": "淡水 棒球 3",
+    "centerId": 15,
+    "sportId": 8
+  },
+  {
+    "name": "三重 桌球 1",
+    "centerId": 16,
+    "sportId": 3
+  },
+  {
+    "name": "三重 桌球 2",
+    "centerId": 16,
+    "sportId": 3
+  },
+  {
+    "name": "三重 桌球 3",
+    "centerId": 16,
+    "sportId": 3
+  },
+  {
+    "name": "三重 網球 1",
+    "centerId": 16,
+    "sportId": 4
+  },
+  {
+    "name": "三重 網球 2",
+    "centerId": 16,
+    "sportId": 4
+  },
+  {
+    "name": "三重 網球 3",
+    "centerId": 16,
+    "sportId": 4
+  },
+  {
+    "name": "三重 壁球 1",
+    "centerId": 16,
+    "sportId": 6
+  },
+  {
+    "name": "三重 壁球 2",
+    "centerId": 16,
+    "sportId": 6
+  },
+  {
+    "name": "三重 壁球 3",
+    "centerId": 16,
+    "sportId": 6
+  },
+  {
+    "name": "三重 足球 1",
+    "centerId": 16,
+    "sportId": 7
+  },
+  {
+    "name": "三重 足球 2",
+    "centerId": 16,
+    "sportId": 7
+  },
+  {
+    "name": "三重 足球 3",
+    "centerId": 16,
+    "sportId": 7
+  },
+  {
+    "name": "三重 撞球 1",
+    "centerId": 16,
+    "sportId": 9
+  },
+  {
+    "name": "三重 撞球 2",
+    "centerId": 16,
+    "sportId": 9
+  },
+  {
+    "name": "三重 撞球 3",
+    "centerId": 16,
+    "sportId": 9
+  },
+  {
+    "name": "土城 籃球 1",
+    "centerId": 17,
+    "sportId": 1
+  },
+  {
+    "name": "土城 籃球 2",
+    "centerId": 17,
+    "sportId": 1
+  },
+  {
+    "name": "土城 籃球 3",
+    "centerId": 17,
+    "sportId": 1
+  },
+  {
+    "name": "土城 桌球 1",
+    "centerId": 17,
+    "sportId": 3
+  },
+  {
+    "name": "土城 桌球 2",
+    "centerId": 17,
+    "sportId": 3
+  },
+  {
+    "name": "土城 桌球 3",
+    "centerId": 17,
+    "sportId": 3
+  },
+  {
+    "name": "土城 壁球 1",
+    "centerId": 17,
+    "sportId": 6
+  },
+  {
+    "name": "土城 壁球 2",
+    "centerId": 17,
+    "sportId": 6
+  },
+  {
+    "name": "土城 壁球 3",
+    "centerId": 17,
+    "sportId": 6
+  },
+  {
+    "name": "土城 棒球 1",
+    "centerId": 17,
+    "sportId": 8
+  },
+  {
+    "name": "土城 棒球 2",
+    "centerId": 17,
+    "sportId": 8
+  },
+  {
+    "name": "土城 棒球 3",
+    "centerId": 17,
+    "sportId": 8
+  },
+  {
+    "name": "土城 撞球 1",
+    "centerId": 17,
+    "sportId": 9
+  },
+  {
+    "name": "土城 撞球 2",
+    "centerId": 17,
+    "sportId": 9
+  },
+  {
+    "name": "土城 撞球 3",
+    "centerId": 17,
+    "sportId": 9
+  },
+  {
+    "name": "中和 網球 1",
+    "centerId": 18,
+    "sportId": 4
+  },
+  {
+    "name": "中和 網球 2",
+    "centerId": 18,
+    "sportId": 4
+  },
+  {
+    "name": "中和 網球 3",
+    "centerId": 18,
+    "sportId": 4
+  },
+  {
+    "name": "中和 壁球 1",
+    "centerId": 18,
+    "sportId": 6
+  },
+  {
+    "name": "中和 壁球 2",
+    "centerId": 18,
+    "sportId": 6
+  },
+  {
+    "name": "中和 壁球 3",
+    "centerId": 18,
+    "sportId": 6
+  },
+  {
+    "name": "中和 撞球 1",
+    "centerId": 18,
+    "sportId": 9
+  },
+  {
+    "name": "中和 撞球 2",
+    "centerId": 18,
+    "sportId": 9
+  },
+  {
+    "name": "中和 撞球 3",
+    "centerId": 18,
+    "sportId": 9
+  },
+  {
+    "name": "板橋 羽球 1",
+    "centerId": 19,
+    "sportId": 2
+  },
+  {
+    "name": "板橋 羽球 2",
+    "centerId": 19,
+    "sportId": 2
+  },
+  {
+    "name": "板橋 羽球 3",
+    "centerId": 19,
+    "sportId": 2
+  },
+  {
+    "name": "板橋 桌球 1",
+    "centerId": 19,
+    "sportId": 3
+  },
+  {
+    "name": "板橋 桌球 2",
+    "centerId": 19,
+    "sportId": 3
+  },
+  {
+    "name": "板橋 桌球 3",
+    "centerId": 19,
+    "sportId": 3
+  },
+  {
+    "name": "板橋 撞球 1",
+    "centerId": 19,
+    "sportId": 9
+  },
+  {
+    "name": "板橋 撞球 2",
+    "centerId": 19,
+    "sportId": 9
+  },
+  {
+    "name": "板橋 撞球 3",
+    "centerId": 19,
+    "sportId": 9
+  },
+  {
+    "name": "泰山 網球 1",
+    "centerId": 20,
+    "sportId": 4
+  },
+  {
+    "name": "泰山 網球 2",
+    "centerId": 20,
+    "sportId": 4
+  },
+  {
+    "name": "泰山 網球 3",
+    "centerId": 20,
+    "sportId": 4
+  },
+  {
+    "name": "泰山 排球 1",
+    "centerId": 20,
+    "sportId": 5
+  },
+  {
+    "name": "泰山 排球 2",
+    "centerId": 20,
+    "sportId": 5
+  },
+  {
+    "name": "泰山 排球 3",
+    "centerId": 20,
+    "sportId": 5
+  },
+  {
+    "name": "泰山 壁球 1",
+    "centerId": 20,
+    "sportId": 6
+  },
+  {
+    "name": "泰山 壁球 2",
+    "centerId": 20,
+    "sportId": 6
+  },
+  {
+    "name": "泰山 壁球 3",
+    "centerId": 20,
+    "sportId": 6
+  },
+  {
+    "name": "泰山 足球 1",
+    "centerId": 20,
+    "sportId": 7
+  },
+  {
+    "name": "泰山 足球 2",
+    "centerId": 20,
+    "sportId": 7
+  },
+  {
+    "name": "泰山 足球 3",
+    "centerId": 20,
+    "sportId": 7
+  },
+  {
+    "name": "泰山 撞球 1",
+    "centerId": 20,
+    "sportId": 9
+  },
+  {
+    "name": "泰山 撞球 2",
+    "centerId": 20,
+    "sportId": 9
+  },
+  {
+    "name": "泰山 撞球 3",
+    "centerId": 20,
+    "sportId": 9
+  },
+  {
+    "name": "永和 籃球 1",
+    "centerId": 21,
+    "sportId": 1
+  },
+  {
+    "name": "永和 籃球 2",
+    "centerId": 21,
+    "sportId": 1
+  },
+  {
+    "name": "永和 籃球 3",
+    "centerId": 21,
+    "sportId": 1
+  },
+  {
+    "name": "永和 羽球 1",
+    "centerId": 21,
+    "sportId": 2
+  },
+  {
+    "name": "永和 羽球 2",
+    "centerId": 21,
+    "sportId": 2
+  },
+  {
+    "name": "永和 羽球 3",
+    "centerId": 21,
+    "sportId": 2
+  },
+  {
+    "name": "永和 壁球 1",
+    "centerId": 21,
+    "sportId": 6
+  },
+  {
+    "name": "永和 壁球 2",
+    "centerId": 21,
+    "sportId": 6
+  },
+  {
+    "name": "永和 壁球 3",
+    "centerId": 21,
+    "sportId": 6
+  },
+  {
+    "name": "永和 足球 1",
+    "centerId": 21,
+    "sportId": 7
+  },
+  {
+    "name": "永和 足球 2",
+    "centerId": 21,
+    "sportId": 7
+  },
+  {
+    "name": "永和 足球 3",
+    "centerId": 21,
+    "sportId": 7
+  },
+  {
+    "name": "汐止 網球 1",
+    "centerId": 22,
+    "sportId": 4
+  },
+  {
+    "name": "汐止 網球 2",
+    "centerId": 22,
+    "sportId": 4
+  },
+  {
+    "name": "汐止 網球 3",
+    "centerId": 22,
+    "sportId": 4
+  },
+  {
+    "name": "汐止 排球 1",
+    "centerId": 22,
+    "sportId": 5
+  },
+  {
+    "name": "汐止 排球 2",
+    "centerId": 22,
+    "sportId": 5
+  },
+  {
+    "name": "汐止 排球 3",
+    "centerId": 22,
+    "sportId": 5
+  },
+  {
+    "name": "汐止 足球 1",
+    "centerId": 22,
+    "sportId": 7
+  },
+  {
+    "name": "汐止 足球 2",
+    "centerId": 22,
+    "sportId": 7
+  },
+  {
+    "name": "汐止 足球 3",
+    "centerId": 22,
+    "sportId": 7
+  },
+  {
+    "name": "汐止 棒球 1",
+    "centerId": 22,
+    "sportId": 8
+  },
+  {
+    "name": "汐止 棒球 2",
+    "centerId": 22,
+    "sportId": 8
+  },
+  {
+    "name": "汐止 棒球 3",
+    "centerId": 22,
+    "sportId": 8
+  },
+  {
+    "name": "樹林 桌球 1",
+    "centerId": 23,
+    "sportId": 3
+  },
+  {
+    "name": "樹林 桌球 2",
+    "centerId": 23,
+    "sportId": 3
+  },
+  {
+    "name": "樹林 桌球 3",
+    "centerId": 23,
+    "sportId": 3
+  },
+  {
+    "name": "樹林 網球 1",
+    "centerId": 23,
+    "sportId": 4
+  },
+  {
+    "name": "樹林 網球 2",
+    "centerId": 23,
+    "sportId": 4
+  },
+  {
+    "name": "樹林 網球 3",
+    "centerId": 23,
+    "sportId": 4
+  },
+  {
+    "name": "樹林 排球 1",
+    "centerId": 23,
+    "sportId": 5
+  },
+  {
+    "name": "樹林 排球 2",
+    "centerId": 23,
+    "sportId": 5
+  },
+  {
+    "name": "樹林 排球 3",
+    "centerId": 23,
+    "sportId": 5
+  },
+  {
+    "name": "樹林 壁球 1",
+    "centerId": 23,
+    "sportId": 6
+  },
+  {
+    "name": "樹林 壁球 2",
+    "centerId": 23,
+    "sportId": 6
+  },
+  {
+    "name": "樹林 壁球 3",
+    "centerId": 23,
+    "sportId": 6
+  },
+  {
+    "name": "樹林 撞球 1",
+    "centerId": 23,
+    "sportId": 9
+  },
+  {
+    "name": "樹林 撞球 2",
+    "centerId": 23,
+    "sportId": 9
+  },
+  {
+    "name": "樹林 撞球 3",
+    "centerId": 23,
+    "sportId": 9
+  },
+  {
+    "name": "鶯歌 籃球 1",
+    "centerId": 24,
+    "sportId": 1
+  },
+  {
+    "name": "鶯歌 籃球 2",
+    "centerId": 24,
+    "sportId": 1
+  },
+  {
+    "name": "鶯歌 籃球 3",
+    "centerId": 24,
+    "sportId": 1
+  },
+  {
+    "name": "鶯歌 排球 1",
+    "centerId": 24,
+    "sportId": 5
+  },
+  {
+    "name": "鶯歌 排球 2",
+    "centerId": 24,
+    "sportId": 5
+  },
+  {
+    "name": "鶯歌 排球 3",
+    "centerId": 24,
+    "sportId": 5
+  },
+  {
+    "name": "鶯歌 棒球 1",
+    "centerId": 24,
+    "sportId": 8
+  },
+  {
+    "name": "鶯歌 棒球 2",
+    "centerId": 24,
+    "sportId": 8
+  },
+  {
+    "name": "鶯歌 棒球 3",
+    "centerId": 24,
+    "sportId": 8
+  },
+  {
+    "name": "鶯歌 撞球 1",
+    "centerId": 24,
+    "sportId": 9
+  },
+  {
+    "name": "鶯歌 撞球 2",
+    "centerId": 24,
+    "sportId": 9
+  },
+  {
+    "name": "鶯歌 撞球 3",
+    "centerId": 24,
+    "sportId": 9
+  },
+  {
+    "name": "三峽 羽球 1",
+    "centerId": 25,
+    "sportId": 2
+  },
+  {
+    "name": "三峽 羽球 2",
+    "centerId": 25,
+    "sportId": 2
+  },
+  {
+    "name": "三峽 羽球 3",
+    "centerId": 25,
+    "sportId": 2
+  },
+  {
+    "name": "三峽 桌球 1",
+    "centerId": 25,
+    "sportId": 3
+  },
+  {
+    "name": "三峽 桌球 2",
+    "centerId": 25,
+    "sportId": 3
+  },
+  {
+    "name": "三峽 桌球 3",
+    "centerId": 25,
+    "sportId": 3
+  },
+  {
+    "name": "三峽 足球 1",
+    "centerId": 25,
+    "sportId": 7
+  },
+  {
+    "name": "三峽 足球 2",
+    "centerId": 25,
+    "sportId": 7
+  },
+  {
+    "name": "三峽 足球 3",
+    "centerId": 25,
+    "sportId": 7
+  },
+  {
+    "name": "三峽 棒球 1",
+    "centerId": 25,
+    "sportId": 8
+  },
+  {
+    "name": "三峽 棒球 2",
+    "centerId": 25,
+    "sportId": 8
+  },
+  {
+    "name": "三峽 棒球 3",
+    "centerId": 25,
+    "sportId": 8
+  },
+  {
+    "name": "三峽 撞球 1",
+    "centerId": 25,
+    "sportId": 9
+  },
+  {
+    "name": "三峽 撞球 2",
+    "centerId": 25,
+    "sportId": 9
+  },
+  {
+    "name": "三峽 撞球 3",
+    "centerId": 25,
+    "sportId": 9
+  },
+  {
+    "name": "林口 籃球 1",
+    "centerId": 26,
+    "sportId": 1
+  },
+  {
+    "name": "林口 籃球 2",
+    "centerId": 26,
+    "sportId": 1
+  },
+  {
+    "name": "林口 籃球 3",
+    "centerId": 26,
+    "sportId": 1
+  },
+  {
+    "name": "林口 羽球 1",
+    "centerId": 26,
+    "sportId": 2
+  },
+  {
+    "name": "林口 羽球 2",
+    "centerId": 26,
+    "sportId": 2
+  },
+  {
+    "name": "林口 羽球 3",
+    "centerId": 26,
+    "sportId": 2
+  },
+  {
+    "name": "林口 桌球 1",
+    "centerId": 26,
+    "sportId": 3
+  },
+  {
+    "name": "林口 桌球 2",
+    "centerId": 26,
+    "sportId": 3
+  },
+  {
+    "name": "林口 桌球 3",
+    "centerId": 26,
+    "sportId": 3
+  },
+  {
+    "name": "林口 壁球 1",
+    "centerId": 26,
+    "sportId": 6
+  },
+  {
+    "name": "林口 壁球 2",
+    "centerId": 26,
+    "sportId": 6
+  },
+  {
+    "name": "林口 壁球 3",
+    "centerId": 26,
+    "sportId": 6
+  },
+  {
+    "name": "五股 籃球 1",
+    "centerId": 27,
+    "sportId": 1
+  },
+  {
+    "name": "五股 籃球 2",
+    "centerId": 27,
+    "sportId": 1
+  },
+  {
+    "name": "五股 籃球 3",
+    "centerId": 27,
+    "sportId": 1
+  },
+  {
+    "name": "五股 羽球 1",
+    "centerId": 27,
+    "sportId": 2
+  },
+  {
+    "name": "五股 羽球 2",
+    "centerId": 27,
+    "sportId": 2
+  },
+  {
+    "name": "五股 羽球 3",
+    "centerId": 27,
+    "sportId": 2
+  },
+  {
+    "name": "五股 桌球 1",
+    "centerId": 27,
+    "sportId": 3
+  },
+  {
+    "name": "五股 桌球 2",
+    "centerId": 27,
+    "sportId": 3
+  },
+  {
+    "name": "五股 桌球 3",
+    "centerId": 27,
+    "sportId": 3
+  },
+  {
+    "name": "五股 網球 1",
+    "centerId": 27,
+    "sportId": 4
+  },
+  {
+    "name": "五股 網球 2",
+    "centerId": 27,
+    "sportId": 4
+  },
+  {
+    "name": "五股 網球 3",
+    "centerId": 27,
+    "sportId": 4
+  },
+  {
+    "name": "五股 足球 1",
+    "centerId": 27,
+    "sportId": 7
+  },
+  {
+    "name": "五股 足球 2",
+    "centerId": 27,
+    "sportId": 7
+  },
+  {
+    "name": "五股 足球 3",
+    "centerId": 27,
+    "sportId": 7
+  },
+  {
+    "name": "五股 撞球 1",
+    "centerId": 27,
+    "sportId": 9
+  },
+  {
+    "name": "五股 撞球 2",
+    "centerId": 27,
+    "sportId": 9
+  },
+  {
+    "name": "五股 撞球 3",
+    "centerId": 27,
+    "sportId": 9
+  },
+  {
+    "name": "新店 籃球 1",
+    "centerId": 28,
+    "sportId": 1
+  },
+  {
+    "name": "新店 籃球 2",
+    "centerId": 28,
+    "sportId": 1
+  },
+  {
+    "name": "新店 籃球 3",
+    "centerId": 28,
+    "sportId": 1
+  },
+  {
+    "name": "新店 羽球 1",
+    "centerId": 28,
+    "sportId": 2
+  },
+  {
+    "name": "新店 羽球 2",
+    "centerId": 28,
+    "sportId": 2
+  },
+  {
+    "name": "新店 羽球 3",
+    "centerId": 28,
+    "sportId": 2
+  },
+  {
+    "name": "新店 排球 1",
+    "centerId": 28,
+    "sportId": 5
+  },
+  {
+    "name": "新店 排球 2",
+    "centerId": 28,
+    "sportId": 5
+  },
+  {
+    "name": "新店 排球 3",
+    "centerId": 28,
+    "sportId": 5
+  },
+  {
+    "name": "新店 足球 1",
+    "centerId": 28,
+    "sportId": 7
+  },
+  {
+    "name": "新店 足球 2",
+    "centerId": 28,
+    "sportId": 7
+  },
+  {
+    "name": "新店 足球 3",
+    "centerId": 28,
+    "sportId": 7
+  },
+  {
+    "name": "新店 棒球 1",
+    "centerId": 28,
+    "sportId": 8
+  },
+  {
+    "name": "新店 棒球 2",
+    "centerId": 28,
+    "sportId": 8
+  },
+  {
+    "name": "新店 棒球 3",
+    "centerId": 28,
+    "sportId": 8
+  },
+  {
+    "name": "新店 撞球 1",
+    "centerId": 28,
+    "sportId": 9
+  },
+  {
+    "name": "新店 撞球 2",
+    "centerId": 28,
+    "sportId": 9
+  },
+  {
+    "name": "新店 撞球 3",
+    "centerId": 28,
+    "sportId": 9
+  }
+]
