@@ -730,7 +730,6 @@ export default function ProductPaymentPage() {
                       }
                       options={[
                         paymentOptions[0],
-                        paymentOptions[1],
                         paymentOptions[2],
                       ]}
                       errors={errors}
