@@ -483,7 +483,7 @@ function ProductListContent() {
       <section className="px-4 md:px-6 py-3 md:py-10">
         <div className="flex container mx-auto max-w-screen-xl min-h-screen">
           {/* 桌機側邊欄 */}
-          <div className="flex w-48 pr-8 hidden md:block">
+          <div className="w-48 pr-8 hidden md:block">
             <div className="mb-8">
               <p className="text-xl font-bold mb-4 text-foreground">運動類型</p>
               <div className="space-y-2">
