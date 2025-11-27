@@ -69,11 +69,12 @@ const MobileSidebar = ({
   clearAllFilters,
   onApplyFilters,
 }) => {
+  // ===== 狀態管理 =====
   const [localSports, setLocalSports] = useState(selectedSports)
   const [localBrands, setLocalBrands] = useState(selectedBrands)
   const [localPrice, setLocalPrice] = useState(priceRange)
 
-  // 當外部狀態變動時同步
+  // ===== 副作用處理 =====
   useEffect(() => {
     setLocalSports(selectedSports)
   }, [selectedSports])
@@ -84,17 +85,20 @@ const MobileSidebar = ({
     setLocalPrice(priceRange)
   }, [priceRange])
 
+  // 函式
+  // 運動類型變動
   const handleSportChange = (id, checked) => {
     setLocalSports((prev) =>
       checked ? [...prev, id] : prev.filter((sportId) => sportId !== id)
     )
   }
+  // 品牌變動
   const handleBrandChange = (id, checked) => {
     setLocalBrands((prev) =>
       checked ? [...prev, id] : prev.filter((brandId) => brandId !== id)
     )
   }
-
+  // 按下篩選
   const handleApply = () => {
     onApplyFilters({
       sports: localSports,
@@ -103,7 +107,7 @@ const MobileSidebar = ({
     })
     onClose(false)
   }
-
+  // 清除篩選
   const handleClear = () => {
     setLocalSports([])
     setLocalBrands([])
@@ -192,6 +196,7 @@ const MobileSidebar = ({
             </div>
           </Accordion>
         </div>
+        {/* 按鈕區塊 */}
         <div className="p-4 flex flex-col gap-2">
           <Button variant="outline" onClick={handleClear} className="flex-1">
             清除篩選
@@ -205,14 +210,13 @@ const MobileSidebar = ({
   )
 }
 
-// 將使用 useSearchParams 的邏輯抽取到單獨的組件
 function ProductListContent() {
   // ===== 路由和搜尋參數處理 =====
   const searchParams = useSearchParams()
   const router = useRouter()
   const { isAuthenticated } = useAuth()
 
-  // ===== 組件狀態管理 =====
+  // ===== 狀態管理 =====
   const [members, setMembers] = useState([])
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sports, setSports] = useState([])
