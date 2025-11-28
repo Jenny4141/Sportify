@@ -3,12 +3,34 @@ import { orderSchema } from '../../utils/zod-schema.js'
 import moment from 'moment-timezone'
 import { createInvoiceNumber } from '../../utils/createInvoiceNumber.js'
 
-// 創建訂單 (前台用戶結帳)
+/**
+ * 創建用戶訂單 - 前台結帳流程的核心函數
+ * 這是整個電商系統最複雜的功能，涵蓋：
+ * - 訂單資料驗證
+ * - 庫存檢查與更新
+ * - 交易一致性保證
+ * - 訂單編號生成
+ * - 購物車清空
+ *
+ * 交易流程：
+ * 1. 驗證訂單資料 (Zod schema)
+ * 2. 並行產生發票號碼、驗證庫存、計算運費
+ * 3. 更新商品庫存 (先扣庫存再創訂單)
+ * 4. 使用資料庫交易創建訂單
+ * 5. 生成訂單編號並清空購物車
+ *
+ * @param {Object} params - 參數物件
+ * @param {string|BigInt} memberId - 會員ID
+ * @param {Object} orderData - 訂單資料 (收件人、付款方式、配送方式等)
+ * @param {Array} cartItems - 購物車項目列表 [{productId, quantity}, ...]
+ * @returns {Object} 包含訂單資訊的回應物件
+ */
 export const createUserOrder = async ({ memberId, orderData, cartItems }) => {
   try {
-    // 驗證訂單資料
+    // === 步驟1：使用 Zod 驗證訂單資料 ===
     const validation = orderSchema.safeParse(orderData)
     if (!validation.success) {
+      // 將 Zod 錯誤轉換為前端可讀的格式
       const errors = {}
       validation.error.errors.forEach((err) => {
         const path = err.path.length > 0 ? err.path.join('.') : 'root'
@@ -32,71 +54,86 @@ export const createUserOrder = async ({ memberId, orderData, cartItems }) => {
       invoiceData,
     } = validation.data
 
-    // 並行執行所有準備工作以加快速度
+    // === 步驟2：並行執行多個独立任務以提升效能 ===
+    // 使用 Promise.all 並行處理三個独立的任務，減少等待時間
     const [invoiceNumber, { totalPrice, orderItems }, fee] = await Promise.all([
-      // 生成發票號碼（如果需要發票）
+      // 任務1：發票號碼生成 (只有需要發票時才執行)
       invoiceData ? createInvoiceNumber() : Promise.resolve(null),
-      // 驗證購物車和庫存，計算訂單項目
+
+      // 任務2：驗證購物車項目並計算總價
+      // - 檢查所有商品是否存在
+      // - 驗證庫存是否足夠
+      // - 計算訂單總金額
+      // - 建立訂單項目數據
       validateAndCalculateOrderItems(cartItems),
-      // 計算運費（同步轉異步）
+
+      // 任務3：計算運費 (根據配送方式)
+      // 將同步函數包裝成 Promise 供並行處理
       Promise.resolve(calculateShippingFee(parseInt(deliveryId))),
     ])
 
-    // 先更新商品庫存（移到交易外）
+    // === 步驟3：更新商品庫存 (在交易外執行以減少鎖定時間) ===
+    // 先扣除庫存，再創建訂單，這樣可以避免長時間的資料庫鎖定
     await updateProductStock(cartItems)
 
-    // 開始交易（只做必須原子性的操作）
+    // === 步驟4：使用資料庫交易確保訂單創建的原子性 ===
+    // 交易範圍盡量縮小，只包含必須一起成功或一起失敗的操作
     const result = await prisma.$transaction(
       async (prisma) => {
-        // 1. 創建訂單
+        // === 4.1 創建訂單主記錄 ===
         const order = await prisma.order.create({
           data: {
             memberId: BigInt(memberId),
             total: totalPrice + fee, // 總金額 = 商品金額 + 運費
-            fee: fee,
-            recipient,
-            storeName: parseInt(deliveryId) === 1 ? storeName : null, // 只有 7-11 才儲存門市名稱
-            phone,
-            address: parseInt(deliveryId) === 3 ? address : null, // 只有宅配才儲存地址
-            deliveryId: parseInt(deliveryId),
-            paymentId: parseInt(paymentId),
-            statusId: 2, // 預設為待出貨狀態（商城專用）
-            invoiceId: parseInt(invoiceData?.invoiceId || 1), // 預設發票類型
-            invoiceNumber: invoiceNumber || '',
-            carrier: invoiceData?.carrier || null,
-            tax: invoiceData?.tax || null,
+            fee: fee, // 運費金額
+            recipient, // 收件人姓名
+            // 條件式儲存：根據配送方式決定儲存哪些欄位
+            storeName: parseInt(deliveryId) === 1 ? storeName : null, // 7-11取貨才有門市名稱
+            phone, // 聯絡電話
+            address: parseInt(deliveryId) === 3 ? address : null, // 宅配才有地址
+            deliveryId: parseInt(deliveryId), // 配送方式ID
+            paymentId: parseInt(paymentId), // 付款方式ID
+            statusId: 2, // 訂單狀態ID (2=待出貨)
+            invoiceId: parseInt(invoiceData?.invoiceId || 1), // 發票類型ID
+            invoiceNumber: invoiceNumber || '', // 發票號碼
+            carrier: invoiceData?.carrier || null, // 載具編號(手機條碼)
+            tax: invoiceData?.tax || null, // 統一編號(公司用)
+            // 一次性創建所有訂單項目 (使用 nested create)
             orderItems: {
-              create: orderItems,
+              create: orderItems, // 使用之前驗證過的訂單項目數據
             },
           },
+          // 包含關聯資料供回傳給前端
           include: {
             orderItems: {
-              include: {
-                product: true,
-              },
+              include: { product: true }, // 訂單項目 + 商品資訊
             },
-            payment: true,
-            status: true,
-            delivery: true,
-            invoice: true,
+            payment: true, // 付款方式資訊
+            status: true, // 訂單狀態資訊
+            delivery: true, // 配送方式資訊
+            invoice: true, // 發票類型資訊
           },
         })
-        // 產生 orderNumber
+        // === 4.2 生成訂單編號 ===
+        // 訂單編號格式：年份 + 訂單 ID(補零4位) 例如：20240001
         const year = new Date().getFullYear()
         const orderNumber = `${year}${order.id.toString().padStart(4, '0')}`
+
+        // 更新訂單記錄加入訂單編號
         await prisma.order.update({
           where: { id: order.id },
           data: { orderNumber },
         })
 
-        // 2. 清空購物車
+        // === 4.3 清空購物車 ===
+        // 訂單成功後移除所有購物車項目，避免重複下單
         await clearUserCart(memberId)
 
-        // 回傳 order 並加上 orderNumber
+        // 回傳完整的訂單資訊給前端
         return { ...order, orderNumber }
       },
       {
-        timeout: 15000, // 設置 15 秒超時時間
+        timeout: 15000, // 設置交易超時時間為15秒，防止長時間鎖定
       }
     )
 

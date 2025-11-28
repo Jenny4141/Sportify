@@ -184,7 +184,7 @@ export function LoginForm({
                   </div>
                 </div>
                 <div className="mt-4 text-center text-sm">
-                  沒有帳號?{' '}
+                  沒有帳號?
                   <a href="/register" className="underline underline-offset-4">
                     前往註冊
                   </a>

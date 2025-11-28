@@ -212,7 +212,7 @@ export default async function HomePage() {
               <AnimatedSection key={level.title} custom={index + 4}>
                 <Card className="bg-background text-gray-900 h-full p-0 md:p-2">
                   <CardContent className="flex flex-col items-center justify-center p-8 h-full">
-                    <div className="text-primary text-6xl mb-4 text-background">
+                    <div className="text-primary text-6xl mb-4">
                       {level.icon}
                     </div>
                     <h3 className="text-accent-foreground md:text-lg font-bold mb-4 text-center">

@@ -342,7 +342,7 @@ const TeamDetailPage = () => {
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-lg">
-                        {teamMember.member.name}{' '}
+                        {teamMember.member.name}
                         {/* 改用 teamMember.member.name */}
                       </span>
                       {/* 隊長判斷邏輯也需要修正，直接使用 isCaptain 欄位 */}
@@ -352,9 +352,9 @@ const TeamDetailPage = () => {
                         </Badge>
                       )}
                     </div>
-                    <p className="text-sm">{teamMember.member.email}</p>{' '}
+                    <p className="text-sm">{teamMember.member.email}</p>
                     {/* 改用 teamMember.member.email */}
-                    <p className="text-sm">{teamMember.member.phone}</p>{' '}
+                    <p className="text-sm">{teamMember.member.phone}</p>
                     {/* 改用 teamMember.member.phone */}
                   </div>
                   {/* 踢除按鈕邏輯 */}

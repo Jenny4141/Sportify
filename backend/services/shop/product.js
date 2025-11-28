@@ -8,7 +8,19 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// 取得商品列表(分頁、搜尋)
+/**
+ * 取得商品列表 - 支援分頁、搜尋、篩選、排序
+ * @param {Object} params - 查詢參數
+ * @param {string} keyword - 搜尋關鍵字 (商品名稱/品牌名稱/運動類型)
+ * @param {number} page - 頁碼，預設為第1頁
+ * @param {string|null} userId - 使用者ID，用來判斷商品收藏狀態
+ * @param {string} sportId - 運動類型ID，支援逗號分隔的多重選擇
+ * @param {string} brandId - 品牌ID，支援逗號分隔的多重選擇
+ * @param {string} sort - 排序方式：'price-asc'(價格低到高) | 'price-desc'(價格高到低)
+ * @param {number} minPrice - 最低價格
+ * @param {number} maxPrice - 最高價格
+ * @returns {Object} 包含商品列表、分頁資訊的結果物件
+ */
 export const getAllProducts = async ({
   keyword = '',
   page = 1,
@@ -20,29 +32,33 @@ export const getAllProducts = async ({
   maxPrice,
 }) => {
   try {
-    // 根據是否有使用者 ID，來取得收藏清單
+    // === 步驟1：取得使用者收藏清單 ===
+    // 如果有傳入使用者ID，先查詢該使用者的收藏商品ID列表
+    // 這樣在回傳商品時可以標示 favorite: true/false
     let favoritedids = []
     if (userId) {
-      const memberId = BigInt(userId)
+      const memberId = BigInt(userId) // 轉換為BigInt，因為Member.id是BigInt類型
       const favorites = await prisma.productFavorite.findMany({
         where: { memberId: memberId },
-        select: { productId: true },
+        select: { productId: true }, // 只取商品ID，提升查詢效能
       })
       favoritedids = favorites.map((fav) => fav.productId)
     }
 
-    const pageNum = parseInt(page) || 1
-    const perPage = 16
-    const offset = (pageNum - 1) * perPage
+    // === 步驟2：處理分頁參數 ===
+    const pageNum = parseInt(page) || 1 // 確保頁碼為正整數，預設第1頁
+    const perPage = 16 // 每頁顯示16筆商品
+    const offset = (pageNum - 1) * perPage // 計算資料庫查詢的偏移量
 
-    // 動態建立 where 查詢條件
-    const whereCondition = {}
+    // === 步驟3：動態建立 Prisma 查詢條件 ===
+    const whereCondition = {} // 初始化空的查詢條件物件
 
+    // 關鍵字搜尋：使用 OR 邏輯搜尋商品名稱、品牌名稱、運動類型名稱
     if (keyword) {
       whereCondition.OR = [
-        { name: { contains: keyword } },
-        { brand: { name: { contains: keyword } } },
-        { sport: { name: { contains: keyword } } },
+        { name: { contains: keyword } }, // 模糊搜尋商品名稱
+        { brand: { name: { contains: keyword } } }, // 透過關聯搜尋品牌名稱
+        { sport: { name: { contains: keyword } } }, // 透過關聯搜尋運動類型名稱
       ]
     }
     // AND的作法
@@ -95,28 +111,30 @@ export const getAllProducts = async ({
     //   }
     // }
 
-    // 價格區間
+    // === 價格區間篩選 ===
     const min = Number(minPrice)
     const max = Number(maxPrice)
-    // 若都為數字且 min > max，自動互換，避免空結果
+    // 防呆處理：如果最小價格大於最大價格，自動互換避免查無資料
     if (!Number.isNaN(min) && !Number.isNaN(max) && min > max) {
-      const t = minPrice
+      const temp = minPrice // 使用更清楚的變數名稱
       minPrice = max
-      maxPrice = t
+      maxPrice = temp
     }
     const _min = Number(minPrice)
     const _max = Number(maxPrice)
+    // 只有當價格參數有效時才加入查詢條件
     if (!Number.isNaN(_min) || !Number.isNaN(_max)) {
-      whereCondition.price = {}
-      if (!Number.isNaN(_min)) whereCondition.price.gte = _min
-      if (!Number.isNaN(_max)) whereCondition.price.lte = _max
+      whereCondition.price = {} // 初始化價格查詢物件
+      if (!Number.isNaN(_min)) whereCondition.price.gte = _min // 大於等於最小價格 (>=)
+      if (!Number.isNaN(_max)) whereCondition.price.lte = _max // 小於等於最大價格 (<=)
     }
 
-    let orderByCondition = { id: 'asc' } // 預設排序
+    // === 排序條件設定 ===
+    let orderByCondition = { id: 'asc' } // 預設排序：按ID升序
     if (sort === 'price-asc') {
-      orderByCondition = { price: 'asc' }
+      orderByCondition = { price: 'asc' } // 價格低到高
     } else if (sort === 'price-desc') {
-      orderByCondition = { price: 'desc' }
+      orderByCondition = { price: 'desc' } // 價格高到低
     }
 
     // 計算總數和查詢分頁資料

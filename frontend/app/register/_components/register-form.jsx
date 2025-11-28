@@ -72,31 +72,28 @@ export function RegisterForm({
               }}
             ></div>
           )}
-          <div
-            className={`p-6  ${isLargeScreen ? 'w-1/2' : 'w-full'}`}
-          >
+          <div className={`p-6  ${isLargeScreen ? 'w-1/2' : 'w-full'}`}>
             <div className="mb-6 flex justify-between items-center">
               <h2 className="text-2xl font-bold">註冊帳號</h2>
               <Button
-                  variant="outline"
-                  className="text-center"
-                  disabled={isLoading}
-                  type="icon"
-                  size="sm"
-                  onClick={() => {
-                    setFormData({
-                      email: '123455@gmail.com',
-                      name: '宋夯塔',
-                      phone: '0912345678',
-                      password: '123456',
-                      confirmPassword: '123456',
-
-                    })
-                  }}
-                >
-                  <UserRound />
-                  {/* {isLoading ? 'Quick Logging in...' : 'Quick Login user'} */}
-                </Button>
+                variant="outline"
+                className="text-center"
+                disabled={isLoading}
+                type="icon"
+                size="sm"
+                onClick={() => {
+                  setFormData({
+                    email: '123455@gmail.com',
+                    name: '宋夯塔',
+                    phone: '0912345678',
+                    password: '123456',
+                    confirmPassword: '123456',
+                  })
+                }}
+              >
+                <UserRound />
+                {/* {isLoading ? 'Quick Logging in...' : 'Quick Login user'} */}
+              </Button>
             </div>
 
             <div>
@@ -245,7 +242,7 @@ export function RegisterForm({
                   </div>
                 </div>
                 <div className="mt-4 text-center text-sm">
-                  已有帳號?{' '}
+                  已有帳號?
                   <a href="/login" className="underline underline-offset-4">
                     前往登入
                   </a>

@@ -1,14 +1,32 @@
 'use client'
 
-// react
+/**
+ * 商品詳情頁面 - 單一商品的完整資訊展示
+ *
+ * 主要功能：
+ * - 商品基本資訊展示 (名稱、價格、品牌、運動類型)
+ * - 商品圖片輪播展示
+ * - 商品規格表格顯示
+ * - 數量選擇和加入購物車功能
+ * - 收藏/取消收藏功能 (愛心按鈕)
+ * - 響應式設計 (桌面/手機版適配)
+ * - 錯誤處理和載入狀態
+ *
+ * 路由: /shop/[id] (動態路由，id 為商品 ID)
+ */
+
+// === React 核心依賴 ===
 import React, { useState, useEffect, useMemo } from 'react'
-import { useParams, useRouter } from 'next/navigation'
-import useSWR from 'swr'
-import Image from 'next/image'
-// icons
-import { Minus, Plus, Heart } from 'lucide-react'
-// ui components
+import { useParams, useRouter } from 'next/navigation' // Next.js 13+ 路由鉤子
+import useSWR from 'swr' // 資料獲取和快取管理
+import Image from 'next/image' // Next.js 優化圖片組件
+
+// === 圖示組件 ===
+import { Minus, Plus, Heart } from 'lucide-react' // 數量調整和收藏按鈕圖示
+
+// === UI 組件庫 ===
 import { Button } from '@/components/ui/button'
+// 圖片輪播組件
 import {
   Carousel,
   CarouselContent,
@@ -16,125 +34,181 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+// 分頁標籤組件 (商品圖片/規格切換)
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+// 表格組件 (商品規格顯示)
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
-// 自定義 components
-import { Navbar } from '@/components/navbar'
-import Footer from '@/components/footer'
-import BreadcrumbAuto from '@/components/breadcrumb-auto'
-import { LoadingState, ErrorState } from '@/components/loading-states'
-// hooks
-import { useAuth } from '@/contexts/auth-context'
-// api
-import { getProductDetail, toggleFavorite, addProductCart } from '@/api'
-import { getProductImageUrl } from '@/api/admin/shop/image'
+
+// === 自定義佈局組件 ===
+import { Navbar } from '@/components/navbar' // 頂部導航列
+import Footer from '@/components/footer' // 頁尾
+import BreadcrumbAuto from '@/components/breadcrumb-auto' // 自動麵包屑導航
+import { LoadingState, ErrorState } from '@/components/loading-states' // 載入和錯誤狀態組件
+
+// === 應用鉤子 ===
+import { useAuth } from '@/contexts/auth-context' // 身份驗證上下文
+
+// === API 呼叫函數 ===
+import { getProductDetail, toggleFavorite, addProductCart } from '@/api' // 商品相關 API
+import { getProductImageUrl } from '@/api/admin/shop/image' // 圖片 URL 處理
+// 選項資料獲取 (品牌、運動類型等)
 import {
   fetchMemberOptions,
   fetchSportOptions,
   fetchBrandOptions,
 } from '@/api/common'
-// others
-import { toast } from 'sonner'
+
+// === 其他工具 ===
+import { toast } from 'sonner' // 通知提示組件
 
 export default function ProductDetailPage() {
-  const { isAuthenticated } = useAuth()
-  // ===== 路由和搜尋參數處理 =====
-  const router = useRouter()
-  const { id } = useParams()
+  // === 身份驗證狀態 ===
+  const { isAuthenticated } = useAuth() // 檢查用戶是否已登入
 
-  // ===== 組件狀態管理 =====
-  const [quantity, setQuantity] = useState(1)
-  const [sports, setSports] = useState([])
-  const [brands, setBrands] = useState([])
-  const [product, setProduct] = useState(null)
-  const [members, setMembers] = useState([])
-  const [isFavorited, setIsFavorited] = useState(false)
+  // === Next.js 路由處理 ===
+  const router = useRouter() // 用於程式化導航 (跳轉到其他頁面)
+  const { id } = useParams() // 從 URL 中提取商品 ID (動態路由參數)
 
-  // ===== 數據獲取 =====
+  // === React 本地狀態管理 ===
+  const [quantity, setQuantity] = useState(1) // 用戶選擇的購買數量，預設為 1
+  const [sports, setSports] = useState([]) // 所有運動類型選項 (用於顯示商品所屬運動類型)
+  const [brands, setBrands] = useState([]) // 所有品牌選項 (用於顯示商品品牌)
+  const [product, setProduct] = useState(null) // 當前商品的完整資訊
+  const [members, setMembers] = useState([]) // 會員選項 (通常用於管理功能，這裡可能不需要)
+  const [isFavorited, setIsFavorited] = useState(false) // 當前商品是否已被用戶收藏
+
+  // === SWR 資料獲取：商品詳情 ===
+  // SWR 提供自動快取、重新驗證、錯誤重試等功能
   const {
-    data,
-    isLoading: isDataLoading,
-    error,
-    mutate,
-  } = useSWR(id ? ['product', id] : null, () => getProductDetail(id))
+    data, // API 回應資料
+    isLoading: isDataLoading, // 載入狀態
+    error, // 錯誤狀態
+    mutate, // 手動重新獲取資料的函數
+  } = useSWR(
+    id ? ['product', id] : null, // SWR key：有 id 時才發起請求
+    () => getProductDetail(id) // 資料獲取函數
+  )
 
-  // ===== 載入選項 =====
+  // === 頁面初始化：載入選項資料 ===
+  // 載入品牌、運動類型等基礎資料，用於顯示商品分類資訊
   useEffect(() => {
     const loadData = async () => {
       try {
+        // 並行載入多個選項資料，提升載入速度
         const [memberData, sportData, brandData] = await Promise.all([
-          fetchMemberOptions(),
-          fetchSportOptions(),
-          fetchBrandOptions(),
+          fetchMemberOptions(), // 會員選項 (可能用於管理功能)
+          fetchSportOptions(), // 運動類型選項
+          fetchBrandOptions(), // 品牌選項
         ])
+
+        // 安全地設置資料，避免 undefined 錯誤
         setMembers(memberData.rows || [])
         setSports(sportData.rows || [])
         setBrands(brandData.rows || [])
       } catch (error) {
-        console.error('載入失敗:', error)
-        toast.error('載入失敗')
+        console.error('載入選項資料失敗:', error)
+        toast.error('載入失敗') // 向用戶顯示錯誤提示
       }
     }
     loadData()
-  }, [])
+  }, []) // 空依賴陣列，僅在組件掛載時執行一次
 
+  // === 商品資料更新處理 ===
+  // 當 SWR 獲取到商品資料時，更新本地狀態
   useEffect(() => {
     if (data && data.data) {
-      setProduct(data.data)
-      setIsFavorited(data.data.favorite || false)
-      // console.log('Product loaded:', data.data) // Debug用
+      setProduct(data.data) // 設置商品資訊
+      setIsFavorited(data.data.favorite || false) // 設置收藏狀態
+      // console.log('Product loaded:', data.data) // 開發除錯用，可查看載入的商品資料
     }
-  }, [data])
+  }, [data]) // 當 data 變更時觸發
 
+  // === 計算商品圖片數量 ===
   const totalImages = product?.images?.length || 0
 
-  // ===== 輔助函數 =====
+  // === 輔助函數：資料轉換 ===
+  /**
+   * 根據運動類型 ID 獲取運動類型名稱
+   * @param {number} sportId - 運動類型 ID
+   * @returns {string} 運動類型名稱，找不到時返回 ID
+   */
   const getSportName = (sportId) => {
     const sport = sports.find((s) => s.id === sportId)
     return sport ? sport.name : sportId
   }
 
+  /**
+   * 根據品牌 ID 獲取品牌名稱
+   * @param {number} brandId - 品牌 ID
+   * @returns {string} 品牌名稱，找不到時返回 ID
+   */
   const getBrandName = (brandId) => {
     const brand = brands.find((b) => b.id === brandId)
     return brand ? brand.name : brandId
   }
 
+  // === 商品規格表格配置 ===
+  // 定義商品規格表格的欄位和對應的資料來源
   const spec = [
     { key: 'name', label: '商品名稱', value: product?.name },
     {
       key: 'sportId',
       label: '運動類型',
-      value: getSportName(product?.sportId),
+      value: getSportName(product?.sportId), // 使用轉換函數獲取運動類型名稱
     },
-    { key: 'brandId', label: '品牌', value: getBrandName(product?.brandId) },
+    { key: 'brandId', label: '品牌', value: getBrandName(product?.brandId) }, // 使用轉換函數獲取品牌名稱
     { key: 'size', label: '尺寸', value: product?.size },
     { key: 'weight', label: '重量', value: product?.weight },
     { key: 'material', label: '材質', value: product?.material },
     { key: 'origin', label: '產地', value: product?.origin },
   ]
 
-  // ===== 事件處理函數 =====
+  // === 事件處理函數 ===
+  /**
+   * 處理購買數量變更
+   * 使用 useCallback 優化效能，避免不必要的重新渲染
+   * @param {number} newQty - 新的數量
+   */
   const handleQuantityChange = React.useCallback((newQty) => {
-    setQuantity((prev) => (newQty >= 1 ? newQty : prev))
+    setQuantity((prev) => (newQty >= 1 ? newQty : prev)) // 確保數量不小於 1
   }, [])
 
+  /**
+   * 處理商品收藏/取消收藏功能
+   * 愛心按鈕的核心邏輯，支援切換收藏狀態
+   *
+   * 流程：
+   * 1. 檢查用戶登入狀態
+   * 2. 呼叫後端 API 切換收藏狀態
+   * 3. 更新本地收藏狀態
+   * 4. 重新獲取商品資料確保同步
+   * 5. 顯示操作結果提示
+   *
+   * @param {number} productId - 商品 ID
+   * @returns {Promise} API 操作結果
+   */
   const handleAddToWishlist = async (productId) => {
+    // === 登入狀態檢查 ===
     if (!isAuthenticated) {
       toast('請先登入會員才能收藏商品', {
         action: {
           label: '前往登入',
-          onClick: () => router.push('/login'),
+          onClick: () => router.push('/login'), // 提供快速登入入口
         },
       })
       return
     }
+
+    // === 執行收藏切換 ===
     const result = await toggleFavorite(productId)
-    mutate()
+    mutate() // 重新獲取商品資料，確保收藏狀態同步
+
+    // === 根據操作結果更新 UI 和提示 ===
     if (result?.favorited) {
-      setIsFavorited(true)
+      setIsFavorited(true) // 更新本地收藏狀態
       toast('已加入我的收藏', {
         style: {
-          backgroundColor: '#ff671e',
+          backgroundColor: '#ff671e', // 品牌主色調橘色
           color: '#fff',
           border: 'none',
           width: '250px',
@@ -154,7 +228,23 @@ export default function ProductDetailPage() {
     return result
   }
 
+  /**
+   * 處理加入購物車功能
+   * 商品詳情頁的核心購買功能
+   *
+   * 流程：
+   * 1. 檢查用戶登入狀態
+   * 2. 呼叫後端 API 將商品加入購物車
+   * 3. 重置購買數量為 1
+   * 4. 更新商品資料 (可能影響庫存顯示)
+   * 5. 顯示成功提示和快速查看入口
+   *
+   * @param {number} productId - 商品 ID
+   * @param {number} quantity - 購買數量
+   * @returns {Promise} API 操作結果
+   */
   const handleAddToCart = async (productId, quantity) => {
+    // === 登入狀態檢查 ===
     if (!isAuthenticated) {
       toast('請先登入會員才能加入購物車', {
         action: {
@@ -164,20 +254,26 @@ export default function ProductDetailPage() {
       })
       return
     }
+
+    // === 執行加入購物車 ===
     const result = await addProductCart(productId, quantity)
-    mutate()
+    mutate() // 重新獲取商品資料，更新任何可能的狀態變化
+
+    // === 操作成功後的處理 ===
     if (result?.success) {
-      setQuantity(1) // 重置數量為1
+      setQuantity(1) // 重置購買數量為 1，提供更好的用戶體驗
+
       toast('已加入購物車', {
         style: {
-          backgroundColor: '#ff671e',
+          backgroundColor: '#ff671e', // 品牌主色調
           color: '#fff',
           border: 'none',
           width: '250px',
         },
+        // 提供快速查看購物車的入口
         action: {
           label: '查看',
-          onClick: () => router.push('/shop/order'),
+          onClick: () => router.push('/shop/order'), // 跳轉到購物車頁面
         },
         actionButtonStyle: {
           background: 'transparent',
@@ -259,7 +355,7 @@ export default function ProductDetailPage() {
                   />
                 </div>
                 <p className="text-lg text-muted-foreground">
-                  {getSportName(product.sportId)} /{' '}
+                  {getSportName(product.sportId)} /
                   {getBrandName(product.brandId)}
                 </p>
                 <div className="flex items-center gap-2">
@@ -325,10 +421,16 @@ export default function ProductDetailPage() {
           <Tabs defaultValue="imgs" className="w-full">
             <div className="flex justify-center">
               <TabsList className="mb-6 md:mb-8">
-                <TabsTrigger value="imgs" className="text-sm text-muted-foreground">
+                <TabsTrigger
+                  value="imgs"
+                  className="text-sm text-muted-foreground"
+                >
                   商品圖片
                 </TabsTrigger>
-                <TabsTrigger value="spec" className="text-sm text-muted-foreground">
+                <TabsTrigger
+                  value="spec"
+                  className="text-sm text-muted-foreground"
+                >
                   詳細規格
                 </TabsTrigger>
               </TabsList>

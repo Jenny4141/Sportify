@@ -48,7 +48,7 @@ const MemberSubCard = () => {
               <PackageCarIcon />
             </div>
             <div className="justify-start text-foreground text-base font-normal font-['Noto_Sans_TC'] leading-9">
-              退貨/退款程序說明{' '}
+              退貨/退款程序說明
             </div>
           </div>
           <div className="w-6 h-6 relative flex items-center justify-center">
@@ -61,7 +61,7 @@ const MemberSubCard = () => {
               <QuestionIcon />
             </div>
             <div className="justify-start text-foreground text-base font-normal font-['Noto_Sans_TC'] leading-9">
-              會員常見問題{' '}
+              會員常見問題
             </div>
           </div>
           <div className="w-6 h-6 relative flex items-center justify-center">

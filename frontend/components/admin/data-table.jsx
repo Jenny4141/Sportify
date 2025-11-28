@@ -365,7 +365,7 @@ export function DataTable({
           </div>
 
           <div className="flex w-fit items-center justify-center text-sm font-medium">
-            第 {table.getState().pagination.pageIndex + 1} 頁，共{' '}
+            第 {table.getState().pagination.pageIndex + 1} 頁，共
             {table.getPageCount()} 頁
           </div>
 

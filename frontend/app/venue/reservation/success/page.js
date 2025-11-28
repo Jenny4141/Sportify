@@ -318,7 +318,7 @@ function SuccessPageContent() {
                         </div>
                         <div>{centerData?.address || '載入中...'}</div>
                         <div>
-                          運動:{' '}
+                          運動:
                           {reservationData?.courtTimeSlots[0]?.sportName ||
                             '載入中...'}
                         </div>

@@ -24,11 +24,11 @@ export function ProductCard({
   variant = 'default',
   ...props
 }) {
-  // ===== 組件狀態管理 =====
-  const [isHovered, setIsHovered] = useState(false)
-  const [isAddingToCart, setIsAddingToCart] = useState(false)
-  const [isInWishlist, setIsInWishlist] = useState(initialIsFavorited || false) // 初始狀態從 props 傳入
-  const [isMounted, setIsMounted] = useState(false)
+  // ===== React 狀態管理 =====
+  const [isHovered, setIsHovered] = useState(false) // 當滑鼠懸停在卡片上時為 true，用於觸發 hover 效果
+  const [isAddingToCart, setIsAddingToCart] = useState(false) // 正在加入購物車時為 true，用於顯示 loading 狀態
+  const [isInWishlist, setIsInWishlist] = useState(initialIsFavorited || false) // 是否已收藏，初始值從 parent component 傳入
+  const [isMounted, setIsMounted] = useState(false) // 組件是否已捆載完成，防止 SSR 水合問題
 
   // 格式化價格，加上千分位逗號
   const formatPrice = (price) => {
@@ -51,20 +51,28 @@ export function ProductCard({
     (typeof image === 'object' && image !== null ? image.url : image)
 
   // ===== 事件處理函數 =====
+  /**
+   * 處理加入購物車的事件
+   * @param {Event} e - 點擊事件物件
+   */
   const handleAddToCart = async (e) => {
-    e.preventDefault()
+    e.preventDefault() // 阻止預設的連結跳轉行為
     if (onAddToCart) {
-      setIsAddingToCart(true) // 設定正在加入購物車的狀態
-      const result = await onAddToCart(product?.id, 1)
-      setIsAddingToCart(false)
+      setIsAddingToCart(true) // 設定為 loading 狀態，顯示轉圈動畫
+      const result = await onAddToCart(product?.id, 1) // 呼叫 parent 傳入的加入購物車函數
+      setIsAddingToCart(false) // 重設 loading 狀態
     }
   }
 
+  /**
+   * 處理收藏/取消收藏的事件
+   * @param {Event} e - 點擊事件物件
+   */
   const handleAddToWishlist = async (e) => {
-    e.preventDefault()
+    e.preventDefault() // 阻止預設的連結跳轉行為
     if (onAddToWishlist) {
-      const result = await onAddToWishlist(product?.id)
-      setIsInWishlist(!!result?.favorited) // 根據後端回傳結果設定狀態
+      const result = await onAddToWishlist(product?.id) // 呼叫 parent 傳入的收藏切換函數
+      setIsInWishlist(!!result?.favorited) // 根據 API 回傳結果更新本地狀態
     }
   }
 

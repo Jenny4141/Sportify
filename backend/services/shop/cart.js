@@ -3,23 +3,32 @@ import { cartItemSchema, updateCartItemSchema } from '../../utils/zod-schema.js'
 import { getPaymentData, getDeliveryData, getInvoiceData } from '../common.js'
 import { calculateShippingFee } from './order.js'
 
-// 獲取用戶購物車
+/**
+ * 獲取用戶購物車 - 包含所有購物車項目及商品詳細資訊
+ * @param {Object} params - 參數物件
+ * @param {string|BigInt} memberId - 會員ID
+ * @returns {Object} 包含購物車資訊、總價格、商品數量的結果物件
+ */
 export const getCart = async ({ memberId }) => {
   try {
-    // 查找或創建購物車
+    // === 步驟1：查找現有購物車 ===
+    // 使用 findFirst 因為每個會員只有一個購物車
+    // include 用來同時取得關聯的購物車項目和商品資訊
     let cart = await prisma.cart.findFirst({
-      where: { memberId: BigInt(memberId) },
+      where: { memberId: BigInt(memberId) }, // 轉為BigInt配合資料庫的BigInt類型
       include: {
         cartItems: {
+          // 包含購物車中的所有項目
           include: {
             product: {
+              // 包含每個項目的商品詳細資訊
               include: {
                 images: {
-                  orderBy: { order: 'asc' },
-                  take: 1,
+                  orderBy: { order: 'asc' }, // 按圖片順序排列
+                  take: 1, // 只取第一張圖片作為縮圖
                 },
-                brand: true,
-                sport: true,
+                brand: true, // 包含品牌資訊
+                sport: true, // 包含運動類型資訊
               },
             },
           },
@@ -75,12 +84,19 @@ export const getCart = async ({ memberId }) => {
     }
   }
 }
-// 添加商品到購物車
+/**
+ * 添加商品到購物車 - 支援新增或更新數量
+ * @param {Object} params - 參數物件
+ * @param {string|BigInt} memberId - 會員ID
+ * @param {Object} body - 請求主體，包含 productId 和 quantity
+ * @returns {Object} 操作結果
+ */
 export const addToCart = async ({ memberId, body }) => {
   try {
-    // 驗證輸入資料
+    // === 步驟1：使用 Zod schema 驗證輸入資料 ===
     const validation = cartItemSchema.safeParse(body)
     if (!validation.success) {
+      // 將 Zod 驗證錯誤轉換為前端可讀的格式
       const errors = {}
       validation.error.errors.forEach((err) => {
         errors[err.path[0]] = err.message
@@ -94,7 +110,7 @@ export const addToCart = async ({ memberId, body }) => {
 
     const { productId, quantity } = validation.data
 
-    // 檢查商品是否存在
+    // === 步驟2：驗證商品是否存在 ===
     const product = await prisma.product.findUnique({
       where: { id: parseInt(productId) },
     })
@@ -107,7 +123,7 @@ export const addToCart = async ({ memberId, body }) => {
       }
     }
 
-    // 檢查庫存
+    // === 步驟3：檢查庫存是否足夠 ===
     if (product.stock < quantity) {
       return {
         code: 400,
@@ -116,11 +132,12 @@ export const addToCart = async ({ memberId, body }) => {
       }
     }
 
-    // 查找或創建購物車
+    // === 步驟4：查找或創建購物車 ===
     let cart = await prisma.cart.findFirst({
       where: { memberId: BigInt(memberId) },
     })
 
+    // 如果購物車不存在，創建一個新的購物車
     if (!cart) {
       cart = await prisma.cart.create({
         data: {
@@ -129,7 +146,7 @@ export const addToCart = async ({ memberId, body }) => {
       })
     }
 
-    // 檢查商品是否已經在購物車中
+    // === 步驟5：檢查商品是否已存在於購物車中 ===
     const existingItem = await prisma.cartItem.findFirst({
       where: {
         cartId: cart.id,
@@ -138,10 +155,10 @@ export const addToCart = async ({ memberId, body }) => {
     })
 
     if (existingItem) {
-      // 更新數量
+      // === 情況A：商品已存在，累加數量 ===
       const newQuantity = existingItem.quantity + parseInt(quantity)
 
-      // 再次檢查庫存
+      // 再次檢查庫存是否足夠支付新的總數量
       if (product.stock < newQuantity) {
         return {
           code: 400,
@@ -150,12 +167,13 @@ export const addToCart = async ({ memberId, body }) => {
         }
       }
 
+      // 更新購物車項目的數量
       await prisma.cartItem.update({
         where: { id: existingItem.id },
         data: { quantity: newQuantity },
       })
     } else {
-      // 創建新的購物車項目
+      // === 情況B：新商品，創建新的購物車項目 ===
       await prisma.cartItem.create({
         data: {
           cartId: cart.id,

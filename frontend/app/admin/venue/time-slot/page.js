@@ -495,7 +495,7 @@ function TimeSlotContent() {
             <AlertDialogDescription className="text-lg text-gray-600">
               您確定要刪除
               <strong className="text-red-500">
-                {timeSlotToDelete?.id}. {timeSlotToDelete?.startTime} -{' '}
+                {timeSlotToDelete?.id}. {timeSlotToDelete?.startTime} -
                 {timeSlotToDelete?.endTime}
               </strong>
               嗎？

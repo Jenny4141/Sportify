@@ -57,63 +57,113 @@ import {
 // others
 import { toast } from 'sonner'
 
-// 手機側邊欄
+// ===================================================================
+// 手機版篩選器側邊欄組件 - RWD 設計的核心
+// ===================================================================
+/**
+ * MobileSidebar - 手機版專用的商品篩選器
+ *
+ * 設計理念：
+ * • 手機裝置上節省空間，將篩選功能放入側邊欄
+ * • 使用 Sheet 組件提供原生的導航體驗
+ * • 本地狀態管理，用戶可以預覽篩選結果再確認
+ * • 支援批量篩選操作和一鍵清除
+ *
+ * @param {Object} props 組件屬性
+ * @param {boolean} props.open 側邊欄顯示狀態
+ * @param {Function} props.onClose 關閉側邊欄的回調函數
+ * @param {Array} props.sports 可用的運動類型選項
+ * @param {Array} props.brands 可用的品牌選項
+ * @param {Array} props.selectedSports 已選擇的運動類型 ID 陣列
+ * @param {Array} props.selectedBrands 已選擇的品牌 ID 陣列
+ * @param {Array} props.priceRange 價格範圍 [min, max]
+ * @param {Function} props.clearAllFilters 清除所有篩選的回調函數
+ * @param {Function} props.onApplyFilters 應用篩選的回調函數
+ */
 const MobileSidebar = ({
-  open,
-  onClose,
-  sports,
-  brands,
-  selectedSports,
-  selectedBrands,
-  priceRange,
-  clearAllFilters,
-  onApplyFilters,
+  open, // 側邊欄開關狀態
+  onClose, // 關閉回調：由父組件控制顯示狀態
+  sports, // 運動類型選項清單
+  brands, // 品牌選項清單
+  selectedSports, // 已選運動類型 (ID 陣列)
+  selectedBrands, // 已選品牌 (ID 陣列)
+  priceRange, // 價格範圍 [min, max]
+  clearAllFilters, // 清除所有篩選回調
+  onApplyFilters, // 應用篩選回調
 }) => {
-  // ===== 狀態管理 =====
-  const [localSports, setLocalSports] = useState(selectedSports)
-  const [localBrands, setLocalBrands] = useState(selectedBrands)
-  const [localPrice, setLocalPrice] = useState(priceRange)
+  // === 本地狀態管理：在專用管理屍中的篩選狀態 ===
+  // 設計理念：用戶可以在側邊欄中預覽篩選結果，最後才確認應用
+  const [localSports, setLocalSports] = useState(selectedSports) // 本地運動類型選擇，初始值來自父組件
+  const [localBrands, setLocalBrands] = useState(selectedBrands) // 本地品牌選擇，初始值來自父組件
+  const [localPrice, setLocalPrice] = useState(priceRange) // 本地價格範圍，初始值來自父組件
 
-  // ===== 副作用處理 =====
+  // === 副作用：同步父組件狀態變更 ===
+  // 當父組件的篩選狀態改變時，同步更新側邊欄的本地狀態
   useEffect(() => {
-    setLocalSports(selectedSports)
+    setLocalSports(selectedSports) // 同步運動類型選擇
   }, [selectedSports])
+
   useEffect(() => {
-    setLocalBrands(selectedBrands)
+    setLocalBrands(selectedBrands) // 同步品牌選擇
   }, [selectedBrands])
+
   useEffect(() => {
-    setLocalPrice(priceRange)
+    setLocalPrice(priceRange) // 同步價格範圍
   }, [priceRange])
 
-  // 函式
-  // 運動類型變動
+  // === 篩選事件處理函數 ===
+
+  /**
+   * 處理運動類型選擇改變
+   * @param {number} id 運動類型 ID
+   * @param {boolean} checked 是否選中
+   */
   const handleSportChange = (id, checked) => {
-    setLocalSports((prev) =>
-      checked ? [...prev, id] : prev.filter((sportId) => sportId !== id)
+    setLocalSports(
+      (prev) =>
+        checked
+          ? [...prev, id] // 勾選：添加 ID 到陣列
+          : prev.filter((sportId) => sportId !== id) // 取消：從陣列中移除 ID
     )
   }
-  // 品牌變動
+
+  /**
+   * 處理品牌選擇改變
+   * @param {number} id 品牌 ID
+   * @param {boolean} checked 是否選中
+   */
   const handleBrandChange = (id, checked) => {
-    setLocalBrands((prev) =>
-      checked ? [...prev, id] : prev.filter((brandId) => brandId !== id)
+    setLocalBrands(
+      (prev) =>
+        checked
+          ? [...prev, id] // 勾選：添加 ID 到陣列
+          : prev.filter((brandId) => brandId !== id) // 取消：從陣列中移除 ID
     )
   }
-  // 按下篩選
+
+  /**
+   * 應用篩選設定並關閉側邊欄
+   * 將本地篩選狀態傳遞給父組件，觸發商品列表更新
+   */
   const handleApply = () => {
     onApplyFilters({
-      sports: localSports,
-      brands: localBrands,
-      price: localPrice,
+      sports: localSports, // 傳遞運動類型篩選
+      brands: localBrands, // 傳遞品牌篩選
+      price: localPrice, // 傳遞價格範圍篩選
     })
-    onClose(false)
+    onClose(false) // 關閉側邊欄
   }
-  // 清除篩選
+
+  /**
+   * 清除所有篩選設定並關閉側邊欄
+   * 重設為預設值並同步到父組件
+   */
   const handleClear = () => {
-    setLocalSports([])
-    setLocalBrands([])
-    setLocalPrice([0, 1000])
-    clearAllFilters()
-    onClose(false)
+    setLocalSports([]) // 清除運動類型選擇
+    setLocalBrands([]) // 清除品牌選擇
+    setLocalPrice([0, 1000]) // 重設價格範圍為預設值
+    clearAllFilters() // 通知父組件清除篩選
+    onClose(false) // 關閉側邊欄
   }
 
   return (
@@ -129,23 +179,29 @@ const MobileSidebar = ({
             defaultValue={['sport-type', 'brand']}
             className="w-full"
           >
-            {/* 運動類型 */}
+            {/* === 運動類型篩選區域 === */}
             <AccordionItem value="sport-type" className="border-b-0">
+              {/* 折疊標題：使用品牌主色和字體樣式 */}
               <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline">
                 運動類型
               </AccordionTrigger>
+
+              {/* 折疊內容：運動類型選項清單 */}
               <AccordionContent className="p-2 space-y-2">
+                {/* 遍歷所有可用的運動類型選項 */}
                 {sports.map((sport) => (
                   <label
-                    key={sport.id}
-                    className="flex items-center space-x-2 cursor-pointer"
+                    key={sport.id} // React key: 唯一性識別
+                    className="flex items-center space-x-2 cursor-pointer" // 水平佈局 + 指針游標
                   >
+                    {/* Checkbox 組件：可多選的運動類型選擇器 */}
                     <Checkbox
-                      checked={localSports.includes(sport.id)}
-                      onCheckedChange={(checked) =>
-                        handleSportChange(sport.id, checked)
-                      }
+                      checked={localSports.includes(sport.id)} // 檢查是否已選中
+                      onCheckedChange={(
+                        checked // 選擇狀態改變回調
+                      ) => handleSportChange(sport.id, checked)}
                     />
+                    {/* 運動類型標籤：含互動效果 */}
                     <span className="text-base font-normal text-foreground hover:text-primary">
                       {sport.name}
                     </span>
@@ -153,23 +209,29 @@ const MobileSidebar = ({
                 ))}
               </AccordionContent>
             </AccordionItem>
-            {/* 品牌 */}
+            {/* === 品牌篩選區域 === */}
             <AccordionItem value="brand" className="border-b-0">
+              {/* 折疊標題：與運動類型相同的視覺風格 */}
               <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline">
                 品牌
               </AccordionTrigger>
+
+              {/* 折疊內容：品牌選項清單 */}
               <AccordionContent className="p-2 space-y-2">
+                {/* 遍歷所有可用的品牌選項 */}
                 {brands.map((brand) => (
                   <label
-                    key={brand.id}
-                    className="flex items-center space-x-2 cursor-pointer"
+                    key={brand.id} // React key: 唯一性識別
+                    className="flex items-center space-x-2 cursor-pointer" // 與運動類型相同的樣式
                   >
+                    {/* Checkbox 組件：可多選的品牌選擇器 */}
                     <Checkbox
-                      checked={localBrands.includes(brand.id)}
-                      onCheckedChange={(checked) =>
-                        handleBrandChange(brand.id, checked)
-                      }
+                      checked={localBrands.includes(brand.id)} // 檢查是否已選中
+                      onCheckedChange={(
+                        checked // 選擇狀態改變回調
+                      ) => handleBrandChange(brand.id, checked)}
                     />
+                    {/* 品牌標籤：含互動效果 */}
                     <span className="text-base font-normal text-foreground hover:text-primary">
                       {brand.name}
                     </span>
@@ -177,30 +239,38 @@ const MobileSidebar = ({
                 ))}
               </AccordionContent>
             </AccordionItem>
-            {/* 價格區間 */}
+
+            {/* === 價格範圍篩選器 === */}
             <div className="my-6 flex flex-col gap-5">
+              {/* 垂直佈局 + 適中間距 */}
+              {/* 價格範圍標題 */}
               <span className="text-lg font-bold mb-4 text-foreground">
                 價格區間
               </span>
+              {/* 雙手柄滑桿組件：用戶可以設定價格範圍 */}
               <Slider
-                value={localPrice}
-                onValueChange={setLocalPrice}
-                min={0}
-                max={1000}
-                step={10}
+                value={localPrice} // 當前價格範圍值 [min, max]
+                onValueChange={setLocalPrice} // 滑桿值改變回調
+                min={0} // 最小價格限制
+                max={1000} // 最大價格限制
+                step={10} // 價格步進值 (10 元為一單位)
               />
+              {/* 價格範圍顯示：左右對齊顯示最小和最大值 */}
               <div className="flex justify-between text-sm">
-                <span>${localPrice[0]}</span>
-                <span>${localPrice[1]}</span>
+                <span>${localPrice[0]}</span> {/* 最小價格顯示 */}
+                <span>${localPrice[1]}</span> {/* 最大價格顯示 */}
               </div>
             </div>
           </Accordion>
         </div>
-        {/* 按鈕區塊 */}
+        {/* === 手機側邊欄操作按鈕區 === */}
         <div className="p-4 flex flex-col gap-2">
+          {/* 固定在底部的操作按鈕 */}
+          {/* 清除篩選按鈕：次要按鈕風格 */}
           <Button variant="outline" onClick={handleClear} className="flex-1">
             清除篩選
           </Button>
+          {/* 套用篩選按鈕：主要按鈕風格，使用品牌主色 */}
           <Button onClick={handleApply} className="w-full" variant="highlight">
             套用篩選
           </Button>
@@ -210,57 +280,101 @@ const MobileSidebar = ({
   )
 }
 
+// ===================================================================
+// 商品列表主內容組件
+// ===================================================================
+/**
+ * ProductListContent - 商品列表頁面的主要內容組件
+ *
+ * 功能特色：
+ * • 商品搜尋和篩選 (運動類型、品牌、價格範圍)
+ * • 多種排序方式 (價格高低、新舊度等)
+ * • 分頁功能和應用加載
+ * • RWD 响應式設計 (桌面側邊欄 + 手機 Sheet)
+ * • 商品卡片展示和互動 (加入購物車、收藏)
+ * • URL 狀態管理和書籤支援
+ *
+ * 設計理念：
+ * • Suspense 邊界分離：將 useSearchParams 的使用隔離
+ * • 狀態提升：篩選狀態由父組件管理
+ * • 可訪問性：支援鍵盤導航和螢幕閱讀器
+ */
 function ProductListContent() {
-  // ===== 路由和搜尋參數處理 =====
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const { isAuthenticated } = useAuth()
+  // === Next.js 路由和搜尋參數處理 ===
+  const searchParams = useSearchParams() // URL 查詢參數獲取
+  const router = useRouter() // 程式式導航用路由器
+  const { isAuthenticated } = useAuth() // 用戶身份驗證狀態
 
-  // ===== 狀態管理 =====
-  const [members, setMembers] = useState([])
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [sports, setSports] = useState([])
-  const [brands, setBrands] = useState([])
-  const [searchKeyword, setSearchKeyword] = useState('')
+  // === React 狀態管理：商品列表頁面的核心資料 ===
+
+  // === 使用者資料和 UI 狀態 ===
+  const [members, setMembers] = useState([]) // 會員列表資料 (主要用於管理後台功能)
+  const [sidebarOpen, setSidebarOpen] = useState(false) // 手機版篩選側邊欄的開關狀態
+
+  // === 篩選選項資料 ===
+  const [sports, setSports] = useState([]) // 運動類型選項清單 (從 API 獲取)
+  const [brands, setBrands] = useState([]) // 品牌選項清單 (從 API 獲取)
+
+  // === 搜尋和分類狀態 ===
+  const [searchKeyword, setSearchKeyword] = useState('') // 商品搜尋輸入框的即時值
   const [selectedCategory, setSelectedCategory] = useState({
-    name: '',
-    count: 0,
+    // 當前選中的商品分類資訊
+    name: '', // 分類名稱顯示文字
+    count: 0, // 該分類下符合篩選條件的商品總數
   })
-  const [priceRange, setPriceRange] = useState([0, 1000])
-  const [selectedSports, setSelectedSports] = useState([])
-  const [selectedBrands, setSelectedBrands] = useState([])
 
-  // ===== URL 參數處理 =====
+  // === 篩選條件狀態 ===
+  const [priceRange, setPriceRange] = useState([0, 1000]) // 價格範圍篩選 [最低價, 最高價]
+  const [selectedSports, setSelectedSports] = useState([]) // 已選擇的運動類型 ID 陣列
+  const [selectedBrands, setSelectedBrands] = useState([]) // 已選擇的品牌 ID 陣列
+
+  // === URL 狀態管理：支援書籤和分享連結 ===
+
+  /**
+   * 將 Next.js searchParams 轉換為普通物件供後續使用
+   * 這樣設計的好處：
+   * 1. 簡化 URL 參數的存取方式
+   * 2. 支援書籤和海量分享
+   * 3. SEO 友好的 URL 結構
+   */
   const queryParams = useMemo(() => {
-    const entries = Object.fromEntries(searchParams.entries())
+    const entries = Object.fromEntries(searchParams.entries()) // 轉換為 key-value 物件
     return entries
-  }, [searchParams])
+  }, [searchParams]) // 依賴 URL 參數變化
 
+  /**
+   * 排序標籤顯示邏輯：根據 URL 參數顯示中文排序標籤
+   * 支援的排序方式：
+   * - price-asc: 價格由低到高
+   * - price-desc: 價格由高到低
+   * - 預設: 無排序 (按創建時間或相關性)
+   */
   const sortLabel = useMemo(() => {
     switch (queryParams.sort) {
       case 'price-asc':
-        return '價格：由低到高'
+        return '價格：由低到高' // 按價格遞增排列
       case 'price-desc':
-        return '價格：由高到低'
+        return '價格：由高到低' // 按價格遞減排列
       default:
-        return '請選擇排序'
+        return '請選擇排序' // 預設狀態的提示文字
     }
-  }, [queryParams.sort])
+  }, [queryParams.sort]) // 依賴排序參數變化
 
-  // ===== 數據獲取 =====
+  // ===== SWR 資料獲取 =====
+  // 使用 SWR 進行資料獲取，支援自動緩存、重新驗證、錯誤重試等功能
   const { data, error, mutate } = useSWR(
-    ['products', queryParams],
+    ['products', queryParams], // SWR key: 當 queryParams 變化時會重新發起請求
     async ([, params]) => {
-      const result = await getProducts(params)
-      // console.log('Products API response:', result) // Debug用
+      const result = await getProducts(params) // 呼叫 API 取得商品列表
+      // console.log('Products API response:', result) // 調試用，可查看 API 回傳結果
       return result
     },
     {
-      keepPreviousData: true, // 換參數時保留舊的資料
-      revalidateOnFocus: false, // 切回頁面不會自動刷新
+      keepPreviousData: true, // 切換篩選或分頁時保留舊資料，提供更好的用戶體驗
+      revalidateOnFocus: false, // 當用戶切回頁面時不自動重新獲取資料
     }
   )
-  const products = data?.data ?? []
+  const products = data?.data ?? [] // 從 API 回應中提取商品陣列，預設為空陣列
 
   // ===== 副作用處理 =====
   useEffect(() => {
@@ -355,22 +469,33 @@ function ProductListContent() {
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
 
+  /**
+   * 處理商品收藏/取消收藏的功能
+   * @param {number} productId - 商品ID
+   * @returns {Promise} API 操作結果
+   */
   const handleAddToWishlist = async (productId) => {
+    // === 步驟1：檢查登入狀態 ===
     if (!isAuthenticated) {
+      // 未登入時顯示提示訊息，並提供登入連結
       toast('請先登入會員才能收藏商品', {
         action: {
           label: '前往登入',
-          onClick: () => router.push('/login'),
+          onClick: () => router.push('/login'), // 跳轉到登入頁
         },
       })
       return
     }
+
+    // === 步驟2：呼叫 API 切換收藏狀態 ===
     const result = await toggleFavorite(productId)
-    mutate()
+    mutate() // 重新獲取商品數據來更新收藏狀態
+
+    // === 步驟3：根據操作結果顯示相應的提示訊息 ===
     if (result?.favorited) {
       toast('已加入我的收藏', {
         style: {
-          backgroundColor: '#ff671e',
+          backgroundColor: '#ff671e', // 品牌主色橙色
           color: '#fff',
           border: 'none',
           width: '250px',
@@ -389,29 +514,40 @@ function ProductListContent() {
     return result
   }
 
+  /**
+   * 處理加入購物車的功能
+   * @param {number} productId - 商品ID
+   * @param {number} quantity - 購買數量
+   * @returns {Promise} API 操作結果
+   */
   const handleAddToCart = async (productId, quantity) => {
+    // === 步驟1：檢查登入狀態 ===
     if (!isAuthenticated) {
       toast('請先登入會員才能加入購物車', {
         action: {
           label: '前往登入',
-          onClick: () => router.push('/login'),
+          onClick: () => router.push('/login'), // 跳轉到登入頁
         },
       })
       return
     }
+
+    // === 步驟2：呼叫 API 加入購物車 ===
     const result = await addProductCart(productId, quantity)
-    mutate()
+    mutate() // 重新獲取商品數據來更新任何狀態變更
+
+    // === 步驟3：操作成功後顯示提示訊息 ===
     if (result?.success) {
       toast('已加入購物車', {
         style: {
-          backgroundColor: '#ff671e',
+          backgroundColor: '#ff671e', // 品牌主色
           color: '#fff',
           border: 'none',
           width: '250px',
         },
         action: {
           label: '查看',
-          onClick: () => router.push('/shop/order'),
+          onClick: () => router.push('/shop/order'), // 跳轉到購物車頁面
         },
         actionButtonStyle: {
           background: 'transparent',

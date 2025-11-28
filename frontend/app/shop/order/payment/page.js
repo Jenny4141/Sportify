@@ -52,75 +52,128 @@ import { toast } from 'sonner'
 import { validateField } from '@/lib/utils'
 import { API_SERVER } from '@/lib/api-path'
 
+// ===================================================================
+// 購物流程步驟配置：定義付款流程的各個階段
+// ===================================================================
+/**
+ * 購物流程三步驟：
+ * 1. 確認購物車 - 已完成 (用戶已進入付款頁)
+ * 2. 填寫付款資訊 - 當前步驟 (付款頁面的主要功能)
+ * 3. 完成訂單 - 未完成 (下一個目標階段)
+ */
 const steps = [
-  { id: 1, title: '確認購物車', completed: true },
-  { id: 2, title: '填寫付款資訊', active: true },
-  { id: 3, title: '完成訂單', completed: false },
+  { id: 1, title: '確認購物車', completed: true }, // 已完成：用戶已在購物車頁確認商品
+  { id: 2, title: '填寫付款資訊', active: true }, // 當前步驟：正在填寫付款資訊
+  { id: 3, title: '完成訂單', completed: false }, // 待完成：最後的訂單確認階段
 ]
 
+// ===================================================================
+// 付款頁面主組件 - 購物流程核心
+// ===================================================================
+/**
+ * ProductPaymentPage - 購物流程第二步：付款資訊填寫
+ *
+ * 主要功能：
+ * • 購物車內容確認和顯示
+ * • 付款方式選擇 (信用卡/ATM/超商代確)
+ * • 發票類型選擇 (電子發票/統編/載具)
+ * • 配送方式選擇 (宅配/便利商店)
+ * • 收件資訊填寫和驗證
+ * • ECPay 金流整合
+ */
 export default function ProductPaymentPage() {
-  const { isAuthenticated, isLoading: authLoading } = useAuth()
-  // ===== 路由和搜尋參數處理 =====
-  const router = useRouter()
-  const { user } = useAuth()
+  // === 身份驗證狀態管理 ===
+  const { isAuthenticated, isLoading: authLoading } = useAuth() // 用戶登入狀態和加載狀態
 
-  // 格式化價格，加上千分位逗號
+  // === Next.js 路由和用戶資料 ===
+  const router = useRouter() // Next.js 路由功能，用於頁面跳轉
+  const { user } = useAuth() // 當前登入用戶的詳細資訊
+
+  // === 工具函數：價格格式化 ===
+  /**
+   * 格式化價格顯示，加上千分位逗號提升可讀性
+   * @param {number} price - 原始價格
+   * @returns {string} 格式化後的價格字串 (例: "1,234")
+   */
   const formatPrice = (price) => {
-    return Number(price).toLocaleString('zh-TW')
+    return Number(price).toLocaleString('zh-TW') // 使用台灣地區設定
   }
 
-  // ===== 組件狀態管理 =====
-  const [selectedPayment, setSelectedPayment] = useState('')
-  const [selectedReceipt, setSelectedReceipt] = useState('')
-  const [selectedDelivery, setSelectedDelivery] = useState('')
-  const [carts, setCarts] = useState([])
-  const [formData, setFormData] = useState({
-    recipient: '',
-    phone: '',
-    address: '',
-    storeName: '',
-    carrierId: '', // 載具號碼
-    companyId: '', // 統一編號
-  })
-  const [errors, setErrors] = useState({})
-  const [touchedFields, setTouchedFields] = useState({}) // 追蹤欄位是否已被觸碰（用於決定是否顯示驗證錯誤）
-  const [showEcpayDialog, setShowEcpayDialog] = useState(false) // ECPay 確認對話框狀態
+  // ===== React 狀態管理：付款頁面的核心資料 =====
 
-  // ===== 數據獲取 =====
-  const shouldFetch = isAuthenticated
+  // === 選擇類狀態：用戶在付款流程中的選擇 ===
+  const [selectedPayment, setSelectedPayment] = useState('') // 付款方式 ID (信用卡/ATM/超商代確)
+  const [selectedReceipt, setSelectedReceipt] = useState('') // 發票類型 ID (電子發票/統編/載具)
+  const [selectedDelivery, setSelectedDelivery] = useState('') // 配送方式 ID (宅配/便利商店)
+
+  // === 購物車資料狀態 ===
+  const [carts, setCarts] = useState([]) // 購物車項目列表，用於本地狀態管理
+
+  // === 表單資料狀態：收件人和發票資訊 ===
+  const [formData, setFormData] = useState({
+    recipient: '', // 收件人姓名
+    phone: '', // 收件人電話
+    address: '', // 收件地址 (宅配時使用)
+    storeName: '', // 店家名稱 (便利商店配送時使用)
+    carrierId: '', // 載具號碼 (電子發票使用)
+    companyId: '', // 統一編號 (公司發票使用)
+  })
+
+  // === 表單驗證狀態管理 ===
+  const [errors, setErrors] = useState({}) // 各欄位的驗證錯誤訊息
+  const [touchedFields, setTouchedFields] = useState({}) // 追蹤欄位是否已被用戶互動，決定是否顯示驗證錯誤
+
+  // === UI 狀態管理 ===
+  const [showEcpayDialog, setShowEcpayDialog] = useState(false) // ECPay 第三方付款確認對話框顯示狀態
+
+  // ===== SWR 數據獲取：購物車資料同步 =====
+
+  // === 條件式數據獲取：只有已登入用戶才獲取購物車資料 ===
+  const shouldFetch = isAuthenticated // 防止未登入用戶發起無效請求
+
   const {
-    data: cartData,
-    isLoading: isCartLoading,
-    error: cartError,
-    mutate,
+    data: cartData, // SWR 返回的購物車資料
+    isLoading: isCartLoading, // 購物車資料加載狀態
+    error: cartError, // 購物車資料獲取錯誤
+    mutate, // SWR 手動重新獲取函數
   } = useSWR(
+    // SWR key: 條件式 key，未登入時為 null，不發起請求
     shouldFetch ? ['carts-checkout'] : null,
+
+    // 數據獲取函數：只有已登入時才定義
     shouldFetch
       ? async () => {
-          const result = await getCarts()
-          return result
+          const result = await getCarts() // 調用購物車 API
+          return result // 返回結果供 SWR 管理
         }
-      : null
+      : null // 未登入時不定義獲取函數
   )
 
-  // 計算總價和總數量
+  // === 計算屬性：動態計算訂單摘要 ===
+  /**
+   * 使用 useMemo 優化效能，只有當購物車項目或配送方式改變時才重新計算
+   * 計算項目：商品總價、商品數量、運費
+   */
   const { totalPrice, itemCount, shippingFee } = useMemo(() => {
+    // === 商品總價計算 ===
     const totalPrice = carts.reduce((sum, cartItem) => {
-      return sum + cartItem.product.price * cartItem.quantity
+      return sum + cartItem.product.price * cartItem.quantity // 單價 × 數量
     }, 0)
+
+    // === 商品總數量計算 ===
     const itemCount = carts.reduce(
       (sum, cartItem) => sum + cartItem.quantity,
       0
     )
 
-    // 計算運費
+    // === 運費計算：根據用戶選擇的配送方式 ===
     const selectedDeliveryOption = DeliveryOptions.find(
       (option) => option.id === selectedDelivery
     )
-    const shippingFee = selectedDeliveryOption?.fee || 0
+    const shippingFee = selectedDeliveryOption?.fee || 0 // 預設運費為 0
 
     return { totalPrice, itemCount, shippingFee }
-  }, [carts, selectedDelivery])
+  }, [carts, selectedDelivery]) // 依賴陣列：購物車和配送方式
 
   // ===== 副作用處理 =====
   useEffect(() => {
@@ -728,10 +781,7 @@ export default function ProductPaymentPage() {
                       onPaymentChange={(value) =>
                         handleSelectChange('payment', value, setSelectedPayment)
                       }
-                      options={[
-                        paymentOptions[0],
-                        paymentOptions[2],
-                      ]}
+                      options={[paymentOptions[0], paymentOptions[2]]}
                       errors={errors}
                     />
                   </div>
