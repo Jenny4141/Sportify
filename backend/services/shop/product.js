@@ -5,8 +5,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url) // 取得當前檔案的絕對路徑
+const __dirname = path.dirname(__filename) // 取得當前目錄的絕對路徑
 
 /**
  * 取得商品列表 - 支援分頁、搜尋、篩選、排序
@@ -32,7 +32,7 @@ export const getAllProducts = async ({
   maxPrice,
 }) => {
   try {
-    // === 步驟1：取得使用者收藏清單 ===
+    // === 取得使用者收藏清單 ===
     // 如果有傳入使用者ID，先查詢該使用者的收藏商品ID列表
     // 這樣在回傳商品時可以標示 favorite: true/false
     let favoritedids = []
@@ -45,12 +45,12 @@ export const getAllProducts = async ({
       favoritedids = favorites.map((fav) => fav.productId)
     }
 
-    // === 步驟2：處理分頁參數 ===
+    // === 處理分頁參數 ===
     const pageNum = parseInt(page) || 1 // 確保頁碼為正整數，預設第1頁
     const perPage = 16 // 每頁顯示16筆商品
     const offset = (pageNum - 1) * perPage // 計算資料庫查詢的偏移量
 
-    // === 步驟3：動態建立 Prisma 查詢條件 ===
+    // === 動態建立 Prisma 查詢條件 ===
     const whereCondition = {} // 初始化空的查詢條件物件
 
     // 關鍵字搜尋：使用 OR 邏輯搜尋商品名稱、品牌名稱、運動類型名稱
@@ -61,7 +61,7 @@ export const getAllProducts = async ({
         { sport: { name: { contains: keyword } } }, // 透過關聯搜尋運動類型名稱
       ]
     }
-    // AND的作法
+    // 運動和品牌：AND的作法
     if (sportId) {
       const sportIds = sportId
         .split(',')
@@ -82,39 +82,11 @@ export const getAllProducts = async ({
       }
     }
 
-    // OR的作法
-    // if (sportId || brandId) {
-    //   const orConditions = []
-
-    //   if (sportId) {
-    //     const sportIds = sportId
-    //       .split(',')
-    //       .map((id) => parseInt(id, 10))
-    //       .filter((id) => !isNaN(id))
-    //     if (sportIds.length > 0) {
-    //       orConditions.push({ sportId: { in: sportIds } })
-    //     }
-    //   }
-
-    //   if (brandId) {
-    //     const brandIds = brandId
-    //       .split(',')
-    //       .map((id) => parseInt(id, 10))
-    //       .filter((id) => !isNaN(id))
-    //     if (brandIds.length > 0) {
-    //       orConditions.push({ brandId: { in: brandIds } })
-    //     }
-    //   }
-
-    //   if (orConditions.length > 0) {
-    //     whereCondition.OR = orConditions
-    //   }
-    // }
-
     // === 價格區間篩選 ===
     const min = Number(minPrice)
     const max = Number(maxPrice)
     // 防呆處理：如果最小價格大於最大價格，自動互換避免查無資料
+    // Number.isNaN(NaN) => 檢查是否非特殊值
     if (!Number.isNaN(min) && !Number.isNaN(max) && min > max) {
       const temp = minPrice // 使用更清楚的變數名稱
       minPrice = max
@@ -125,8 +97,8 @@ export const getAllProducts = async ({
     // 只有當價格參數有效時才加入查詢條件
     if (!Number.isNaN(_min) || !Number.isNaN(_max)) {
       whereCondition.price = {} // 初始化價格查詢物件
-      if (!Number.isNaN(_min)) whereCondition.price.gte = _min // 大於等於最小價格 (>=)
-      if (!Number.isNaN(_max)) whereCondition.price.lte = _max // 小於等於最大價格 (<=)
+      if (!Number.isNaN(_min)) whereCondition.price.gte = _min // 價格大於等於最小價格 (>=)
+      if (!Number.isNaN(_max)) whereCondition.price.lte = _max // 價格小於等於最大價格 (<=)
     }
 
     // === 排序條件設定 ===
@@ -189,7 +161,7 @@ export const getAllProducts = async ({
     return { code: 500, error: '伺服器錯誤' }
   }
 }
-// 無分頁(for 訂單管理)
+// 無分頁(for 後台訂單管理)
 export const getAllProductsOrders = async () => {
   try {
     const products = await prisma.product.findMany({
