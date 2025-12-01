@@ -2,6 +2,7 @@
 
 // react
 import React, { useState, useEffect, useMemo, Suspense } from 'react'
+// icons
 import {
   Search,
   AlignLeft,
@@ -223,117 +224,94 @@ const MobileSidebar = ({
 // 商品列表主內容組件
 function ProductListContent() {
   // === 路由和搜尋參數處理 ===
-  const searchParams = useSearchParams() // URL 查詢參數獲取
-  const router = useRouter() // 程式式導航用路由器
-  const { isAuthenticated } = useAuth() // 用戶身份驗證狀態
+  const searchParams = useSearchParams()
+  const router = useRouter()
 
-  // === React 狀態管理：商品列表頁面的核心資料 ===
+  const { isAuthenticated } = useAuth()
 
-  // === 使用者資料和 UI 狀態 ===
+  // === 狀態管理 ===
   const [members, setMembers] = useState([]) // 會員列表資料 (主要用於管理後台功能)
-  const [sidebarOpen, setSidebarOpen] = useState(false) // 手機版篩選側邊欄的開關狀態
-
-  // === 篩選選項資料 ===
-  const [sports, setSports] = useState([]) // 運動類型選項清單 (從 API 獲取)
-  const [brands, setBrands] = useState([]) // 品牌選項清單 (從 API 獲取)
-
-  // === 搜尋和分類狀態 ===
-  const [searchKeyword, setSearchKeyword] = useState('') // 商品搜尋輸入框的即時值
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sports, setSports] = useState([])
+  const [brands, setBrands] = useState([])
+  const [searchKeyword, setSearchKeyword] = useState('')
   const [selectedCategory, setSelectedCategory] = useState({
     // 當前選中的商品分類資訊
-    name: '', // 分類名稱顯示文字
-    count: 0, // 該分類下符合篩選條件的商品總數
+    name: '',
+    count: 0,
   })
+  const [priceRange, setPriceRange] = useState([0, 1000])
+  const [selectedSports, setSelectedSports] = useState([])
+  const [selectedBrands, setSelectedBrands] = useState([])
 
-  // === 篩選條件狀態 ===
-  const [priceRange, setPriceRange] = useState([0, 1000]) // 價格範圍篩選 [最低價, 最高價]
-  const [selectedSports, setSelectedSports] = useState([]) // 已選擇的運動類型 ID 陣列
-  const [selectedBrands, setSelectedBrands] = useState([]) // 已選擇的品牌 ID 陣列
-
-  // === URL 狀態管理：支援書籤和分享連結 ===
-
-  /**
-   * 將 Next.js searchParams 轉換為普通物件供後續使用
-   * 這樣設計的好處：
-   * 1. 簡化 URL 參數的存取方式
-   * 2. 支援書籤和海量分享
-   * 3. SEO 友好的 URL 結構
-   */
+  // === URL狀態管理 ===
   const queryParams = useMemo(() => {
-    const entries = Object.fromEntries(searchParams.entries()) // 轉換為 key-value 物件
+    const entries = Object.fromEntries(searchParams.entries())
     return entries
-  }, [searchParams]) // 依賴 URL 參數變化
+  }, [searchParams])
 
-  /**
-   * 排序標籤顯示邏輯：根據 URL 參數顯示中文排序標籤
-   * 支援的排序方式：
-   * - price-asc: 價格由低到高
-   * - price-desc: 價格由高到低
-   * - 預設: 無排序 (按創建時間或相關性)
-   */
+  // 排序方式
   const sortLabel = useMemo(() => {
     switch (queryParams.sort) {
       case 'price-asc':
-        return '價格：由低到高' // 按價格遞增排列
+        return '價格：由低到高'
       case 'price-desc':
-        return '價格：由高到低' // 按價格遞減排列
+        return '價格：由高到低'
       default:
-        return '請選擇排序' // 預設狀態的提示文字
+        return '請選擇排序'
     }
-  }, [queryParams.sort]) // 依賴排序參數變化
+  }, [queryParams.sort])
 
-  // ===== SWR 資料獲取 =====
-  // 使用 SWR 進行資料獲取，支援自動緩存、重新驗證、錯誤重試等功能
+  // ===== API資料獲取 =====
   const { data, error, mutate } = useSWR(
-    ['products', queryParams], // SWR key: 當 queryParams 變化時會重新發起請求
+    ['products', queryParams],
     async ([, params]) => {
-      const result = await getProducts(params) // 呼叫 API 取得商品列表
-      // console.log('Products API response:', result) // 調試用，可查看 API 回傳結果
+      const result = await getProducts(params)
+      // console.log('Products API response:', result) // debug用
       return result
     },
     {
-      keepPreviousData: true, // 切換篩選或分頁時保留舊資料，提供更好的用戶體驗
-      revalidateOnFocus: false, // 當用戶切回頁面時不自動重新獲取資料
+      keepPreviousData: true, // 保留舊資料避免閃爍
+      revalidateOnFocus: false, // 切回頁面時不自動重新獲取資料
     }
   )
   const products = data?.data ?? [] // 從 API 回應中提取商品陣列，預設為空陣列
 
   // ===== 副作用處理 =====
+  // 搜尋
   useEffect(() => {
-    // 同步搜尋關鍵字與 URL 參數
     setSearchKeyword(queryParams.keyword || '')
   }, [queryParams.keyword])
 
+  // 獲取會員、運動、品牌資料
   useEffect(() => {
     const loadData = async () => {
       try {
-        const memberData = await fetchMemberOptions()
+        const [memberData, sportData, brandData] = await Promise.all([
+          fetchMemberOptions(),
+          fetchSportOptions(),
+          fetchBrandOptions(),
+        ])
         setMembers(memberData.rows || [])
-
-        const sportData = await fetchSportOptions()
         setSports(sportData.rows || [])
-
-        const brandData = await fetchBrandOptions()
         setBrands(brandData.rows || [])
       } catch (error) {
-        console.error('載入失敗:', error)
+        console.error('載入資料失敗:', error)
         toast.error('載入失敗')
       }
     }
     loadData()
   }, [])
 
-  // === 只同步總筆數到 selectedCategory，避免不必要 re-render ===
+  // 商品總筆數
   useEffect(() => {
     if (!data) return
     const count =
-      data.totalRows ??
-      data.total ??
-      (Array.isArray(products) ? products.length : 0)
+      data.totalRows ?? (Array.isArray(products) ? products.length : 0)
     setSelectedCategory((prev) => ({ ...prev, count }))
   }, [data, products])
 
-  // === 是否有啟用任何篩選/排序/關鍵字（用於顯示「清除篩選」） ===
+  // 是否有篩選（用於顯示清除篩選）
   const hasActiveFilters = Boolean(
     queryParams.keyword ||
       queryParams.sportId ||
@@ -344,10 +322,10 @@ function ProductListContent() {
   )
 
   // ===== 事件處理函數 =====
+  // 搜尋
   const handleSearch = (event) => {
     if (event.key === 'Enter') {
       const keyword = event.target.value.trim()
-      // 清空 Checkbox 狀態
       setSelectedSports([])
       setSelectedBrands([])
       const newParams = new URLSearchParams()
@@ -358,7 +336,7 @@ function ProductListContent() {
       router.push(`?${newParams.toString()}`, { scroll: false })
     }
   }
-
+  // 搜尋按鈕
   const handleSearchClick = () => {
     const keyword = searchKeyword.trim()
     // 清空 checkbox 狀態
@@ -371,7 +349,7 @@ function ProductListContent() {
     newParams.set('page', '1')
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
-
+  // 排序變動
   const handleSortChange = (sortValue) => {
     const newParams = new URLSearchParams(searchParams.toString())
     if (sortValue) {
@@ -382,7 +360,7 @@ function ProductListContent() {
     newParams.set('page', '1')
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
-
+  // 分頁切換
   const handlePagination = (targetPage) => {
     const perPage = data?.perPage || 8
     const newParams = new URLSearchParams(searchParams.toString())
@@ -390,34 +368,24 @@ function ProductListContent() {
     newParams.set('perPage', String(perPage))
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
-
-  /**
-   * 處理商品收藏/取消收藏的功能
-   * @param {number} productId - 商品ID
-   * @returns {Promise} API 操作結果
-   */
+  // 商品收藏
   const handleAddToWishlist = async (productId) => {
-    // === 步驟1：檢查登入狀態 ===
     if (!isAuthenticated) {
-      // 未登入時顯示提示訊息，並提供登入連結
       toast('請先登入會員才能收藏商品', {
         action: {
           label: '前往登入',
-          onClick: () => router.push('/login'), // 跳轉到登入頁
+          onClick: () => router.push('/login'),
         },
       })
       return
     }
-
-    // === 步驟2：呼叫 API 切換收藏狀態 ===
     const result = await toggleFavorite(productId)
-    mutate() // 重新獲取商品數據來更新收藏狀態
+    mutate() // 更新收藏狀態
 
-    // === 步驟3：根據操作結果顯示相應的提示訊息 ===
     if (result?.favorited) {
       toast('已加入我的收藏', {
         style: {
-          backgroundColor: '#ff671e', // 品牌主色橙色
+          backgroundColor: '#ff671e',
           color: '#fff',
           border: 'none',
           width: '250px',
@@ -435,41 +403,31 @@ function ProductListContent() {
     }
     return result
   }
-
-  /**
-   * 處理加入購物車的功能
-   * @param {number} productId - 商品ID
-   * @param {number} quantity - 購買數量
-   * @returns {Promise} API 操作結果
-   */
+  // 加入購物車
   const handleAddToCart = async (productId, quantity) => {
-    // === 步驟1：檢查登入狀態 ===
     if (!isAuthenticated) {
       toast('請先登入會員才能加入購物車', {
         action: {
           label: '前往登入',
-          onClick: () => router.push('/login'), // 跳轉到登入頁
+          onClick: () => router.push('/login'),
         },
       })
       return
     }
-
-    // === 步驟2：呼叫 API 加入購物車 ===
     const result = await addProductCart(productId, quantity)
-    mutate() // 重新獲取商品數據來更新任何狀態變更
+    mutate()
 
-    // === 步驟3：操作成功後顯示提示訊息 ===
     if (result?.success) {
       toast('已加入購物車', {
         style: {
-          backgroundColor: '#ff671e', // 品牌主色
+          backgroundColor: '#ff671e',
           color: '#fff',
           border: 'none',
           width: '250px',
         },
         action: {
           label: '查看',
-          onClick: () => router.push('/shop/order'), // 跳轉到購物車頁面
+          onClick: () => router.push('/shop/order'),
         },
         actionButtonStyle: {
           background: 'transparent',
@@ -482,8 +440,7 @@ function ProductListContent() {
       return result
     }
   }
-
-  // 桌面版才即時跳轉
+  // 運動類型篩選
   const handleSportChange = (id, checked) => {
     const updated = checked
       ? [...selectedSports, id]
@@ -498,6 +455,7 @@ function ProductListContent() {
     newParams.set('page', '1')
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
+  // 品牌篩選
   const handleBrandChange = (id, checked) => {
     const updated = checked
       ? [...selectedBrands, id]
@@ -512,8 +470,16 @@ function ProductListContent() {
     newParams.set('page', '1')
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
-
-  // 手機版套用篩選
+  // 價格區間篩選
+  const handlePriceRange = (values) => {
+    const [minPrice, maxPrice] = values
+    const newParams = new URLSearchParams(searchParams.toString())
+    newParams.set('minPrice', minPrice)
+    newParams.set('maxPrice', maxPrice)
+    newParams.set('page', '1')
+    router.push(`?${newParams.toString()}`, { scroll: false })
+  }
+  // 手機版篩選
   const handleApplyMobileFilters = ({ sports, brands, price }) => {
     setSelectedSports(sports)
     setSelectedBrands(brands)
@@ -526,14 +492,12 @@ function ProductListContent() {
     newParams.set('page', '1')
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
-
+  // 清除篩選
   const clearAllFilters = () => {
-    // 清空本地狀態
     setSelectedSports([])
     setSelectedBrands([])
     setPriceRange([0, 1000])
     setSearchKeyword('')
-    // 清空 URL 參數
     const newParams = new URLSearchParams()
     router.push(`?${newParams.toString()}`, { scroll: false })
   }
@@ -598,14 +562,7 @@ function ProductListContent() {
                 min={0}
                 max={1000}
                 step={10}
-                onValueCommit={(values) => {
-                  const [minPrice, maxPrice] = values
-                  const newParams = new URLSearchParams(searchParams.toString())
-                  newParams.set('minPrice', minPrice)
-                  newParams.set('maxPrice', maxPrice)
-                  newParams.set('page', '1') // 篩選後回到第一頁
-                  router.push(`?${newParams.toString()}`, { scroll: false })
-                }}
+                onValueCommit={handlePriceRange}
               />
               <div className="flex justify-between text-sm">
                 <span>${priceRange[0]}</span>
@@ -614,7 +571,7 @@ function ProductListContent() {
             </div>
           </div>
           <div className="flex flex-1 flex-col gap-3">
-            {/* 桌機、手機上方功能列 */}
+            {/* 商品列表上方功能列 */}
             <div className="flex justify-between items-center gap-3 w-full">
               <div className="hidden md:block">
                 {data && (
@@ -624,6 +581,7 @@ function ProductListContent() {
                 )}
               </div>
               <div className="flex items-center justify-between md:justify-end w-full md:gap-3">
+                {/* 手機版側邊欄按鈕 */}
                 <Button
                   variant="secondary"
                   onClick={() => setSidebarOpen(true)}
@@ -643,6 +601,7 @@ function ProductListContent() {
                     <span>清除篩選</span>
                   </Button>
                 </div>
+                {/* 搜尋 */}
                 <div className="relative flex items-center w-[200px]">
                   <Input
                     type="search"
@@ -660,12 +619,14 @@ function ProductListContent() {
                     <Search size={20} />
                   </Button>
                 </div>
+                {/* 排序 */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="secondary"
                       className="!h-10 flex items-center gap-2"
                     >
+                      {/* 手機版排序按鈕 */}
                       <Funnel size={16} className="block md:hidden" />
                       <span className="hidden md:inline">{sortLabel}</span>
                       <IoIosArrowDown size={16} className="hidden md:block" />
@@ -712,7 +673,7 @@ function ProductListContent() {
                       key={product.id}
                       product={product}
                       variant="compact"
-                      isFavorited={product?.favorite} // 從後端資料中取出是否已收藏
+                      isFavorited={product?.favorite}
                       onAddToWishlist={() => handleAddToWishlist(product.id)}
                       onAddToCart={() => handleAddToCart(product.id, 1)}
                     />
@@ -763,7 +724,7 @@ function ProductListContent() {
   )
 }
 
-// 主要導出組件，包含 Suspense 邊界
+// 主要導出組件(首次進入頁面))
 export default function ProductListPage() {
   return (
     <Suspense
