@@ -44,55 +44,31 @@ const steps = [
   { id: 3, title: '完成訂單', completed: false },
 ]
 
-// 將使用 useSearchParams 的邏輯抽取到單獨的組件
-/**
- * 購物車列表內容組件 - 購物車頁面的主要內容部分
- *
- * 主要功能：
- * - 顯示當前用戶購物車中的所有商品
- * - 支援數量調整 (+/- 按鈕)
- * - 支援單個商品移除
- * - 即時計算總價格和總數量
- * - 樂觀更新 (Optimistic Updates) 提升用戶體驗
- * - 響應式設計 (桌面/手機版適配)
- * - 結帳流程入口
- */
+// 購物車主內容組件
 function CartListContent() {
-  // === 身份驗證狀態 ===
   const { isAuthenticated, isLoading: authLoading } = useAuth()
+  // === 路由和搜尋參數處理 ===
+  const searchParams = useSearchParams()
 
-  // === Next.js 路由處理 ===
-  const searchParams = useSearchParams() // 獲取 URL 查詢參數
+  // === 狀態管理 ===
+  const [carts, setCarts] = useState([])
 
-  // === React 本地狀態管理 ===
-  const [carts, setCarts] = useState([]) // 購物車項目列表，用於樂觀更新
-
-  // === 工具函數：價格格式化 ===
-  /**
-   * 將數字價格格式化為帶千分位逗號的字串
-   * @param {number} price - 價格數值
-   * @returns {string} 格式化後的價格字串，例如：1,234
-   */
+  // 價格格式化
   const formatPrice = (price) => {
     return Number(price).toLocaleString('zh-TW')
   }
 
-  // === 計算屬性：即時計算總價和總數量 ===
-  // 使用 useMemo 優化效能，只有當 carts 變更時才重新計算
+  // 即時計算總價和總數量
   const { totalPrice, itemCount } = useMemo(() => {
-    // 計算所有商品的總價格 (價格 * 數量)
     const totalPrice = carts.reduce((sum, cartItem) => {
       return sum + cartItem.product.price * cartItem.quantity
     }, 0)
-
-    // 計算購物車中的總商品數量
     const itemCount = carts.reduce(
       (sum, cartItem) => sum + cartItem.quantity,
       0
     )
-
     return { totalPrice, itemCount }
-  }, [carts]) // 依賴 carts 狀態
+  }, [carts])
 
   // ===== URL 參數處理 =====
   const queryParams = useMemo(() => {
@@ -502,38 +478,19 @@ function CartListContent() {
   )
 }
 
-// ===================================================================
-// 主要導出組件：Suspense 進階加載模式
-// ===================================================================
-/**
- * 購物車列表頁面組件 - 主要導出
- *
- * 架構特色：
- * • Suspense 邊界：提供優雅的加載狀態管理
- * • 組件分離：加載狀態與主內容分離
- * • SSR 支援：Next.js 伺服器端渲染相容
- * • 錯誤隔離：防止加載錯誤影響整體應用
- */
+// 主要導出組件(首次進入頁面))
 export default function CartListPage() {
   return (
-    // === Suspense 數據加載邊界 ===
-    // 在 CartListContent 中的 SWR 加載數據期間顯示 fallback UI
     <Suspense
       fallback={
-        // === 自定義加載畫面：品牌一致性設計 ===
         <div className="min-h-screen w-full flex items-center justify-center">
-          {/* 全畫面置中 */}
           <div className="text-center">
-            {/* 垂直中心對齊 */}
-            {/* 旋轉加載動畫：使用 Tailwind 內建動畫 */}
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-            {/* 加載文字提示：使用系統主題色彩 */}
             <p className="text-muted-foreground">載入購物車資料中...</p>
           </div>
         </div>
       }
     >
-      {/* === 主要內容組件：實際的購物車功能 === */}
       <CartListContent />
     </Suspense>
   )
