@@ -32,85 +32,47 @@ import { LoadingState, ErrorState } from '@/components/loading-states'
 import { getProductImageUrl } from '@/api/admin/shop/image'
 import { getOrderDetail } from '@/api'
 
-// ===================================================================
-// 購物流程步驟配置 - 最終階段
-// ===================================================================
-/**
- * 訂單完成頁面的流程步驟配置
- * 所有前三個步驟都已完成，正在顯示最終的成功結果
- * 這個配置在視覺上向用戶確認整個購物流程的完成
- */
 const steps = [
-  { id: 1, title: '確認購物車', completed: true }, // 第一步：已完成購物車確認
-  { id: 2, title: '填寫付款資訊', completed: true }, // 第二步：已完成付款資訊填寫
-  { id: 3, title: '完成訂單', active: true }, // 第三步：當前步驟 - 訂單完成狀態
+  { id: 1, title: '確認購物車', completed: true },
+  { id: 2, title: '填寫付款資訊', completed: true },
+  { id: 3, title: '完成訂單', active: true },
 ]
 
-// ===================================================================
 // 訂單成功頁面主內容組件
-// ===================================================================
-/**
- * ProductSuccessContent - 訂單完成後的詳細資訊顯示組件
- *
- * 功能特色：
- * • 根據 URL 參數獲取訂單 ID
- * • 使用 SWR 獲取訂單詳細資訊
- * • 顯示完整的訂單摘要 (收件人、配送、付款等)
- * • 列表顯示購買的商品明細
- * • 訂單狀態試覺化顯示
- * • 用戶後續操作引導 (繼續購物等)
- *
- * 設計理念：
- * • Suspense 邊界分離：將需要 useSearchParams 的邏輯獨立出來
- * • 一頁式訂單摘要：用戶不需點擊又能看到所有重要資訊
- * • 明確的成功回饋：給用戶安心感和成就感
- */
 function ProductSuccessContent() {
-  // === URL 參數解析和資料獲取 ===
-  const searchParams = useSearchParams() // Next.js 路由參數取得
-  const orderId = searchParams.get('orderId') // 從 URL 中提取訂單 ID
+  // === 路由和搜尋參數處理 ===
+  const searchParams = useSearchParams()
+  const orderId = searchParams.get('orderId')
 
-  // === SWR 資料獲取：條件式獲取訂單詳情 ===
+  // === SWR資料獲取 ===
   const { data, isLoading, error, mutate } = useSWR(
-    orderId ? ['order', orderId] : null, // SWR key: 有 orderId 時才發起請求
-    () => getOrderDetail(orderId) // 訂單詳情 API 調用
+    orderId ? ['order', orderId] : null,
+    () => getOrderDetail(orderId)
   )
 
-  // === 工具函數：價格格式化 ===
-  /**
-   * 格式化價格顯示，加上千分位逗號提升可讀性
-   * @param {number} price 原始價格
-   * @returns {string} 格式化後的價格字串
-   */
+  // 價格格式化
   const formatPrice = (price) => {
     return Number(price).toLocaleString('zh-TW')
   }
 
-  // === 訂單資料處理和結構化 ===
-  let summaries = [] // 訂單摘要資訊陣列
-  let products = [] // 訂單商品明細陣列
-  let isSuccess = true // 訂單是否成功狀態
+  // 訂單摘要
+  let summaries = []
+  let products = []
+  let isSuccess = true
 
-  // === 訂單資料存在時的處理邏輯 ===
   if (data && data.data) {
-    const order = data.data // 獲取訂單詳細資料
-    isSuccess = true // 成功獲取訂單資料
+    const order = data.data
+    isSuccess = true
 
-    // === 訂單基本資訊整理 ===
     summaries = [
-      { key: '訂單編號', value: order.order_number || '未知' }, // 訂單唯一識別碼
-      { key: '收件人', value: order.recipient || '未知' }, // 收件人姓名
-      { key: '手機號碼', value: order.phone || '未知' }, // 聯絡電話
+      { key: '訂單編號', value: order.order_number || '未知' },
+      { key: '收件人', value: order.recipient || '未知' },
+      { key: '手機號碼', value: order.phone || '未知' },
     ]
-    // === 條件式配送資訊顯示 ===
-    // 根據不同的配送方式顯示不同的資訊欄位
-
-    // 宅配方式：顯示收件地址
+    // 配送方式
     if (order.delivery_name?.includes('宅配')) {
       summaries.push({ key: '收件地址', value: order.address || '未知' })
     }
-
-    // 7-11 取貨：顯示取貨門市資訊
     if (order.delivery_name?.includes('7-11') && order.storeName) {
       summaries.push({ key: '取貨門市', value: order.storeName || '未知' })
     }
@@ -144,6 +106,7 @@ function ProductSuccessContent() {
     ]
     products = order.items || []
   }
+
   // ===== 載入和錯誤狀態處理 =====
   if (isLoading) {
     return <LoadingState message="載入訂單資料中..." />
@@ -188,7 +151,6 @@ function ProductSuccessContent() {
           </div>
           <div className="mx-auto md:max-w-2xl gap-6">
             <div className="flex flex-col gap-6">
-              {/* 訂單詳情 */}
               <div>
                 <Card className="gap-0">
                   <CardHeader>
@@ -222,7 +184,6 @@ function ProductSuccessContent() {
                   </CardContent>
                 </Card>
               </div>
-              {/* 商品明細 */}
               <div>
                 <Card className="gap-0">
                   <CardHeader>
@@ -316,7 +277,7 @@ function ProductSuccessContent() {
   )
 }
 
-// 主要導出組件，包含 Suspense 邊界
+// 主要導出組件(首次進入頁面))
 export default function ProductSuccessPage() {
   return (
     <Suspense

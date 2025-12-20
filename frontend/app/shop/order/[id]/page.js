@@ -32,105 +32,63 @@ import { useAuth } from '@/contexts/auth-context'
 import { getProductImageUrl } from '@/api/admin/shop/image'
 import { getOrderDetail } from '@/api'
 
-// ===================================================================
-// 訂單詳情頁面主組件
-// ===================================================================
-/**
- * OrderDetailPage - 單一訂單的詳細資訊查看頁面
- *
- * 主要功能：
- * • 根據 URL 參數的訂單 ID 獲取訂單詳情
- * • 顯示完整的訂單資訊 (收件人、配送、付款等)
- * • 列表顯示訂單中的所有商品
- * • 訂單狀態追蹤和視覺化顯示
- * • 価格計算和總金額顯示
- * • 用戶身份驗證和權限控制
- *
- * 路由系統：
- * - URL 格式：/shop/order/[id]
- * - 動態路由參數：id 為訂單的唯一識別碼
- */
 export default function OrderDetailPage() {
-  // === 身份驗證和權限管理 ===
-  const { isAuthenticated, isLoading: authLoading } = useAuth() // 用戶登入狀態和認證加載狀態
+  const { isAuthenticated, isLoading: authLoading } = useAuth()
 
-  // === Next.js 動態路由參數解析 ===
-  const { id } = useParams() // 獲取 URL 中的訂單 ID 參數
+  // === 路由和搜尋參數處理 ===
+  const { id } = useParams()
 
-  // === React 本地狀態管理 ===
-  const [order, setOrder] = useState(null) // 訂單詳情資料狀態，初始為 null
+  // === 狀態管理 ===
+  const [order, setOrder] = useState(null)
 
-  // === SWR 條件式資料獲取：只有當用戶已登入且有有效 ID 時才獲取 ===
-  const shouldFetch = isAuthenticated && !!id // 雙重檢查：登入狀態 + ID 存在
+  // === SWR資料獲取 ===
+  const shouldFetch = isAuthenticated && !!id
 
   const {
-    data, // API 返回的訂單資料
-    isLoading: isDataLoading, // 資料獲取加載狀態
-    error, // API 錯誤狀態
-    mutate, // SWR 手動重新獲取函數
+    data,
+    isLoading: isDataLoading,
+    error,
+    mutate,
   } = useSWR(
-    // SWR key: 條件式 key，只有滿足條件時才發起請求
     shouldFetch ? ['order', id] : null,
-    // 資料獲取函數：只有條件滿足時才定義
     shouldFetch ? () => getOrderDetail(id) : null
   )
 
-  // === 資料同步副作用：當 SWR 資料更新時同步本地狀態 ===
-  /**
-   * 當 SWR 獲取到新資料時，更新本地的 order 狀態
-   * 這樣設計的好處：
-   * 1. 分離 SWR 的資料管理和組件的內部狀態
-   * 2. 方便後續的資料處理和操作
-   * 3. 避免直接依賴 SWR 的資料結構
-   */
+  // ===== 副作用處理 =====
   useEffect(() => {
     if (data && data.data) {
-      setOrder(data.data) // 同步訂單資料到本地狀態
-      // console.log('Order loaded:', data.data)              // 開發者工具：可用於調試
+      setOrder(data.data)
+      // console.log('Order loaded:', data.data) // debug用
     }
-  }, [data]) // 依賴 SWR 返回的 data
+  }, [data])
 
-  // === 工具函數：價格格式化 ===
-  /**
-   * 價格格式化函數，方便在整個組件中使用
-   * 加上千分位逗號提升數字可讀性，使用台灣地區設定
-   */
+  // 價格格式化
   const formatPrice = (price) => {
     return Number(price).toLocaleString('zh-TW')
   }
 
-  // === 訂單摘要資訊結構化處理 ===
-  let summaries = [] // 訂單摘要資訊陣列
-
-  // 只有當訂單資料存在時才處理摘要資訊
+  // 訂單摘要
+  let summaries = []
   if (order) {
-    // === 基本訂單資訊 ===
     summaries = [
-      { key: '訂單編號', value: order.order_number || '未知' }, // 訂單唯一識別碼
-      { key: '收件人', value: order.recipient || '未知' }, // 收貨人姓名
-      { key: '手機號碼', value: order.phone || '未知' }, // 聯絡電話
+      { key: '訂單編號', value: order.order_number || '未知' },
+      { key: '收件人', value: order.recipient || '未知' },
+      { key: '手機號碼', value: order.phone || '未知' },
     ]
-
-    // === 條件式配送資訊 ===
-    // 根據不同配送方式顯示相應資訊
-
-    // 宅配方式：需要顯示詳細地址
+    // 配送方式
     if (order.delivery_name?.includes('宅配')) {
       summaries.push({ key: '收件地址', value: order.address || '未知' })
     }
-
-    // 7-11 便利商店取貨：需要顯示門市資訊
     if (order.delivery_name?.includes('7-11') && order.storeName) {
       summaries.push({ key: '取貨門市', value: order.storeName || '未知' })
     }
-
-    // === 服務資訊和交易詳情 ===
     summaries = [
-      ...summaries, // 展開之前的基本資訊
-      { key: '物流方式', value: order.delivery_name || '未知' }, // 配送方式
-      { key: '付款方式', value: order.payment_name || '未知' }, // 付款方式
-      { key: '發票類型', value: order.invoice?.name || '未知' }, // 發票類型
+      ...summaries,
+      { key: '物流方式', value: order.delivery_name || '未知' },
+      { key: '付款方式', value: order.payment_name || '未知' },
+      { key: '發票類型', value: order.invoice?.name || '未知' },
     ]
+    // 發票類型
     if (order.invoice?.name === '電子載具' && order.invoice?.carrier) {
       summaries.push({ key: '載具號碼', value: order.invoice.carrier })
     }
@@ -183,7 +141,7 @@ export default function OrderDetailPage() {
     )
   }
 
-  // 未登入狀態
+  // 未登入
   if (!isAuthenticated) {
     return (
       <>
@@ -207,7 +165,6 @@ export default function OrderDetailPage() {
         <div className="flex flex-col container mx-auto max-w-screen-xl min-h-screen gap-6">
           <div className="mx-auto md:max-w-2xl gap-6">
             <div className="flex flex-col gap-6">
-              {/* 訂單詳情 */}
               <div>
                 <Card className="gap-0">
                   <CardHeader>
@@ -241,7 +198,6 @@ export default function OrderDetailPage() {
                   </CardContent>
                 </Card>
               </div>
-              {/* 商品明細 */}
               <div>
                 <Card className="gap-0">
                   <CardHeader>

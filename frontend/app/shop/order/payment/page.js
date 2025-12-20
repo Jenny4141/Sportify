@@ -52,128 +52,72 @@ import { toast } from 'sonner'
 import { validateField } from '@/lib/utils'
 import { API_SERVER } from '@/lib/api-path'
 
-// ===================================================================
-// 購物流程步驟配置：定義付款流程的各個階段
-// ===================================================================
-/**
- * 購物流程三步驟：
- * 1. 確認購物車 - 已完成 (用戶已進入付款頁)
- * 2. 填寫付款資訊 - 當前步驟 (付款頁面的主要功能)
- * 3. 完成訂單 - 未完成 (下一個目標階段)
- */
 const steps = [
-  { id: 1, title: '確認購物車', completed: true }, // 已完成：用戶已在購物車頁確認商品
-  { id: 2, title: '填寫付款資訊', active: true }, // 當前步驟：正在填寫付款資訊
-  { id: 3, title: '完成訂單', completed: false }, // 待完成：最後的訂單確認階段
+  { id: 1, title: '確認購物車', completed: true },
+  { id: 2, title: '填寫付款資訊', active: true },
+  { id: 3, title: '完成訂單', completed: false },
 ]
 
-// ===================================================================
-// 付款頁面主組件 - 購物流程核心
-// ===================================================================
-/**
- * ProductPaymentPage - 購物流程第二步：付款資訊填寫
- *
- * 主要功能：
- * • 購物車內容確認和顯示
- * • 付款方式選擇 (信用卡/ATM/超商代確)
- * • 發票類型選擇 (電子發票/統編/載具)
- * • 配送方式選擇 (宅配/便利商店)
- * • 收件資訊填寫和驗證
- * • ECPay 金流整合
- */
 export default function ProductPaymentPage() {
-  // === 身份驗證狀態管理 ===
-  const { isAuthenticated, isLoading: authLoading } = useAuth() // 用戶登入狀態和加載狀態
+  const { isAuthenticated, isLoading: authLoading } = useAuth()
+  // === 路由和搜尋參數處理 ===
+  const router = useRouter()
+  const { user } = useAuth()
 
-  // === Next.js 路由和用戶資料 ===
-  const router = useRouter() // Next.js 路由功能，用於頁面跳轉
-  const { user } = useAuth() // 當前登入用戶的詳細資訊
-
-  // === 工具函數：價格格式化 ===
-  /**
-   * 格式化價格顯示，加上千分位逗號提升可讀性
-   * @param {number} price - 原始價格
-   * @returns {string} 格式化後的價格字串 (例: "1,234")
-   */
+  // 價格格式化
   const formatPrice = (price) => {
-    return Number(price).toLocaleString('zh-TW') // 使用台灣地區設定
+    return Number(price).toLocaleString('zh-TW')
   }
-
-  // ===== React 狀態管理：付款頁面的核心資料 =====
-
-  // === 選擇類狀態：用戶在付款流程中的選擇 ===
-  const [selectedPayment, setSelectedPayment] = useState('') // 付款方式 ID (信用卡/ATM/超商代確)
-  const [selectedReceipt, setSelectedReceipt] = useState('') // 發票類型 ID (電子發票/統編/載具)
-  const [selectedDelivery, setSelectedDelivery] = useState('') // 配送方式 ID (宅配/便利商店)
-
-  // === 購物車資料狀態 ===
-  const [carts, setCarts] = useState([]) // 購物車項目列表，用於本地狀態管理
-
-  // === 表單資料狀態：收件人和發票資訊 ===
+  // === 狀態管理 ===
+  const [selectedPayment, setSelectedPayment] = useState('')
+  const [selectedReceipt, setSelectedReceipt] = useState('')
+  const [selectedDelivery, setSelectedDelivery] = useState('')
+  const [carts, setCarts] = useState([])
   const [formData, setFormData] = useState({
-    recipient: '', // 收件人姓名
-    phone: '', // 收件人電話
-    address: '', // 收件地址 (宅配時使用)
-    storeName: '', // 店家名稱 (便利商店配送時使用)
-    carrierId: '', // 載具號碼 (電子發票使用)
-    companyId: '', // 統一編號 (公司發票使用)
+    recipient: '',
+    phone: '',
+    address: '',
+    storeName: '',
+    carrierId: '',
+    companyId: '',
   })
+  const [errors, setErrors] = useState({})
+  const [touchedFields, setTouchedFields] = useState({})
+  const [showEcpayDialog, setShowEcpayDialog] = useState(false)
 
-  // === 表單驗證狀態管理 ===
-  const [errors, setErrors] = useState({}) // 各欄位的驗證錯誤訊息
-  const [touchedFields, setTouchedFields] = useState({}) // 追蹤欄位是否已被用戶互動，決定是否顯示驗證錯誤
-
-  // === UI 狀態管理 ===
-  const [showEcpayDialog, setShowEcpayDialog] = useState(false) // ECPay 第三方付款確認對話框顯示狀態
-
-  // ===== SWR 數據獲取：購物車資料同步 =====
-
-  // === 條件式數據獲取：只有已登入用戶才獲取購物車資料 ===
-  const shouldFetch = isAuthenticated // 防止未登入用戶發起無效請求
-
+  // === SWR資料獲取 ===
+  const shouldFetch = isAuthenticated
   const {
-    data: cartData, // SWR 返回的購物車資料
-    isLoading: isCartLoading, // 購物車資料加載狀態
-    error: cartError, // 購物車資料獲取錯誤
-    mutate, // SWR 手動重新獲取函數
+    data: cartData,
+    isLoading: isCartLoading,
+    error: cartError,
+    mutate,
   } = useSWR(
-    // SWR key: 條件式 key，未登入時為 null，不發起請求
     shouldFetch ? ['carts-checkout'] : null,
-
-    // 數據獲取函數：只有已登入時才定義
     shouldFetch
       ? async () => {
-          const result = await getCarts() // 調用購物車 API
-          return result // 返回結果供 SWR 管理
+          const result = await getCarts()
+          return result
         }
-      : null // 未登入時不定義獲取函數
+      : null
   )
 
-  // === 計算屬性：動態計算訂單摘要 ===
-  /**
-   * 使用 useMemo 優化效能，只有當購物車項目或配送方式改變時才重新計算
-   * 計算項目：商品總價、商品數量、運費
-   */
+  // 即時計算總價和總數量
   const { totalPrice, itemCount, shippingFee } = useMemo(() => {
-    // === 商品總價計算 ===
     const totalPrice = carts.reduce((sum, cartItem) => {
-      return sum + cartItem.product.price * cartItem.quantity // 單價 × 數量
+      return sum + cartItem.product.price * cartItem.quantity
     }, 0)
-
-    // === 商品總數量計算 ===
     const itemCount = carts.reduce(
       (sum, cartItem) => sum + cartItem.quantity,
       0
     )
-
-    // === 運費計算：根據用戶選擇的配送方式 ===
+    // 運費計算
     const selectedDeliveryOption = DeliveryOptions.find(
       (option) => option.id === selectedDelivery
     )
-    const shippingFee = selectedDeliveryOption?.fee || 0 // 預設運費為 0
-
+    const shippingFee = selectedDeliveryOption?.fee || 0
     return { totalPrice, itemCount, shippingFee }
-  }, [carts, selectedDelivery]) // 依賴陣列：購物車和配送方式
+  }, [carts, selectedDelivery])
 
   // ===== 副作用處理 =====
   useEffect(() => {
@@ -182,32 +126,13 @@ export default function ProductPaymentPage() {
     }
   }, [cartData])
 
-  // 接收 7-11 選擇門市後的資料
-  // useEffect(() => {
-  //   const handleStoreMessage = (event) => {
-  //     if (event.data?.storename) {
-  //       setFormData((prev) => ({
-  //         ...prev,
-  //         storeName: event.data.storename,
-  //       }))
-  //     }
-  //   }
-
-  //   window.addEventListener('message', handleStoreMessage)
-
-  //   return () => {
-  //     window.removeEventListener('message', handleStoreMessage)
-  //   }
-  // }, [])
-
   // ===== 事件處理函數 =====
+  // 表單輸入變更
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
     }))
-
-    // 如果欄位已被觸碰過，才進行即時驗證
     if (touchedFields[field]) {
       const error = validateField(field, value, false)
       setErrors((prev) => ({
@@ -215,7 +140,6 @@ export default function ProductPaymentPage() {
         [field]: error,
       }))
     } else {
-      // 清除可能存在的錯誤（例如必填錯誤）
       if (value.trim() && errors[field]) {
         setErrors((prev) => ({
           ...prev,
@@ -224,39 +148,30 @@ export default function ProductPaymentPage() {
       }
     }
   }
-
-  // 處理輸入框失焦事件
+  // 輸入框失焦
   const handleInputBlur = (field, value) => {
     setTouchedFields((prev) => ({
       ...prev,
       [field]: true,
     }))
-
-    // 失焦時進行完整驗證
     const error = validateField(field, value, true)
     setErrors((prev) => ({
       ...prev,
       [field]: error,
     }))
   }
-
-  // 處理下拉選單變更
+  // 下拉選單變更
   const handleSelectChange = (field, value, setter) => {
     setter(value)
-
-    // 標記為已觸碰並進行驗證
     setTouchedFields((prev) => ({
       ...prev,
       [field]: true,
     }))
-
     const error = validateField(field, value, true)
     setErrors((prev) => ({
       ...prev,
       [field]: error,
     }))
-
-    // 如果改變發票類型，清除相關欄位的錯誤和觸碰狀態
     if (field === 'receipt') {
       setErrors((prev) => ({
         ...prev,
@@ -268,23 +183,20 @@ export default function ProductPaymentPage() {
         carrierId: false,
         companyId: false,
       }))
-      // 清除相關欄位的值
       setFormData((prev) => ({
         ...prev,
         carrierId: '',
         companyId: '',
       }))
     }
-
-    // 如果改變配送方式，清除地址相關的錯誤和觸碰狀態（如果不是宅配）
     if (field === 'delivery') {
       if (value === '3') {
-        // 宅配：清空 7-11 門市，避免之後直接用到舊門市
+        // 宅配
         setFormData((prev) => ({ ...prev, storeName: '' }))
         setErrors((prev) => ({ ...prev, storeName: '' }))
         setTouchedFields((prev) => ({ ...prev, storeName: false }))
       } else if (value === '1') {
-        // 7-11：清空宅配地址，且強制重選門市（清空舊門市）
+        // 7-11
         setFormData((prev) => ({ ...prev, address: '', storeName: '' }))
         setErrors((prev) => ({ ...prev, address: '', storeName: '' }))
         setTouchedFields((prev) => ({
@@ -293,7 +205,7 @@ export default function ProductPaymentPage() {
           storeName: false,
         }))
       } else {
-        // 其他超商（如果有）：清宅配地址，也清空舊門市以強制重選
+        // 其他
         setFormData((prev) => ({ ...prev, address: '', storeName: '' }))
         setErrors((prev) => ({ ...prev, address: '', storeName: '' }))
         setTouchedFields((prev) => ({
@@ -304,43 +216,36 @@ export default function ProductPaymentPage() {
       }
     }
   }
-
-  // 處理ECPay付款確認
+  // ECPay付款確認
   const handleEcpayConfirm = async () => {
     try {
-      // 準備商品名稱
       const itemsArray = carts.map(
         (cartItem) => `${cartItem.product.name}x${cartItem.quantity}`
       )
       const items = itemsArray.join(',')
       const amount = totalPrice + shippingFee
 
-      // 準備購物車項目資料（符合後端期望的格式）
+      // 購物車項目資料
       const cartItems = carts.map((cartItem) => ({
-        productId: cartItem.product.id, // 使用 cartItem.product.id
+        productId: cartItem.product.id,
         quantity: cartItem.quantity,
       }))
 
       const orderData = {
-        ...formData, // formData 必須和後端欄位名稱一致
-
-        // 確保數字型欄位轉型
+        ...formData,
         deliveryId: parseInt(selectedDelivery, 10),
         paymentId: parseInt(selectedPayment, 10),
-
-        // 發票資料獨立處理
         invoiceData: {
           invoiceId: parseInt(selectedReceipt, 10),
           carrier: formData.carrierId || null,
           tax: formData.companyId || null,
         },
       }
-      // Debug 用
-      // console.log('送出前的 orderData', orderData)
+      // console.log('送出前的 orderData', orderData) // Debug 用
 
-      // 呼叫後端建立訂單，傳送會員ID、訂單資料和購物車項目
+      // 後端建立訂單，傳送會員ID、訂單資料和購物車項目
       const checkoutPayload = {
-        memberId: user?.id, // 取用登入會員ID
+        memberId: user?.id,
         orderData: orderData,
         cartItems: cartItems,
       }
@@ -362,10 +267,10 @@ export default function ProductPaymentPage() {
     }
   }
 
-  // 處理ECPay付款
+  // ECPay付款檢查
   const handleEcpay = async () => {
     try {
-      // 暫時註解登入檢查，用於測試
+      // 測試用
       // if (!isAuthenticated || !user) {
       //   toast.error('請先登入')
       //   return
@@ -389,7 +294,6 @@ export default function ProductPaymentPage() {
         return
       }
 
-      // 顯示確認對話框
       setShowEcpayDialog(true)
     } catch (error) {
       console.error('ECPay付款錯誤:', error)
@@ -397,11 +301,9 @@ export default function ProductPaymentPage() {
     }
   }
 
-  // 處理付款按鈕點擊
+  // 付款按鈕點擊
   const handlePayment = async () => {
-    // 先執行驗證並獲取錯誤
     const newErrors = {}
-    // 共用必填欄位
     newErrors.recipient = validateField(
       'recipient',
       formData.recipient || '',
@@ -412,7 +314,7 @@ export default function ProductPaymentPage() {
     newErrors.payment = validateField('payment', selectedPayment || '', true)
     newErrors.receipt = validateField('receipt', selectedReceipt || '', true)
 
-    // 宅配 → 驗證 address
+    // 宅配
     if (selectedDelivery === '3') {
       newErrors.address = validateField(
         'address',
@@ -421,8 +323,7 @@ export default function ProductPaymentPage() {
         selectedDelivery
       )
     }
-
-    // 7-11 取貨 → 驗證 storeName
+    // 7-11
     if (selectedDelivery === '1') {
       newErrors.storeName = validateField(
         'storeName',
@@ -432,7 +333,7 @@ export default function ProductPaymentPage() {
       )
     }
 
-    // 電子載具 → 驗證 carrierId
+    // 電子載具
     if (selectedReceipt === '3') {
       newErrors.carrierId = validateField(
         'carrierId',
@@ -443,7 +344,7 @@ export default function ProductPaymentPage() {
       )
     }
 
-    // 統一編號 → 驗證 companyId
+    // 統一編號
     if (selectedReceipt === '2') {
       newErrors.companyId = validateField(
         'companyId',
@@ -456,7 +357,6 @@ export default function ProductPaymentPage() {
 
     setErrors(newErrors)
 
-    // 標記所有欄位為已觸碰
     setTouchedFields({
       recipient: true,
       phone: true,
@@ -473,14 +373,12 @@ export default function ProductPaymentPage() {
     const hasErrors = Object.values(newErrors).some((error) => error !== '')
 
     if (!hasErrors) {
-      // 表單驗證通過，根據付款方式處理
       if (selectedPayment === '1') {
-        // ECPay綠界金流
+        // ECPay
         await handleEcpay()
       } else {
         // 其他付款方式
         try {
-          // 準備購物車項目資料
           const cartItems = carts.map((cartItem) => ({
             productId: cartItem.product.id,
             quantity: cartItem.quantity,
@@ -490,12 +388,12 @@ export default function ProductPaymentPage() {
           const orderData = {
             recipient: formData.recipient,
             phone: formData.phone,
-            address: formData.address || '', // 如果不是宅配可能為空
+            address: formData.address || '',
             storeName: formData.storeName || '',
-            deliveryId: parseInt(selectedDelivery), // 轉換為數字
-            paymentId: parseInt(selectedPayment), // 轉換為數字
+            deliveryId: parseInt(selectedDelivery),
+            paymentId: parseInt(selectedPayment),
             invoiceData: {
-              invoiceId: parseInt(selectedReceipt), // 轉換為數字
+              invoiceId: parseInt(selectedReceipt),
               carrier: formData.carrierId || null,
               tax: formData.companyId || null,
             },
@@ -503,7 +401,7 @@ export default function ProductPaymentPage() {
 
           // 呼叫後端建立訂單
           const checkoutPayload = {
-            memberId: user?.id, // 取用登入會員ID
+            memberId: user?.id,
             orderData: orderData,
             cartItems: cartItems,
           }
@@ -513,7 +411,6 @@ export default function ProductPaymentPage() {
           const orderResult = await checkout(checkoutPayload)
 
           if (orderResult.success) {
-            // 訂單建立成功，導向 /shop/order/success/?orderId=xxx
             router.push(`/shop/order/success/?orderId=${orderResult.data.id}`)
           } else {
             toast.error('建立訂單失敗: ' + (orderResult.message || '未知錯誤'))
@@ -525,7 +422,7 @@ export default function ProductPaymentPage() {
         }
       }
     } else {
-      // 表單驗證失敗，滾動到第一個錯誤欄位
+      // 表單驗證失敗
       const errorFields = [
         { field: 'recipient', selector: '#recipient' },
         { field: 'phone', selector: '#phone' },
@@ -537,15 +434,13 @@ export default function ProductPaymentPage() {
         { field: 'carrierId', selector: '#carrierId' },
         { field: 'companyId', selector: '#companyId' },
       ]
-
-      // 找到第一個有錯誤的欄位並跳轉
       setTimeout(() => {
         for (const errorField of errorFields) {
           if (newErrors[errorField.field]) {
             const element = document.querySelector(errorField.selector)
             if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
               // 如果是輸入框，則聚焦
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
               const input = element.querySelector('input') || element
               if (input && input.focus) {
                 input.focus()
@@ -554,7 +449,7 @@ export default function ProductPaymentPage() {
             }
           }
         }
-      }, 100) // 稍微延遲確保 DOM 更新完成
+      }, 100)
     }
   }
 
@@ -574,7 +469,7 @@ export default function ProductPaymentPage() {
     )
   }
 
-  // 未登入狀態
+  // 未登入
   if (!isAuthenticated) {
     return (
       <>
@@ -602,7 +497,6 @@ export default function ProductPaymentPage() {
             onStepClick={(step, index) => console.log('Clicked step:', step)}
           />
           <div className="flex  flex-col md:flex-row gap-6">
-            {/* 左側內容 */}
             <div className="flex flex-3 flex-col min-w-0 gap-5">
               <Card>
                 <CardContent>
@@ -623,10 +517,8 @@ export default function ProductPaymentPage() {
                     <TableBody className="divide-y divide-card-foreground">
                       {carts && carts.length > 0 ? (
                         carts.map((cartItem) => {
-                          // 處理圖片路徑
                           const product = cartItem.product
                           const imageFileName = product.images?.[0]?.url || ''
-
                           return (
                             <TableRow key={cartItem.id}>
                               <TableCell>
@@ -674,7 +566,6 @@ export default function ProductPaymentPage() {
               </Card>
               <Card>
                 <CardContent className="flex flex-col gap-6">
-                  {/* 收件人資訊 */}
                   <div className="space-y-3">
                     <div className="flex items-center mb-2 gap-4">
                       <Label className="text-lg font-bold mb-0">付款資訊</Label>
@@ -756,7 +647,6 @@ export default function ProductPaymentPage() {
                       </div>
                     </div>
                   </div>
-                  {/* 物流方式 */}
                   <div data-field="delivery">
                     <DeliveryMethodSelector
                       key={`delivery-${selectedDelivery}`}
@@ -774,7 +664,6 @@ export default function ProductPaymentPage() {
                       onInputBlur={handleInputBlur}
                     />
                   </div>
-                  {/* 付款方式 */}
                   <div data-field="payment">
                     <PaymentMethodSelector
                       selectedPayment={selectedPayment}
@@ -785,7 +674,6 @@ export default function ProductPaymentPage() {
                       errors={errors}
                     />
                   </div>
-                  {/* 發票類型 */}
                   <div data-field="receipt">
                     <ReceiptTypeSelector
                       selectedReceipt={selectedReceipt}
@@ -801,7 +689,6 @@ export default function ProductPaymentPage() {
                 </CardContent>
               </Card>
             </div>
-            {/* 右側明細卡片 */}
             <div className="flex-1 text-accent-foreground sticky top-32 max-h-[calc(100vh-104px)] self-start">
               <Card className="h-70">
                 <CardContent className="flex flex-col justify-between h-full">
