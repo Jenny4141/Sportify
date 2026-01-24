@@ -77,52 +77,46 @@ const MobileSidebar = ({
 
   // 副作用：當父組件的篩選狀態改變時，同步更新側邊欄的本地狀態
   useEffect(() => {
-    setLocalSports(selectedSports) // 同步運動類型選擇
+    setLocalSports(selectedSports)
   }, [selectedSports])
 
   useEffect(() => {
-    setLocalBrands(selectedBrands) // 同步品牌選擇
+    setLocalBrands(selectedBrands)
   }, [selectedBrands])
 
   useEffect(() => {
-    setLocalPrice(priceRange) // 同步價格範圍
+    setLocalPrice(priceRange)
   }, [priceRange])
 
   // === 事件處理函數 ===
   // 處理運動類型選擇改變
   const handleSportChange = (id, checked) => {
-    setLocalSports(
-      (prev) =>
-        checked
-          ? [...prev, id] // true：添加 ID 到陣列
-          : prev.filter((sportId) => sportId !== id) // false：從陣列中移除 ID
+    setLocalSports((prev) =>
+      checked ? [...prev, id] : prev.filter((sportId) => sportId !== id)
     )
   }
   // 處理品牌選擇改變
   const handleBrandChange = (id, checked) => {
-    setLocalBrands(
-      (prev) =>
-        checked
-          ? [...prev, id] // true：添加 ID 到陣列
-          : prev.filter((brandId) => brandId !== id) // false：從陣列中移除 ID
+    setLocalBrands((prev) =>
+      checked ? [...prev, id] : prev.filter((brandId) => brandId !== id)
     )
   }
   // 應用篩選設定並關閉側邊欄
   const handleApply = () => {
     onApplyFilters({
-      sports: localSports, // 傳遞運動類型篩選
-      brands: localBrands, // 傳遞品牌篩選
-      price: localPrice, // 傳遞價格範圍篩選
+      sports: localSports,
+      brands: localBrands,
+      price: localPrice,
     })
-    onClose(false) // 關閉側邊欄
+    onClose(false)
   }
   // 清除所有篩選設定並關閉側邊欄
   const handleClear = () => {
-    setLocalSports([]) // 清除運動類型選擇
-    setLocalBrands([]) // 清除品牌選擇
-    setLocalPrice([0, 1000]) // 重設價格範圍為預設值
-    clearAllFilters() // 通知父組件清除篩選
-    onClose(false) // 關閉側邊欄
+    setLocalSports([])
+    setLocalBrands([])
+    setLocalPrice([0, 1000])
+    clearAllFilters()
+    onClose(false)
   }
 
   return (
@@ -230,13 +224,12 @@ function ProductListContent() {
   const { isAuthenticated } = useAuth()
 
   // === 狀態管理 ===
-  const [members, setMembers] = useState([]) // 會員列表資料 (主要用於管理後台功能)
+  const [members, setMembers] = useState([]) 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sports, setSports] = useState([])
   const [brands, setBrands] = useState([])
   const [searchKeyword, setSearchKeyword] = useState('')
   const [selectedCategory, setSelectedCategory] = useState({
-    // 當前選中的商品分類資訊
     name: '',
     count: 0,
   })
@@ -275,7 +268,7 @@ function ProductListContent() {
       revalidateOnFocus: false, // 切回頁面時不自動重新獲取資料
     }
   )
-  const products = data?.data ?? [] // 從 API 回應中提取商品陣列，預設為空陣列
+  const products = data?.data ?? [] 
 
   // ===== 副作用處理 =====
   // 搜尋
