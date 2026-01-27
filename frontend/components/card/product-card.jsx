@@ -25,10 +25,10 @@ export function ProductCard({
   ...props
 }) {
   // ===== React 狀態管理 =====
-  const [isHovered, setIsHovered] = useState(false) // 當滑鼠懸停在卡片上時為 true，用於觸發 hover 效果
-  const [isAddingToCart, setIsAddingToCart] = useState(false) // 正在加入購物車時為 true，用於顯示 loading 狀態
-  const [isInWishlist, setIsInWishlist] = useState(initialIsFavorited || false) // 是否已收藏，初始值從 parent component 傳入
-  const [isMounted, setIsMounted] = useState(false) // 組件是否已捆載完成，防止 SSR 水合問題
+  const [isHovered, setIsHovered] = useState(false) 
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
+  const [isInWishlist, setIsInWishlist] = useState(initialIsFavorited || false)
+  const [isMounted, setIsMounted] = useState(false) 
 
   // 格式化價格，加上千分位逗號
   const formatPrice = (price) => {
@@ -44,41 +44,32 @@ export function ProductCard({
     setIsInWishlist(initialIsFavorited || false)
   }, [initialIsFavorited])
 
-  // 處理圖片路徑：如果 img 是物件，取出 url 屬性；如果是字串，直接使用
-  const image = product?.img || product?.image // 支援 img 和 image 兩種屬性名稱
+  // 處理圖片路徑
+  const image = product?.img || product?.image
   const imageFileName =
     product?.image_url ||
     (typeof image === 'object' && image !== null ? image.url : image)
 
   // ===== 事件處理函數 =====
-  /**
-   * 處理加入購物車的事件
-   * @param {Event} e - 點擊事件物件
-   */
   const handleAddToCart = async (e) => {
-    e.preventDefault() // 阻止預設的連結跳轉行為
+    e.preventDefault() 
     if (onAddToCart) {
-      setIsAddingToCart(true) // 設定為 loading 狀態，顯示轉圈動畫
-      const result = await onAddToCart(product?.id, 1) // 呼叫 parent 傳入的加入購物車函數
-      setIsAddingToCart(false) // 重設 loading 狀態
+      setIsAddingToCart(true) 
+      const result = await onAddToCart(product?.id, 1)
+      setIsAddingToCart(false) 
     }
   }
 
-  /**
-   * 處理收藏/取消收藏的事件
-   * @param {Event} e - 點擊事件物件
-   */
   const handleAddToWishlist = async (e) => {
-    e.preventDefault() // 阻止預設的連結跳轉行為
+    e.preventDefault() 
     if (onAddToWishlist) {
-      const result = await onAddToWishlist(product?.id) // 呼叫 parent 傳入的收藏切換函數
-      setIsInWishlist(!!result?.favorited) // 根據 API 回傳結果更新本地狀態
+      const result = await onAddToWishlist(product?.id) 
+      setIsInWishlist(!!result?.favorited) 
     }
   }
 
   return (
     <div className={cn('group', className)} {...props}>
-      {/* <Link href={`/shop/1`}> */}
       <Link href={`/shop/${product?.id}`}>
         <Card
           className={cn(
@@ -117,7 +108,6 @@ export function ProductCard({
                 </span>
               )}
             </div>
-            {/* Product name with line clamp */}
             <h3
               className={`
                 line-clamp-2 text-base font-medium transition-colors

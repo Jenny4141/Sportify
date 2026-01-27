@@ -224,7 +224,7 @@ function ProductListContent() {
   const { isAuthenticated } = useAuth()
 
   // === 狀態管理 ===
-  const [members, setMembers] = useState([]) 
+  const [members, setMembers] = useState([])
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sports, setSports] = useState([])
   const [brands, setBrands] = useState([])
@@ -268,7 +268,7 @@ function ProductListContent() {
       revalidateOnFocus: false, // 切回頁面時不自動重新獲取資料
     }
   )
-  const products = data?.data ?? [] 
+  const products = data?.data ?? []
 
   // ===== 副作用處理 =====
   // 搜尋
@@ -303,6 +303,32 @@ function ProductListContent() {
       data.totalRows ?? (Array.isArray(products) ? products.length : 0)
     setSelectedCategory((prev) => ({ ...prev, count }))
   }, [data, products])
+
+  // 監聽篩選條件
+  useEffect(() => {
+    if (queryParams.sportId) {
+      const sports = queryParams.sportId.split(',').map((id) => Number(id))
+      setSelectedSports(sports)
+    } else {
+      setSelectedSports([])
+    }
+
+    if (queryParams.brandId) {
+      const brands = queryParams.brandId.split(',').map((id) => Number(id))
+      setSelectedBrands(brands)
+    } else {
+      setSelectedBrands([])
+    }
+
+    const min = queryParams.minPrice ? Number(queryParams.minPrice) : 0
+    const max = queryParams.maxPrice ? Number(queryParams.maxPrice) : 1000
+    setPriceRange([min, max])
+  }, [
+    queryParams.sportId,
+    queryParams.brandId,
+    queryParams.minPrice,
+    queryParams.maxPrice,
+  ])
 
   // 是否有篩選（用於顯示清除篩選）
   const hasActiveFilters = Boolean(
