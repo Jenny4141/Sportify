@@ -1,7 +1,7 @@
 'use client'
 
 // react
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import useSWR from 'swr'
 import Image from 'next/image'
@@ -46,9 +46,6 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1)
   const [sports, setSports] = useState([])
   const [brands, setBrands] = useState([])
-  const [product, setProduct] = useState(null)
-  const [members, setMembers] = useState([])
-  const [isFavorited, setIsFavorited] = useState(false)
 
   // ===== API資料獲取 =====
   const {
@@ -58,17 +55,18 @@ export default function ProductDetailPage() {
     mutate,
   } = useSWR(id ? ['product', id] : null, () => getProductDetail(id))
 
+  const product = data?.data
+  const isFavorited = product?.favorite ?? false
+
   // ===== 副作用處理 =====
   // 獲取會員、運動、品牌資料
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [memberData, sportData, brandData] = await Promise.all([
-          fetchMemberOptions(),
+        const [sportData, brandData] = await Promise.all([
           fetchSportOptions(),
           fetchBrandOptions(),
         ])
-        setMembers(memberData.rows || [])
         setSports(sportData.rows || [])
         setBrands(brandData.rows || [])
       } catch (error) {
@@ -78,15 +76,6 @@ export default function ProductDetailPage() {
     }
     loadData()
   }, [])
-
-  // ===== API資料獲取 =====
-  useEffect(() => {
-    if (data && data.data) {
-      setProduct(data.data)
-      setIsFavorited(data.data.favorite || false)
-      // console.log('Product loaded:', data.data) // debug用
-    }
-  }, [data])
 
   // 取得運動類型名稱
   const getSportName = (sportId) => {
@@ -132,10 +121,9 @@ export default function ProductDetailPage() {
     }
 
     const result = await toggleFavorite(productId)
-    mutate()
+    await mutate()
 
     if (result?.favorited) {
-      setIsFavorited(true)
       toast('已加入我的收藏', {
         style: {
           backgroundColor: '#ff671e',
@@ -145,7 +133,6 @@ export default function ProductDetailPage() {
         },
       })
     } else {
-      setIsFavorited(false)
       toast('已從我的收藏移除', {
         style: {
           backgroundColor: '#ff671e',
@@ -170,7 +157,7 @@ export default function ProductDetailPage() {
     }
 
     const result = await addProductCart(productId, quantity)
-    mutate()
+    await mutate()
 
     if (result?.success) {
       setQuantity(1)
@@ -203,14 +190,19 @@ export default function ProductDetailPage() {
     return (
       <ErrorState
         title="商品資料載入失敗"
-        message={`載入錯誤：${error.message}` || '找不到您要查看的商品資料'}
+        message={
+          error?.message
+            ? `載入錯誤：${error.message}`
+            : '找不到您要查看的商品資料'
+        }
         onRetry={mutate}
         backUrl="/shop"
         backLabel="返回商品列表"
       />
     )
 
-  if (!product) return <div>載入中...</div>
+  if (!product) return <div>找不到商品</div>
+
   return (
     <>
       <Navbar />

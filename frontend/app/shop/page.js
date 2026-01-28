@@ -224,7 +224,6 @@ function ProductListContent() {
   const { isAuthenticated } = useAuth()
 
   // === 狀態管理 ===
-  const [members, setMembers] = useState([])
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sports, setSports] = useState([])
   const [brands, setBrands] = useState([])
@@ -280,12 +279,10 @@ function ProductListContent() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [memberData, sportData, brandData] = await Promise.all([
-          fetchMemberOptions(),
+        const [sportData, brandData] = await Promise.all([
           fetchSportOptions(),
           fetchBrandOptions(),
         ])
-        setMembers(memberData.rows || [])
         setSports(sportData.rows || [])
         setBrands(brandData.rows || [])
       } catch (error) {
