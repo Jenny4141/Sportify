@@ -193,7 +193,7 @@ function VenueDataContent() {
       <section className="py-10">
         <div className="container flex justify-center mx-auto max-w-screen-xl px-4">
           <div
-            className="bg-card rounded-xl border bg-card py-6
+            className="bg-card borde py-6
           text-card-foreground shadow-sm rounded-lg p-6 w-full"
           >
             <div className="mb-6">
