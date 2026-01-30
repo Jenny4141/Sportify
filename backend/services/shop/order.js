@@ -3,28 +3,6 @@ import { orderSchema } from '../../utils/zod-schema.js'
 import moment from 'moment-timezone'
 import { createInvoiceNumber } from '../../utils/createInvoiceNumber.js'
 
-/**
- * 創建用戶訂單 - 前台結帳流程的核心函數
- * 這是整個電商系統最複雜的功能，涵蓋：
- * - 訂單資料驗證
- * - 庫存檢查與更新
- * - 交易一致性保證
- * - 訂單編號生成
- * - 購物車清空
- *
- * 交易流程：
- * 1. 驗證訂單資料 (Zod schema)
- * 2. 並行產生發票號碼、驗證庫存、計算運費
- * 3. 更新商品庫存 (先扣庫存再創訂單)
- * 4. 使用資料庫交易創建訂單
- * 5. 生成訂單編號並清空購物車
- *
- * @param {Object} params - 參數物件
- * @param {string|BigInt} memberId - 會員ID
- * @param {Object} orderData - 訂單資料 (收件人、付款方式、配送方式等)
- * @param {Array} cartItems - 購物車項目列表 [{productId, quantity}, ...]
- * @returns {Object} 包含訂單資訊的回應物件
- */
 export const createUserOrder = async ({ memberId, orderData, cartItems }) => {
   try {
     // === 步驟1：使用 Zod 驗證訂單資料 ===

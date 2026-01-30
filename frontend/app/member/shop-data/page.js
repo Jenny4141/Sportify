@@ -210,7 +210,7 @@ function ShopDataContent() {
       <section className="py-10">
         <div className="container flex justify-center mx-auto max-w-screen-xl px-4">
           <div
-            className="bg-card rounded-xl border bg-card py-6
+            className="bg-card border py-6
           text-card-foreground shadow-sm rounded-lg p-6 w-full"
           >
             <div className="mb-6">
@@ -393,10 +393,7 @@ function ShopDataContent() {
                                   className="w-full md:w-[80px] hover:bg-primary/90 hover:text-white"
                                   onClick={() => {
                                     if (order?.id) {
-                                      window.open(
-                                        `/shop/order/${order.id}`,
-                                        '_blank'
-                                      )
+                                      router.push(`/shop/order/${order.id}`)
                                     } else {
                                       alert('商品資訊不完整，無法查看詳細資訊')
                                     }

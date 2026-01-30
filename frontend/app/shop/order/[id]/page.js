@@ -38,9 +38,6 @@ export default function OrderDetailPage() {
   // === 路由和搜尋參數處理 ===
   const { id } = useParams()
 
-  // === 狀態管理 ===
-  const [order, setOrder] = useState(null)
-
   // === SWR資料獲取 ===
   const shouldFetch = isAuthenticated && !!id
 
@@ -54,13 +51,7 @@ export default function OrderDetailPage() {
     shouldFetch ? () => getOrderDetail(id) : null
   )
 
-  // ===== 副作用處理 =====
-  useEffect(() => {
-    if (data && data.data) {
-      setOrder(data.data)
-      // console.log('Order loaded:', data.data) // debug用
-    }
-  }, [data])
+  const order = data?.data
 
   // 價格格式化
   const formatPrice = (price) => {
@@ -123,22 +114,11 @@ export default function OrderDetailPage() {
     ]
   }
 
-  const products = order?.items || []
+  const products = order?.items ?? []
 
   // ===== 載入和錯誤狀態處理 =====
-  if (isDataLoading) {
+  if (authLoading || isDataLoading) {
     return <LoadingState message="載入訂單資料中..." />
-  }
-  if (error) {
-    return (
-      <ErrorState
-        title="訂單資料載入失敗"
-        message={`載入錯誤：${error.message}` || '找不到您要查看的訂單資料'}
-        onRetry={mutate}
-        backUrl="/shop/order"
-        backLabel="返回訂單列表"
-      />
-    )
   }
 
   // 未登入
@@ -154,6 +134,18 @@ export default function OrderDetailPage() {
         </section>
         <Footer />
       </>
+    )
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="訂單資料載入失敗"
+        message={`載入錯誤：${error.message}` || '找不到您要查看的訂單資料'}
+        onRetry={mutate}
+        backUrl="/shop/order"
+        backLabel="返回訂單列表"
+      />
     )
   }
 

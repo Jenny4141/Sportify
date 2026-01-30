@@ -8,7 +8,6 @@ import React, {
   useCallback,
   Suspense,
 } from 'react'
-import { useSearchParams } from 'next/navigation'
 import useSWR from 'swr'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -47,8 +46,6 @@ const steps = [
 // 購物車主內容組件
 function CartListContent() {
   const { isAuthenticated, isLoading: authLoading } = useAuth()
-  // === 路由和搜尋參數處理 ===
-  const searchParams = useSearchParams()
 
   // === 狀態管理 ===
   const [carts, setCarts] = useState([])
@@ -70,12 +67,6 @@ function CartListContent() {
     return { totalPrice, itemCount }
   }, [carts])
 
-  // === URL狀態管理 ===
-  const queryParams = useMemo(() => {
-    const entries = Object.fromEntries(searchParams.entries())
-    return entries
-  }, [searchParams])
-
   // === SWR資料獲取 ===
   const shouldFetch = isAuthenticated // 只有已登入的用戶才獲取購物車資料
 
@@ -86,14 +77,8 @@ function CartListContent() {
     mutate,
   } = useSWR(
     // SWR key: 只有已登入時才生成 key，未登入時為 null
-    shouldFetch ? ['carts', queryParams] : null,
-
-    shouldFetch
-      ? async ([, params]) => {
-          const result = await getCarts(params)
-          return result
-        }
-      : null
+    shouldFetch ? ['carts'] : null,
+    () => getCarts()
   )
 
   // ===== 事件處理函數 =====
@@ -106,7 +91,7 @@ function CartListContent() {
         )
         try {
           await removeCart(cartItemId)
-          mutate()
+          await mutate()
           toast('商品已從購物車移除', {
             style: {
               backgroundColor: '#ff671e',
@@ -117,7 +102,7 @@ function CartListContent() {
           })
         } catch (error) {
           console.error('刪除項目失敗:', error)
-          mutate()
+          await mutate()
           toast('刪除商品失敗，請稍後再試', {
             style: {
               backgroundColor: '#ff671e',
@@ -138,10 +123,10 @@ function CartListContent() {
       )
       try {
         await updateCarts(cartItemId, newQuantity)
-        mutate()
+        await mutate()
       } catch (error) {
         console.error('更新數量失敗:', error)
-        mutate()
+        await mutate()
         toast('更新數量失敗，請稍後再試', {
           style: {
             backgroundColor: '#ff671e',
@@ -166,17 +151,6 @@ function CartListContent() {
     return <LoadingState message="載入購物車資料中..." />
   }
 
-  if (error) {
-    return (
-      <ErrorState
-        title="購物車資料載入失敗"
-        message={`載入錯誤：${error.message}` || '載入購物車資料時發生錯誤'}
-        onRetry={mutate}
-        backUrl="/shop"
-        backLabel="返回商品列表"
-      />
-    )
-  }
   // 未登入
   if (!isAuthenticated) {
     return (
@@ -192,6 +166,19 @@ function CartListContent() {
       </>
     )
   }
+
+  if (error) {
+    return (
+      <ErrorState
+        title="購物車資料載入失敗"
+        message={`載入錯誤：${error.message}` || '載入購物車資料時發生錯誤'}
+        onRetry={mutate}
+        backUrl="/shop"
+        backLabel="返回商品列表"
+      />
+    )
+  }
+
   // 購物車為空
   if (!carts || carts.length === 0) {
     return (
